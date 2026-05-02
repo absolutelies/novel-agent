@@ -1,0 +1,195 @@
+# TV Drama Quick Reference — Novel Writing Cheat Sheet
+
+> Essential TV drama techniques for novel chapters. Use alongside tv_drama_analysis.txt for full details.
+
+---
+
+## Chapter = Episode Structure
+
+```
+COLD OPEN (3-5%)  → Hook + Question + Tone
+ACT 1 (15-18%)    → Setup + Stakes + A/B/C intro
+ACT 2 (20-22%)    → Rising + Complications + B-story
+ACT 3 (20-22%)    → Midpoint + Reversal + Pivot
+ACT 4 (20-22%)    → Climax Build + Crisis + Convergence
+ACT 5 (8-12%)     → Resolution + Outcome + Transformation
+TAG (2-5%)        → Close + Next Hook + Emotion
+```
+
+---
+
+## Hook vs. Cliffhanger
+
+| Use Hooks ✓ | Avoid Cliffhangers ✗ |
+|-------------|----------------------|
+| Curiosity ("What will they do?") | Anxiety ("Will they survive?") |
+| Internal/emotional | External danger |
+| Partial closure | Hanging unresolved |
+| Binge-sustainable | Exhausting |
+| Revelation/Decision/Question | Danger/Suspense/Threat |
+
+---
+
+## Cold Open Types
+
+| Type | When to Use |
+|------|-------------|
+| **Action** | Thriller, crime, fast-paced |
+| **Flashforward** | Mystery, transformation arc |
+| **Flashback** | Context without exposition |
+| **Mystery** | Intellectual hook, genre mystery |
+| **Contrast** | Theme setup, irony |
+| **Character** | POV establishment, drama |
+
+**Rules**: Start mid-action. Cut before resolution. Plant ONE question. 100-300 words.
+
+---
+
+## A/B/C Storylines
+
+```
+A-STORY (65-70%): Main plot, protagonist arc, must advance
+B-STORY (25-30%): Secondary arc, theme parallel, intersects A
+C-STORY (5-15%): Future seed, world texture, continues
+```
+
+**Intersections**: A + B at midpoint. All at climax (optional).
+
+---
+
+## Scene Economy
+
+**Enter Late, Exit Early**:
+
+| Don't Show | Show Instead |
+|------------|--------------|
+| Walking in | Already in the room |
+| Greetings | Already talking |
+| Transportation | Already at destination |
+| Setup/Teardown | The interesting moment |
+
+**Cut**: Arrivals, departures, small talk, phone setup, meals (unless pivotal).
+
+---
+
+## Dialogue Rules
+
+**Ratio**: 40-50% dialogue (TV drama standard)
+
+**Techniques**:
+- **Subtext**: Say X, mean Y
+- **Interrupt**: Natural break-in
+- **Implicate**: Info through implication
+- **Power**: Long speeches = dominance, silence = control
+
+**Character Voice**: Each needs vocabulary tier + rhythm + emotional style + unique marker.
+
+---
+
+## Show Through Action
+
+| Don't Write | Write Instead |
+|-------------|---------------|
+| "He was nervous." | "His hand trembled." |
+| "She felt angry." | "She slammed the folder." |
+| "He was thinking." | "He stared at the wall." |
+| "She was sad." | "She sat in the dark for hours." |
+| "They loved each other." | "He reached across and took her hand." |
+
+---
+
+## Season Arc (Multi-Chapter)
+
+```
+Chapters 1-2:   Premiere — Setup + Inciting + Hook
+Chapters 3-5:   Rising — Stakes + Complications + B-stories
+Chapters 6-7:   Pivot — Reversal + Revelation + Escalation
+Chapters 8-10:  Climax Build — Convergence + Crisis + Countdown
+Chapters 11-12: Resolution — Outcome + Transformation
+Chapter 13:     Finale — Aftermath + Seeds + Closure
+```
+
+---
+
+## Act Break Hooks
+
+| Act | Hook Type |
+|-----|-----------|
+| Act 1 → Act 2 | Question hook: "What will they do?" |
+| Act 2 → Act 3 | Escalation hook: Stakes get higher |
+| Act 3 → Act 4 | Pivot hook: Everything changes |
+| Act 4 → Act 5 | Crisis hook: Maximum tension |
+| Act 5 → Tag | Emotional hook: Resonance + forward |
+
+---
+
+## Setup-Payoff Timing
+
+| Distance | Purpose |
+|----------|---------|
+| 1-2 chapters | Scene-level payoff |
+| 3-5 chapters | Episode-level payoff |
+| 6+ chapters | Season-level payoff |
+
+---
+
+## Checkpoint Before Writing Chapter N
+
+```
+✓ Three-chapter summary (N-3, N-2, N-1)
+✓ Character states current
+✓ Active threads identified
+✓ Cold open type selected
+✓ A/B/C storyline plan
+✓ Hook type for end
+```
+
+---
+
+## Prestige TV Models
+
+| Show | Structure | Best For |
+|------|-----------|----------|
+| The Wire | Novelistic, ensemble, slow burn | Complex, sociological |
+| Breaking Bad | Tragedy, transformation, escalation | Character arc focus |
+| Game of Thrones | Epic, multi-POV, convergence | Large cast, world-building |
+| The Americans | Hybrid thriller + family | Dual genre, relationship focus |
+
+---
+
+## Word Count Per Act (Standard 5,000-word chapter)
+
+| Section | Words | % |
+|---------|-------|---|
+| Cold Open | 150-250 | 3-5 |
+| Act 1 | 800-900 | 16-18 |
+| Act 2 | 1,000-1,100 | 20-22 |
+| Act 3 | 1,000-1,100 | 20-22 |
+| Act 4 | 1,000-1,100 | 20-22 |
+| Act 5 | 500-600 | 10-12 |
+| Tag | 100-150 | 2-3 |
+
+---
+
+## Forbidden Patterns
+
+- ❌ Cliffhangers (use hooks instead)
+- ❌ Emotion words (show through action)
+- ❌ Setup/teardown scenes (enter late, exit early)
+- ❌ Direct exposition in dialogue
+- ❌ Multiple questions in cold open (one only)
+- ❌ Resolved C-story in single chapter
+- ❌ Static character voice (must be unique)
+
+---
+
+## Required Patterns
+
+- ✓ Cold open every chapter
+- ✓ A/B/C storyline balance
+- ✓ Hook at chapter end
+- ✓ Subtext in dialogue
+- ✓ Visual storytelling
+- ✓ Scene economy (late entry, early exit)
+- ✓ Cross-chapter callbacks
+- ✓ Season arc awareness

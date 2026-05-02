@@ -1,0 +1,134 @@
+# Polish Round 7 — Burstiness Injection
+
+> Seventh round: Add human sentence length variation (burstiness).
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Burstiness = Variation** — AI has uniform length; humans have bursts
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+
+---
+
+## R17: Sentence Length Variation
+
+**The Concept**:
+- AI writing: uniform sentence length (15-20 words each)
+- Human writing: burstiness (mix of 3-word, 25-word, 5-word, 40-word)
+
+**Implementation by Scene Type**:
+
+| Scene Type | Sentence Pattern |
+|------------|-----------------|
+| Action peak | Short. Short. Short. LONG. Short. |
+| Tension build | Gradual increase → PUNCTUATION |
+| Dialogue exchange | Mix: one long, one short, two short, one long |
+| Scene end | Fragment OR sudden long sentence |
+| Reflection | Long flowing sentences mixed with short punch |
+| Quiet moment | Medium → short → long → medium |
+
+**Example**:
+```
+AI (uniform):
+"She walked to the door. She opened it slowly. The room was dark. She stepped inside. Her heart raced."
+
+Human (burst):
+"Door. Open. Dark—she stepped in anyway. Her pulse found her throat and stayed there for the next three hours, which passed like years."
+```
+
+---
+
+## R18: Paragraph Variation
+
+**AI Paragraphs**:
+- Similar length across paragraphs
+- Topic → support → conclusion pattern
+- Even distribution
+
+**Human Paragraphs**:
+- Mix of 1-sentence, 5-sentence, 10-sentence paragraphs
+- Deliberate emphasis via single-sentence paragraphs
+- Long for reflection, short for action
+
+**Rules**:
+| Situation | Paragraph Style |
+|-----------|-----------------|
+| Action scene | Short (2-5 sentences) |
+| Dialogue heavy | Mix lengths per speaker |
+| Reflection | Long (8+ sentences) |
+| Emphasis point | Single sentence, standalone |
+| Scene transition | Single line or fragment |
+| Climax | Short → shorter → shortest → break → long |
+
+---
+
+## R19: Opening Word Variation
+
+**AI tends to repeat opening words**:
+| Pattern | Action |
+|---------|--------|
+| "He" × 3+ in paragraph | Vary: "The man", or start with action |
+| "She" × 3+ | Vary: or start with verb |
+| "It" × 3+ | Vary: or start with specific noun |
+| Same opening word × 3+ | Change one to different opener |
+
+**Human Openers to Use**:
+- Start with verb: "Reached for..."
+- Start with conjunction: "And then..."
+- Start with time: "Three hours later..."
+- Start with fragment: "Nothing."
+- Start with dialogue: "Just go."
+
+---
+
+## R20: Ending Variation
+
+**AI Paragraph Endings**:
+| AI Pattern | Human Alternative |
+|------------|-------------------|
+| "..., and [result]" × 3+ | Vary: or end with fragment |
+| "..., feeling [emotion]" | End with action instead |
+| "..., as [happened]" | End with specific detail |
+| Same ending structure × 3+ | Vary one |
+
+---
+
+## Protected Elements
+
+**Keep original structure if**:
+- Character's speech pattern (dialogue)
+- Deliberate literary rhythm
+- Genre-required pacing (e.g., thriller action sequences)
+- Plot-revealing structure
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+| 1 | R17 | 5 uniform sentences | burst pattern | Burstiness |
+| 2 | R18 | 3 similar paragraphs | varied lengths | Paragraph variation |
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

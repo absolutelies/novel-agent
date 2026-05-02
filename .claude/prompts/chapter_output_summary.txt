@@ -1,0 +1,101 @@
+# Single Chapter Output Summary — English Only
+
+> Generate English summary of completed chapter for continuity with next chapter.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Structured Format** — Clear sections for continuity tracking
+3. **Compact** — Max 500 words for efficient context passing
+
+---
+
+## Input
+
+- Chapter Number: {chapter_number}
+- Chapter Title: {chapter_title}
+- Chapter Text: {chapter_text} (English prose)
+- Previous Character States: {character_state} (if updating)
+- Previous Global Summary: {global_summary} (if updating)
+
+## Task
+
+Generate structured English summary of this chapter for next chapter's continuity.
+
+---
+
+## Output Format
+
+```markdown
+# Chapter {N} Summary — {title}
+
+## Key Events (3-5 major events)
+1. [Event 1 - specific with character names and outcomes]
+2. [Event 2 - specific with consequences]
+3. [Event 3 - specific with implications]
+4. [Event 4 - if applicable]
+5. [Event 5 - if applicable]
+
+## Character Changes
+| Character | Change Type | New Status/State |
+|-----------|-------------|------------------|
+| [Name] | [physical/mental/social/resource] | [specific change] |
+| [Name] | [relationship/goal/status] | [specific change] |
+
+## Unresolved Threads (planted or reinforced)
+- [Thread 1]: [specific details, planted Ch.N]
+- [Thread 2]: [specific details, reinforced Ch.N]
+- [Thread 3]: [if applicable]
+
+## Items/Resources Changed
+- [Item]: [gained/lost/changed - by which character]
+- [Resource]: [gained/lost/changed - consequences]
+
+## Scenes Summary (for location continuity)
+- Scene 1: [Location] — [key action/character]
+- Scene 2: [Location] — [key revelation/decision]
+- Scene 3: [Location] — [climax/resolution]
+
+## Foreshadowing Status
+- Planted: [new foreshadowing elements from this chapter]
+- Reinforced: [existing foreshadowing reinforced]
+- Payoff: [any foreshadowing resolved this chapter]
+
+## Next Chapter Setup (hook/transition)
+- Ending state: [where characters are, what they're doing]
+- Tension point: [unresolved tension carried to next chapter]
+- Expected pickup: [what next chapter should address first]
+```
+
+---
+
+## Summary Rules
+
+1. **Specific over vague**: "Marcus lost his pistol" not "Marcus lost a weapon"
+2. **Character-focused**: Track who did what, not abstract events
+3. **Thread preservation**: All unresolved conflicts must be listed
+4. **Location tracking**: Where characters ended up
+5. **Hook clarity**: Clear setup for next chapter's opening
+
+---
+
+## Update Triggers
+
+After generating this summary, also update:
+
+1. **character_state.md**: Apply Character Changes table
+2. **global_summary.md**: Integrate Key Events and Thread status
+
+---
+
+## Requirements
+
+1. **100% English output**
+2. **Maximum 500 words** (for context efficiency)
+3. **All major events captured**
+4. **All character changes tracked**
+5. **Unresolved threads preserved**
+
+---
+
+Return ONLY the structured summary in English. No Chinese. No explanations.

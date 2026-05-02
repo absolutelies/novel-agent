@@ -1,0 +1,25 @@
+---
+name: short_story
+description: Short story preset - compact narrative with single arc focus
+type: preset
+---
+
+{
+  "preset_name": "short_story",
+  "description": "Short story preset for 10k-30k word stories with single plot arc and focused character development",
+  "settings": {
+    "chapter_length": 2500,
+    "total_chapters_range": [4, 12],
+    "suspense_density_default": "gradual",
+    "foreshadowing_frequency": "medium",
+    "character_arc_speed": "fast",
+    "punctuation_style": "literary",
+    "dialogue_ratio": 0.30,
+    "description_ratio": 0.35,
+    "narration_ratio": 0.35
+  },
+  "ai_polish_rules": {
+    "focus_areas": ["ai_vocabulary", "filler_phrases", "rhythm"],
+    "preserve_elements": ["metaphors", "internal_monologue", "literary_devices"]
+  }
+}

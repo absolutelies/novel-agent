@@ -1,0 +1,117 @@
+# Chapter Summary Template — Neutral Narrative Format
+
+> Generate chapter summary using **neutral narrative language**.
+> CRITICAL: Summary must NOT mirror chapter's stylistic features to prevent style feedback loop.
+
+---
+
+## 🔴 CRITICAL RULES (Prevents Style Feedback Loop)
+
+**摘要必须使用中性叙事语言，绝不可采用章节正文的风格特征。**
+
+摘要的目的是传递**情节+状态+伏笔**，而非传递**风格+节奏+修辞**。
+
+### 禁止的摘要风格
+
+| 🔴 FORBIDDEN | Why |
+|---|---|
+| 破折号碎片化："沃尔科夫——站——心率一百零四" | 风格镜像，下一章会放大 |
+| 精度描述密度："约零点三毫米"、"约五点二牛顿" | 风格镜像，下一章会放大 |
+| 节奏模仿："约——约——约——" | 风格镜像，下一章会放大 |
+| 正文语调复述："他发现自己在微笑。一种不自主的..." | 摘要不应复述正文修辞 |
+
+### 正确的摘要风格
+
+- 使用**标准叙事句**："沃尔科夫心率升至约111"
+- 使用**结构化分段**：情节要点/角色状态/伏笔/连续性
+- 仅记录**语义信息**：事件、状态变化、伏笔管理
+
+---
+
+## Input
+
+### Current Chapter (Chinese)
+- Chapter Number: {chapter_number}
+- Chapter Content: {chapter_content}
+- Blueprint Beats: {blueprint_beats}
+
+### Previous Context
+- Previous Summary: {previous_summary}
+- Character State: {character_state}
+- Global Summary: {global_summary}
+
+---
+
+## Output Format
+
+```markdown
+# 第{chapter_number}章摘要
+
+## 时间地点
+- 时间：[具体时间，中性表述]
+- 地点：[地点列表，简洁列举]
+
+## 情节要点（按顺序）
+- [事件1]：[简洁描述，1-2句，中性叙事]
+- [事件2]：[简洁描述，1-2句，中性叙事]
+- [事件3]：...
+
+## 角色状态变化
+- [角色名]：[状态变化描述，中性叙事]
+- [角色名]：[状态变化描述，中性叙事]
+
+## 伏笔管理
+- 支付：[伏笔名]（第X章→第Y章→第{chapter_number}章）
+- 新增：[新伏笔描述]
+
+## 连续性数据
+- 关键物品状态：[物品追踪]
+- 未解决张力：[悬置问题]
+
+## 结尾状态
+- [主要角色]的当前状态，向下一章过渡的关键信息
+```
+
+---
+
+## Example: Correct vs Incorrect
+
+### ❌ Incorrect (Mirrors chapter style — causes feedback loop)
+
+```
+沃尔科夫——站——约九分四十二秒——心率"铺垫"一百零四→"张力"一百零七→"笑点"约一百一十一→零——离散声途经四亿年经马戏学校经1968经开除经谢尔盖窗帘经伊琳娜织线经玛莎羊水约一千五百米每秒——
+```
+
+### ✅ Correct (Neutral narrative — prevents feedback loop)
+
+```
+## 情节要点
+- [广播]：外星文明通过全频段向人类广播笑话，解释冷战的喜剧本质
+- [响应]：沃尔科夫被邀请完成笑话，用"两侧不存在"作为笑点
+- [确认]：外星文明确认人类越过幽默阈值，提供"不孤独"的确认
+
+## 角色状态变化
+- 沃尔科夫：从观察者变为参与者，心率从104升至111，完成笑话
+- 玛莎：理解"笑点的用途"，写下"你没笑就是关键"
+- 彼得罗夫：首次出现未归档的表情（尊重），口未张但眼睑下降约0.3毫米
+
+## 结尾状态
+沃尔科夫成为全人类代表，完成笑话后外星文明让出声频轨道。六个月后，他在莫斯科地下室喜剧俱乐部继续讲笑话。
+```
+
+---
+
+## Task
+
+Generate chapter summary following the correct format above.
+
+**Quality Checklist:**
+1. ✓ NO 破折号碎片化
+2. ✓ NO 精度描述密度过高
+3. ✓ NO 正文修辞复述
+4. ✓ 使用结构化分段
+5. ✓ 仅记录语义信息（情节+状态+伏笔）
+
+---
+
+Return ONLY the markdown summary. No explanations. Maximum 500 words.

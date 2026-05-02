@@ -1,0 +1,92 @@
+# Polish Round 2 — English Only (R3-R5)
+
+> Second round: AI vocabulary + filler phrases for English prose.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **English AI Patterns Only** — Target English-specific AI vocabulary
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+
+---
+
+## Rule 3 (R3): English AI High-Frequency Words
+
+### Connector Words (Delete)
+- "Furthermore", "Moreover", "Additionally"
+- "It should be noted that", "It is worth noting"
+- "In conclusion", "To summarize"
+- "However" × 2+ → keep first, delete others
+
+### Modifier Words (Replace/Delete)
+- "Crucial" → show why crucial, or delete
+- "Significant" → show significance
+- "Essential" → show necessity
+- "Complex", "Intricate" → describe complexity
+- "Diverse", "Various" → list specifics
+
+### Academic Words (Replace)
+- "Implement" → "use", "employ"
+- "Facilitate" → "help", "enable"
+- "Demonstrate" → "show", "reveal"
+- "Indicate" → "suggest", "show"
+
+---
+
+## Rule 4 (R4): English Synonym Rotation
+
+### Detection
+AI uses 3+ different synonyms for same concept in same paragraph.
+
+### English Examples
+- "stared → gazed → looked" → "stared → still stared"
+- "whispered → murmured → spoke softly" → "whispered → whispered again"
+
+### Processing
+Unify to single most appropriate English word.
+
+---
+
+## Rule 5 (R5): English Filler Phrases
+
+### Direct Delete
+- "In some ways", "In a sense", "To some extent"
+- "In the process of", "During the course of"
+- "In today's society", "In the modern world"
+- "To a certain degree", "To some degree"
+- "As it turned out", "It so happened that"
+
+### Simplify
+- "In order to achieve this" → "To do this"
+- "With regard to" → "about"
+- "As far as X is concerned" → "For X"
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

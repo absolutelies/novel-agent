@@ -1,0 +1,118 @@
+# Character State Prompt — English Only
+
+> Create/update character state tracking in English with Western format.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Western Tree Format** — Use English tree structure symbols
+3. **English Item Names** — All items, abilities in English
+
+---
+
+## Input
+
+- Character Dynamics: {character_dynamics}
+- Current Chapter: {current_chapter}
+- Chapter Events: {chapter_events}
+- Previous State: {previous_state}
+
+## Task
+
+Generate/update English character state documentation.
+
+---
+
+## State Structure (English)
+
+```
+[English Character Name]:
+
+├── ITEMS:
+│   ├── [English item]: [English description, condition, significance]
+│   ├── [English item]: [English description]
+│   └── [English item]: [English description]
+
+├── ABILITIES:
+│   ├── [English skill]: [English capability description]
+│   ├── [English skill]: [English capability description]
+│   └── [English limitation]: [English what they cannot do]
+
+├── STATUS:
+│   ├── Physical: [English body state - injuries, fitness, appearance]
+│   ├── Mental: [English psychological state - mood, stability]
+│   ├── Social: [English reputation and relationships]
+│   └── Resources: [English assets, wealth, access]
+
+├── RELATIONSHIPS:
+│   ├── [English name]: [English relationship state - nature, tension, change]
+│   ├── [English name]: [English different relationship dynamic]
+│   └── [English name]: [English relationship state]
+
+├── TRIGGERED EVENTS:
+│   ├── [English event]: [English what affected them, consequence]
+│   ├── [English event]: [English consequence]
+│   └── [English event]: [English consequence]
+
+├── CURRENT GOALS:
+│   ├── Immediate: [English current pursuit]
+│   ├── Short-term: [English next chapters goal]
+│   └── Hidden: [English secret motivation]
+```
+
+---
+
+## Tree Format (Western Standard)
+
+Use these symbols exactly:
+- `├──` for items in list
+- `│   ├──` for nested items
+- `└──` for final item in list
+- Space after symbols for text
+
+---
+
+## Update Rules (English)
+
+**For existing character state updates**:
+
+1. **Items**: Add acquired, remove lost, update condition
+2. **Abilities**: Add learned, note degraded, track costs
+3. **Physical/Mental**: Reflect chapter events
+4. **Relationships**: Update based on interactions
+5. **Triggered Events**: Add new affecting events
+6. **Goals**: Update if motivation changed
+
+---
+
+## Western Item/Ability Examples
+
+**Items**:
+- Service pistol, encrypted tablet, safe house key, forged credentials
+- Ancient tome, cursed blade, healing potion, royal seal
+- Smartphone, burner phone, safe deposit box key, surveillance footage
+
+**Abilities**:
+- Combat training: Close-quarters specialist
+- Memory manipulation: Can alter short-term memories
+- Hacking: Corporate security bypass
+- Spellcasting: Elemental fire, healing touch
+
+**Limitations**:
+- Cannot use magic without conduit
+- Combat ineffective against trained opponents
+- Memory alteration causes headaches
+
+---
+
+## Requirements
+
+1. **100% English output**
+2. **Western character names**
+3. **English tree format**
+4. **Complete state for each character**
+5. **Update only changes** (for existing states)
+
+---
+
+Return ONLY character state in English tree format. No Chinese. No explanations.

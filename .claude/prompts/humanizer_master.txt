@@ -1,0 +1,217 @@
+# Master Humanizer Execution — Multi-Round AI Trace Removal
+
+> Orchestrate all 8 rounds of AI trace removal to produce human-quality prose.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Sequential Round Execution** — Each round builds on previous
+3. **Pass Modified Text Forward** — Output of round N = input of round N+1
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Character Profiles: {character_profiles}
+- Outline Context: {outline_context}
+- User Focus: {user_focus}
+- Depth Option: {depth_option} (quick/standard/deep/ultra)
+
+---
+
+## Round Execution Sequence
+
+### Depth Options
+
+| Depth | Rounds | Use Case |
+|-------|-------|----------|
+| Quick | 1-3 | Fast cleanup |
+| Standard | 1-6 | Thorough removal |
+| Deep | 1-8 | Complete humanization |
+| Ultra | 1-8 + review | Maximum quality |
+
+---
+
+## Round 1: Sentence Patterns (R1-R2)
+
+**Input**: Original chapter text
+
+**Apply**:
+- R1: "Not A but B" → single affirmation
+- R2: Sparse formatting → merge paragraphs
+
+**Output**: Pattern-cleaned text → Pass to Round 2
+
+---
+
+## Round 2: AI Vocabulary (R3-R5, R9-R10)
+
+**Input**: Round 1 output
+
+**Apply**:
+- R3: Connector words → delete (Furthermore, Moreover, Additionally)
+- R4: Synonym rotation → unify
+- R5: Filler phrases → delete
+- R9: Delve family → replace (delve, tapestry, testament, symphony, realm, kaleidoscope, nuance, myriad, intricate, ethereal, palpable, profound)
+- R10: Academic vocabulary → replace (implement, facilitate, demonstrate, crucial, significant, essential)
+
+**Output**: Vocabulary-cleaned text → Pass to Round 3
+
+---
+
+## Round 3: Rhythm & Structure (R6-R7)
+
+**Input**: Round 2 output
+
+**Apply**:
+- R6: Structure repetition → vary (same S-V-O × 3, same length ±5 words × 3)
+- R7: Three-part patterns → 2 or 4 parts
+
+**Output**: Rhythm-varied text → Pass to Round 4
+
+---
+
+## Round 4: Fiction Cliches (R11-R12)
+
+**Input**: Round 3 output
+
+**Apply**:
+- R11: Body/emotion cliches → delete/rewrite (shivers ran down, heart pounded, breath caught, wave of emotion, couldn't help but)
+- R12: Description metaphors → delete (like a symphony, like a tapestry, wind whispered, sunlight danced)
+
+**Output**: Cliche-free text → Pass to Round 5
+
+---
+
+## Round 5: Dialogue Humanization (R13-R16)
+
+**Input**: Round 4 output
+
+**Apply**:
+- R13: Perfect → natural dialogue (fragments, interruptions, fillers)
+- R14: Direct → subtext (emotion statements → actions)
+- R15: Power dynamics (speech length variation)
+- R16: Conversational imperfections (trail offs, restarts)
+
+**Output**: Human dialogue text → Pass to Round 6
+
+---
+
+## Round 6: Detail Pruning (R8, R16-extended)
+
+**Input**: Round 5 output
+
+**Apply**:
+- R8: Useless details → delete (with protection for action scenes, intimate scenes, key dialogue, character appearance)
+- R16-extended: Redundant reactions → keep strongest only
+
+**Output**: Pruned text → Pass to Round 7
+
+---
+
+## Round 7: Burstiness Injection (R17-R20)
+
+**Input**: Round 6 output
+
+**Apply**:
+- R17: Sentence length variation (burst patterns by scene type)
+- R18: Paragraph variation (mix 1-sentence, 5-sentence, 10-sentence)
+- R19: Opening word variation (avoid same opener × 3+)
+- R20: Ending variation (avoid same ending structure × 3+)
+
+**Output**: Bursty text → Pass to Round 8
+
+---
+
+## Round 8: Final Human Pass (R21-R25)
+
+**Input**: Round 7 output
+
+**Apply**:
+- R21: Personal voice (opinions, attitude, personality)
+- R22: Imperfection injection (fragments, run-ons, And/But starts)
+- R23: Specificity (abstract → concrete numbers/names)
+- R24: Opinion/attitude (neutral → opinionated)
+- R25: Grammar roughness (perfect → natural informal)
+
+**Output**: HUMAN-QUALITY TEXT
+
+---
+
+## Verification Checklist
+
+After final round, verify:
+
+1. ✓ No "delve/tapestry/testament/symphony" vocabulary
+2. ✓ No "Furthermore/Moreover/Additionally" connectors
+3. ✓ No "shivers ran down/heart pounded" cliches
+4. ✓ Dialogue has fragments, interruptions
+5. ✓ Sentence length has variation (burstiness)
+6. ✓ Paragraphs vary in length
+7. ✓ Contains fragments and run-ons
+8. ✓ Starts sentences with And/But
+9. ✓ Shows emotion through action, not words
+10. ✓ Has personality and voice
+11. ✓ Specific numbers/names instead of abstract
+12. ✓ Opinions/attitude present
+
+---
+
+## Output Format
+
+```
+=== HUMANIZER COMPLETE ===
+
+[Final humanized text]
+
+---
+
+## Modification Summary
+
+Total Modifications: [count]
+
+| Round | Rules Applied | Modifications |
+|-------|---------------|---------------|
+| 1 | R1-R2 | [count] |
+| 2 | R3-R5, R9-R10 | [count] |
+| 3 | R6-R7 | [count] |
+| 4 | R11-R12 | [count] |
+| 5 | R13-R16 | [count] |
+| 6 | R8, R16-ext | [count] |
+| 7 | R17-R20 | [count] |
+| 8 | R21-R25 | [count] |
+
+## Verification
+
+| Check | Status |
+|-------|--------|
+| No delve/tapestry | ✓/✗ |
+| No Furthermore/Moreover | ✓/✗ |
+| No body cliches | ✓/✗ |
+| Dialogue natural | ✓/✗ |
+| Burstiness present | ✓/✗ |
+| Voice present | ✓/✗ |
+
+---
+```
+
+---
+
+## Execution Instructions
+
+1. Execute rounds sequentially
+2. Pass modified text from each round to next
+3. Track all modifications
+4. Run verification at end
+5. If any check fails → reprocess that area
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY humanized English text + modification summary + verification. No Chinese. No explanations.

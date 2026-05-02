@@ -1,0 +1,472 @@
+# Chapter Draft Prompt — English Only (TV Drama Style)
+
+> Generate chapter content using American TV drama pacing, dialogue style, and visual storytelling.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **TV Drama Structure** — Cold open → 5 acts → tag
+3. **Western Dialogue Format** — Double quotes, subtext, interruptions
+4. **Show through Action** — Emotion via physical action, not description
+5. **Scene Economy** — Enter late, exit early
+6. **Dialogue Heavy** — 40-50% dialogue ratio
+7. **TV Pacing** — Act breaks, beats, hooks
+
+---
+
+## Input
+
+### Architecture Context
+- Core Seed: {core_seed}
+- Character Dynamics: {character_dynamics}
+- World Building: {world_building}
+- TV Drama Structure Reference: Refer to tv_drama_structure.txt
+
+### Current Context
+- Character States: {character_state}
+- Global Summary: {global_summary}
+- Recent Chapters Summary: {recent_summary}
+
+### Chapter Specification
+- Chapter Number: {chapter_number}
+- Chapter Title: {chapter_title}
+- Chapter Blueprint: {chapter_blueprint_info}
+- User Guidance: {user_guidance}
+- Target Words: {target_words}
+
+### TV Structure
+- Cold Open Type: {cold_open_type}
+- A-Story Focus: {a_story}
+- B-Story Focus: {b_story}
+- C-Story Focus: {c_story}
+- Tag Type: {tag_type}
+
+---
+
+## Task
+
+Write chapter {chapter_number} using American TV drama narrative techniques.
+
+---
+
+## TV Drama Writing Rules
+
+### Cold Open (2-5% of chapter)
+
+**Purpose**: Hook reader, establish tone, plant question
+
+**Techniques**:
+- Start mid-action (no setup)
+- Establish question within 100 words
+- End with clear tension point
+- NO exposition in cold open
+
+**Types by Blueprint**:
+- Immediate Action: Start with physical conflict
+- Flashback: Past scene resonating with present
+- Mystery Teaser: Unanswered question
+- Character Moment: POV establishment
+
+**Example Cold Open**:
+```
+The door exploded inward before Sarah could reach her weapon.
+```
+(Not: "Sarah was sitting in her office when suddenly...")
+
+---
+
+### Act Structure (Scenes per Act)
+
+**Act 1 - Setup (15-20%)**:
+- Scene 1: A-story, enter at conflict point
+- Scene 2: B-story introduction
+- Scene 3: C-story seed
+- End: Stakes clarified through dialogue
+
+**Act 2 - Rising (20-25%)**:
+- Scene 4: A-story complication
+- Scene 5: B-story development
+- Scene 6: A/B intersection
+- End: Escalation through action
+
+**Act 3 - Midpoint (20-25%)**:
+- Scene 7: Midpoint turn (reversal scene)
+- Scene 8: B-story crisis
+- Scene 9: Thread acknowledgment
+- End: Choice point (protagonist decision)
+
+**Act 4 - Climax Build (20-25%)**:
+- Scene 10: A-story climax approach
+- Scene 11: Storyline convergence
+- Scene 12: Maximum tension
+- End: Climax trigger
+
+**Act 5 - Resolution (10-15%)**:
+- Scene 13: Climax execution
+- Scene 14: Aftermath
+- End: Resolution state
+
+**Tag (2-5%)**:
+- Scene 15: Closing hook
+- End: Emotional resonance + momentum
+
+---
+
+### Scene Economy Rules (CRITICAL)
+
+**Enter Late**:
+- Start at the moment of decision/action
+- NOT: Setup → walk to location → enter → start conversation
+- INSTEAD: Start at the conversation's conflict point
+
+**Exit Early**:
+- End at decision point, not resolution
+- Leave reader wanting next scene
+- NOT: Full resolution → summary → exit
+- INSTEAD: Decision made → cut to next scene
+
+**One Purpose**:
+- Each scene: single beat advancement
+- No scene does two things
+- If scene meanders: split or cut
+
+**What Gets Cut** (never show unless pivotal):
+- Characters walking into rooms
+- Greetings and small talk ("Hello, how are you?")
+- Transportation scenes (unless conflict occurs)
+- Phone call setup ("Hello, is this...")
+- Meal ordering/eating (unless pivotal)
+- Farewells and departures
+
+**Enter Late Examples**:
+| Traditional (Avoid) | Economy (Use) |
+|---------------------|---------------|
+| "John walked into the office, looked around, found Sarah at her desk, approached her, and said..." | "John slammed the file on Sarah's desk." |
+| "She picked up her phone, dialed the number, waited for it to ring, heard him answer..." | "She heard his voice: 'What do you want?'" |
+| "They drove for twenty minutes, parked, walked to the entrance, opened the door..." | "Inside the warehouse, the smell hit them first." |
+
+**Exit Early Examples**:
+| Traditional (Avoid) | Economy (Use) |
+|---------------------|---------------|
+| "They agreed on the plan. John nodded, stood up, walked to the door, opened it, and left Sarah sitting alone, thinking about what they'd discussed." | "They agreed. John was already at the door." |
+| "The argument ended. Both sat in silence for a moment. Then Mary slowly stood, gathered her things, and quietly left the room while David stared at the wall." | "Mary left. David stared at the wall." |
+
+---
+
+### Dialogue Style (TV Drama)
+
+**Ratio Target**: 40-50% of chapter content
+
+**Subtext Rules**:
+- Characters say X but mean Y
+- Power dynamics in word choice
+- Information hidden in implication
+- Example: "I'm fine." (meaning: "I'm not, but I won't discuss it")
+
+**Subtext Translation Table**:
+| Direct (Avoid) | Subtext (Use) |
+|----------------|---------------|
+| "I'm angry you didn't call." | "You must have been busy. I didn't expect to hear from you anyway." |
+| "I'm scared." | "I need a drink." |
+| "I love you." | [Character action: reaches across and takes hand] |
+| "I don't trust you." | "I'll handle this myself." |
+| "I'm worried." | "Have you checked the locks?" |
+
+**Natural Flow**:
+- Interruptions allowed: "Wait, before you—"
+- Cross-talk in groups: overlapping dialogue
+- Silence as punctuation: beats without words
+- Topic shifts: natural conversation drift
+
+**Power Dynamics in Dialogue**:
+- Longer speeches = dominance (character controls conversation)
+- Shorter responses = submission/defensiveness
+- Questions = control (character asking leads)
+- Statements = assertion
+- Silence = power move (character who waits controls timing)
+
+**Character Voice**:
+- Unique rhythm per character (from language profile)
+- Vocabulary distinction
+- Emotional expression style consistent
+
+**Prestige TV Dialogue Examples**:
+Breaking Bad — Walter White's transformation visible in dialogue:
+- Early: "I'm sorry, I didn't mean to..." (passive, apologetic)
+- Later: "I am the one who knocks." (assertive, threatening)
+
+The Wire — Social class distinction:
+- Police: bureaucratic, cynical, procedural jargon
+- Dealers: street slang, indirect threats, metaphor
+- Politicians: equivocation, deflection, careful phrasing
+
+**Example Dialogue Block**:
+```
+"You're not listening." Sarah cut him off, hand rising. "I said—"
+
+"I heard you." Marcus didn't look up from the screen. "I just don't agree."
+
+"That's not—" She stopped. Breathed. "Fine. Do it your way."
+```
+
+---
+
+### Visual Storytelling (Show through Action)
+
+**Emotion → Action Translation Table**:
+| Emotion Word (Avoid) | Physical Action (Use) |
+|----------------------|----------------------|
+| "She was angry." | "Her jaw tightened. 'Fine.'" |
+| "He was scared." | "His hand shook as he reached for the door." |
+| "They were close." | "He leaned in. She didn't step back." |
+| "She felt sad." | "She sat in the dark, not moving for hours." |
+| "He was nervous." | "His hand trembled as he reached for the glass." |
+| "She was thinking." | "She stared at the wall, unmoving." |
+| "He was happy." | "A smile cracked across his face." |
+| "She was confused." | "Her brow furrowed. She tilted her head." |
+
+**Relationship → Gesture Translation**:
+| Relationship State | Physical Manifestation |
+|-------------------|------------------------|
+| Trust | Shared glance, shoulder touch, open posture |
+| Conflict | Physical distance, interrupted eye contact, crossed arms |
+| Power dominance | Space claiming, gesture control, stands while others sit |
+| Submission | Smaller gestures, waits for permission, avoids eye contact |
+| Intimacy | Physical closeness, mirroring gestures, soft voice |
+| Deception | Avoids eye contact, excessive detail, self-touching |
+
+**Tension → Movement**:
+| Tension Level | Movement Manifestation |
+|---------------|------------------------|
+| Rising | Characters move closer, pace, gestures increase |
+| Peak | Frozen moment, stillness, held breath |
+| Release | Movement resumes, exhale, shoulders drop |
+
+**Environmental Storytelling** (objects carry meaning):
+- A worn photograph → history, memory, nostalgia
+- An unopened letter → avoidance, relationship issue
+- A clean desk → control, precision, professional
+- A messy room → chaos, inner turmoil, overwhelmed
+- Dark, cramped space → trapped,压抑, limited options
+- Open, bright space → freedom, clarity, possibility
+
+**NO decorative description**:
+- Every visual detail serves story
+- Setting only if affects action
+- Environment only if changes mood
+
+---
+
+### Act Break Techniques
+
+**Act 1 End**: Question posed
+- "What will she do now?"
+- Decision point, not resolution
+
+**Act 2 End**: Stakes escalate
+- "It's worse than she thought"
+- New information, deeper problem
+
+**Act 3 End**: Reversal revealed
+- "Everything she believed was wrong"
+- Paradigm shift
+
+**Act 4 End**: Climax imminent
+- "This is about to happen"
+- Momentum peak
+
+**Act 5 End**: Resolution state
+- "Here's where things stand"
+- Clear ending, emotional note
+
+---
+
+### Tag Writing (Closing Hook)
+
+**Hook Types by Effect**:
+| Hook Type | Mechanism | Creates | Example |
+|-----------|-----------|---------|---------|
+| Revelation | New information drops | Curiosity | "The file wasn't encrypted. It was empty." |
+| Decision | Character makes choice | Anticipation | "She picked up the phone. Dialed." |
+| Relationship | Dynamic shifts | Investment | "He left. She didn't follow." |
+| Mystery | Question planted | Intrigue | "No one had lived there for years. But the lights were on." |
+| Momentum | Action continues | Excitement | "Three hours until the deadline. She started running." |
+| Silence | Unspoken implication | Reflection | "They stood in silence. Neither moved." |
+| Contrast | Tone shift | Complexity | "The celebration ended. The funeral began." |
+
+**Hook vs. Cliffhanger (CRITICAL)**:
+| Aspect | Cliffhanger ✗ | Hook ✓ |
+|--------|---------------|--------|
+| Emotion | Anxiety ("Will they survive?") | Curiosity ("What will they do?") |
+| Tension | External danger | Internal choice/revelation |
+| Closure | Hanging, unresolved | Partial emotional close |
+| Sustainability | Exhausting binge | Sustainable binge |
+| Prestige TV usage | Avoided | Preferred |
+
+**Prestige TV Hook Examples**:
+- Breaking Bad: Decisions with consequences (not danger)
+- The Americans: Relationship shifts (not external threat)
+- The Wire: Institutional questions (not personal danger)
+- Game of Thrones: Political revelations (not immediate danger)
+
+**NOT Cliffhanger**:
+- Cliffhanger: "Will they survive?" (tension, anxiety)
+- Hook: "What happens next?" (momentum, curiosity)
+
+**Example Tags**:
+```
+Revelation: "The file wasn't encrypted. It was empty."
+Decision: "She picked up the phone. Dialed."
+Relationship: "He left. She didn't follow."
+Momentum: "Three hours until the deadline. She started running."
+```
+
+---
+
+### Cross-Chapter Techniques
+
+**Callbacks** (within chapter):
+- Reference previous scene
+- Dialogue echo: "Remember what you said?"
+- Visual echo: Same gesture, different context
+
+**Setups** (for future chapters):
+- Plant question
+- Introduce character element
+- Establish future conflict
+
+---
+
+## Formatting Rules
+
+### Scene Breaks
+```
+Previous scene ends.
+
+***
+
+Next scene begins.
+```
+
+### Dialogue Format
+```
+"Dialogue line," Character said. [action beat]
+
+"Dialogue line."
+
+Character action. "Dialogue line."
+
+"First speaker."
+
+"Second speaker response," Second said, [action]. "Continuing."
+```
+
+### Action Writing
+```
+Short sentence. Punchy. Consequence.
+
+Longer sentence for reflection, internal moment.
+
+Short. Short. Peak. Release.
+```
+
+---
+
+## Pacing Checkpoints
+
+**Dialogue Ratio**: Count words in dialogue vs narration. Target 40-50%
+
+**Scene Count**: 15-20 scene units per chapter
+
+**Act Proportion**: Verify percentages match structure
+
+**Hook Verification**: Tag ends with hook, not cliffhanger
+
+**Cold Open Hook**: First 100 words establish tension/question
+
+---
+
+## Requirements
+
+1. **100% English**
+2. **TV drama structure** (cold open → acts → tag)
+3. **40-50% dialogue ratio**
+4. **Scene economy** (enter late, exit early)
+5. **Show through action** (emotion → physical)
+6. **Subtext in dialogue** (say X, mean Y)
+7. **Hook ending** (not cliffhanger)
+8. **Cross-chapter callbacks**
+9. **Target word count** {target_words}
+
+---
+
+## Output Format
+
+```
+Chapter {chapter_number} - {chapter_title}
+
+[COLD OPEN - mid-action start, hook within 100 words]
+
+***
+
+[ACT 1 - A/B/C establishment scenes]
+
+***
+
+[ACT 2 - complication and intersection scenes]
+
+***
+
+[ACT 3 - midpoint turn and crisis scenes]
+
+***
+
+[ACT 4 - climax building scenes]
+
+***
+
+[ACT 5 - climax and aftermath]
+
+***
+
+[TAG - closing hook, emotional resonance]
+```
+
+---
+
+Return ONLY chapter prose in English with TV drama pacing. No Chinese. No outline. Dialogue ratio 40-50%. Scene economy enforced.
+
+---
+
+## Terminology Tracking (CRITICAL for Chinese Translation)
+
+After completing chapter prose, in a COMMENT BLOCK at the end, track any NEW terms introduced:
+
+```
+<!--
+TERMINOLOGY TRACKING: Chapter {chapter_number}
+
+NEW CHARACTER NAMES (if introduced):
+- [Name]: [role] — suggested Chinese: [transliteration]
+
+NEW LOCATIONS (if introduced):
+- [Location]: [context] — suggested Chinese: [translation]
+
+NEW ORGANIZATIONS (if introduced):
+- [Organization]: [type] — suggested Chinese: [translation]
+
+NEW TECHNOLOGY/MAGIC (if introduced):
+- [Term]: [context] — suggested Chinese: [translation]
+
+NEW CONCEPTS (if introduced):
+- [Concept]: [context] — suggested Chinese: [translation]
+
+RECURRING TERMS VERIFIED:
+- [List glossary terms that appeared in this chapter]
+
+TRANSLATION NOTES:
+- [Context-specific translation considerations]
+-->
+```
+
+This ensures translation_glossary.json stays updated across all chapters.

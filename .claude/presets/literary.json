@@ -1,0 +1,26 @@
+---
+name: literary
+description: Literary fiction preset - emphasis on style, subtext, and character interiority
+type: preset
+---
+
+{
+  "preset_name": "literary",
+  "description": "Literary fiction preset emphasizing prose style, subtext, character interiority, and thematic depth",
+  "settings": {
+    "chapter_length": 3500,
+    "suspense_density_default": "gradual",
+    "foreshadowing_frequency": "subtle",
+    "character_arc_speed": "slow",
+    "punctuation_style": "varied",
+    "dialogue_ratio": 0.25,
+    "description_ratio": 0.40,
+    "narration_ratio": 0.35,
+    "metaphor_frequency": "high",
+    "subtext_emphasis": true
+  },
+  "ai_polish_rules": {
+    "focus_areas": ["ai_vocabulary", "sentence_patterns"],
+    "preserve_elements": ["metaphors", "symbolism", "stream_of_consciousness", "literary_devices"]
+  }
+}

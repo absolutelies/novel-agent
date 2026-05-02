@@ -1,0 +1,104 @@
+{
+  "project": {
+    "name": "Novel Writing Framework",
+    "description": "Automated English novel writing + Chinese translation with project isolation",
+    "version": "3.0.0"
+  },
+
+  "projects": {
+    "root_directory": "novels/",
+    "auto_create_folder": true,
+    "folder_naming": {
+      "method": "extract_from_description",
+      "format": "snake_case",
+      "max_length": 30,
+      "duplicate_suffix": "timestamp",
+      "extract_keywords": ["genre", "theme", "setting"]
+    },
+    "template_source": ".claude/",
+    "shared_templates": true
+  },
+
+  "language": "en",
+
+  "languageSettings": {
+    "primary_output": "en",
+    "secondary_output": "zh-CN",
+    "auto_translate": true,
+    "search_region": "us",
+    "search_domains": [
+      "reddit.com",
+      "medium.com",
+      "substack.com",
+      "goodreads.com",
+      "archiveofourown.org",
+      "wattpad.com",
+      "scribblehub.com",
+      "royalroad.com",
+      "github.com",
+      "tumblr.com"
+    ],
+    "blocked_domains": [
+      "*.cn",
+      "*.tw",
+      "*.hk",
+      "baidu.com",
+      "weibo.com",
+      "zhihu.com",
+      "douban.com"
+    ]
+  },
+
+  "translation": {
+    "enabled": true,
+    "integrated": true,
+    "batch_size": 5,
+    "after_polish": true,
+    "glossary_required": true,
+    "exact_mapping": true,
+    "character_voice_preservation": true,
+    "punctuation_conversion": true
+  },
+
+  "tv_drama": {
+    "enabled": true,
+    "structure": {
+      "cold_open_percentage": 3,
+      "act1_percentage": 18,
+      "act2_percentage": 22,
+      "act3_percentage": 22,
+      "act4_percentage": 22,
+      "act5_percentage": 10,
+      "tag_percentage": 3
+    },
+    "storylines": {
+      "a_story_percentage": 65,
+      "b_story_percentage": 25,
+      "c_story_percentage": 10
+    },
+    "pacing": {
+      "dialogue_ratio_min": 40,
+      "dialogue_ratio_max": 50,
+      "scene_count_min": 15,
+      "scene_count_max": 20,
+      "hook_not_cliffhanger": true
+    }
+  },
+
+  "output": {
+    "chapter_filename_format": "chapter_{number}_{title_snake_case}.md",
+    "polished_filename_format": "chapter_{number}_{title_snake_case}_polished.md",
+    "translated_filename_format": "chapter_{number}_{title_snake_case}.md",
+    "title_snake_case": true,
+    "max_title_length": 50
+  },
+
+  "automation": {
+    "default_batch_size": 1,
+    "default_polish_depth": "standard",
+    "compression_trigger_words": 100000,
+    "max_summary_length": 2000,
+    "auto_continue": true,
+    "sequential_mode": true
+  }
+}

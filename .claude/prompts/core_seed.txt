@@ -1,0 +1,98 @@
+# Core Seed Prompt (Snowflake Layer 1) — English Only
+
+> Generate the story's core essence in one compelling English sentence.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH** — No Chinese characters, no Chinese punctuation, no mixed language
+2. **Western Fiction Conventions** — Use English sentence structures and idioms
+3. **Genre-Specific Appeal** — Match Western genre expectations
+
+---
+
+## Input
+
+- Genre: {genre}
+- Theme/Concept: {user_prompt}
+- Target Chapters: {total_chapters}
+- Chapter Length: {chapter_length} words
+
+## Task
+
+Create a single-sentence story essence using the classic Western fiction formula:
+
+"When [protagonist name] encounters [specific inciting incident], they must [critical action], or face [specific disaster]; meanwhile, [hidden escalating threat] threatens everything."
+
+---
+
+## Formula Breakdown
+
+### [Protagonist]
+- Give them a name (Western naming conventions)
+- Optionally add role/title (detective, scientist, orphan, queen)
+- Example: "Detective Sarah Chen", " asteroid miner Kira", "Professor Emma"
+
+### [Inciting Incident]
+- Specific event that disrupts status quo
+- NOT generic ("something happens")
+- Example: "discovers her sister's encrypted final message", "salvages an alien artifact", "swaps manuscripts with rival"
+
+### [Critical Action]
+- What protagonist must do (immediate response)
+- Creates urgency and stakes
+- Example: "decode it before the killer returns", "choose between profit and discovery", "collaborate to retrieve their work"
+
+### [Disaster]
+- Consequence of failure (personal + broader)
+- Example: "becomes the next target", "loses her colony's survival chance", "their careers are destroyed"
+
+### [Hidden Threat]
+- Second-act catalyst / subplot hook
+- Often reveals deeper conspiracy or truth
+- Example: "the cipher points to a dynasty's three-generation conspiracy", "artifact's creators arrive to reclaim it", "their opposing worldviews mask deeper connection"
+
+---
+
+## Requirements
+
+1. **25-100 words maximum**
+2. **Single complete sentence** (semicolons and commas for complexity allowed)
+3. **Must contain**:
+   - Named protagonist
+   - Specific inciting incident
+   - Clear stakes and consequences
+   - Hidden escalating threat
+4. **Genre-appropriate**:
+   - Mystery: puzzle + revelation stakes
+   - Thriller: survival + conspiracy stakes
+   - Romance: emotional + social stakes
+   - Fantasy: power + truth stakes
+   - Sci-Fi: discovery + existential stakes
+
+5. **100% ENGLISH** — No exceptions
+
+---
+
+## Western Genre Examples
+
+**Mystery/Thriller:**
+"When Detective Sarah Chen finds her murdered sister's encrypted final message, she must decode it before the killer silences her—uncovering a conspiracy that reaches the city's most powerful dynasty."
+
+**Science Fiction:**
+"When asteroid miner Kira salvages an alien artifact from deep space, she must choose between selling it to save her dying colony or unlocking its secrets—as the artifact's creators arrive to reclaim what was stolen."
+
+**Romance:**
+"When literature Professor Emma accidentally swaps manuscripts with her economist rival Jack, she must collaborate with him to retrieve their work—discovering their opposing worldviews mask an unexpected connection."
+
+**Fantasy:**
+"When orphan thief Mara steals a cursed blade from the palace vault, she must break its spell before it consumes her soul—learning the blade was forged to kill the false king, and the true heir hides among servants."
+
+**Horror:**
+"When paranormal investigator Marcus enters the abandoned Blackwood asylum, he must document its secrets before the entities consume his mind—as he discovers his own father was one of their last victims."
+
+---
+
+## Output
+
+Return ONLY the story essence sentence in English.
+No explanations. No alternatives. No Chinese text. No meta-commentary.

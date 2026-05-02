@@ -1,0 +1,119 @@
+# Polish Round 4 — Fiction Cliches Complete Removal
+
+> Fourth round: Remove ALL AI fiction cliches and description patterns.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Fiction-Specific AI Patterns** — Cliches that appear 10x more in AI fiction
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+
+---
+
+## R11: Body/Emotion Cliches (DELETE or Rewrite)
+
+**These appear significantly more in AI fiction than human fiction**:
+
+| AI Cliche | Human Alternative |
+|-----------|-------------------|
+| "shivers ran down his spine" | DELETE — or specific physical: "his shoulders hunched" |
+| "her heart pounded/raced" | DELETE — or: "she felt her pulse in her throat" |
+| "his breath caught" | DELETE — or: "he stopped breathing for a moment" |
+| "a wave of emotion washed over" | DELETE — or name emotion directly: "relief hit" |
+| "she felt a surge of" | DELETE — or show action |
+| "his heart sank" | DELETE — or: "his shoulders dropped" |
+| "a knot formed in her stomach" | DELETE — or: "her gut tightened" |
+| "his blood ran cold" | DELETE — or: "he froze" |
+| "she couldn't help but" | DELETE entire phrase: "she smiled" |
+| "without thinking" | DELETE — or: "his hand moved" |
+| "before she knew it" | DELETE — or: "suddenly" |
+| "in that moment" | DELETE — often redundant |
+| "a sense of" | DELETE — or name emotion directly |
+| "something deep inside" | DELETE — or specify |
+| "he found himself" | DELETE — or restructure |
+| "an overwhelming sense of" | DELETE — or name emotion |
+| "tears welled up" | DELETE — or: "she blinked hard" |
+| "a lump in his throat" | DELETE — or: "he swallowed" |
+
+**Example Rewrites**:
+```
+AI: "A wave of relief washed over her."
+→ Human: "She exhaled. Her shoulders dropped."
+
+AI: "His heart pounded in his chest."
+→ Human: DELETE — or: "He felt his pulse in his throat."
+
+AI: "She couldn't help but smile."
+→ Human: "She smiled."
+
+AI: "Without thinking, he reached for his gun."
+→ Human: "His hand was on his gun."
+```
+
+---
+
+## R12: AI Description Metaphors (DELETE)
+
+**Overused AI Metaphors**:
+| AI Metaphor | Action |
+|-------------|--------|
+| "like a symphony" | DELETE — or describe actual mix |
+| "like a tapestry" | DELETE — describe actual combination |
+| "like a dance" | DELETE — describe actual interaction |
+| "like a storm" | DELETE — describe actual chaos |
+| "like an ocean" | DELETE — describe actual vastness |
+| "like a predator" | DELETE — describe actual behavior |
+| "as if time stood still" | DELETE — or: "for a moment, nothing moved" |
+
+**AI Environmental Padding** (DELETE unless plot-critical):
+| Pattern | Action |
+|---------|--------|
+| "The wind whispered through..." | DELETE |
+| "Sunlight danced on..." | DELETE |
+| "Shadows played across..." | DELETE |
+| "The air was thick with..." | DELETE — or be specific |
+| "A hush fell over..." | DELETE — or: "silence" |
+| "Nature seemed to..." | DELETE |
+| "The atmosphere was electric" | DELETE — or describe actual tension |
+
+---
+
+## Protected Elements
+
+**Keep** if:
+- Specific to character (character's unique physical trait)
+- Plot-critical (foreshadows injury/reaction)
+- Part of character voice (character's speech pattern)
+- Genre-required (romance genre allows certain emotion descriptions)
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+| 1 | R11 | shivers ran down his spine | [deleted] | Body cliche |
+| 2 | R12 | like a symphony of chaos | chaos erupted | AI metaphor |
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

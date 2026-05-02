@@ -1,0 +1,347 @@
+# Project Isolation Design — Per-Novel Folders
+
+> Each novel project creates its own isolated folder structure.
+
+---
+
+## Problem
+
+Multiple novel projects sharing same directory causes:
+- Memory files overwrite each other
+- Glossary terms mixed between projects
+- Output files conflict
+- Progress tracking confused
+
+---
+
+## Solution
+
+**Each novel = Separate folder**
+
+Folder name derived from novel concept/title.
+
+---
+
+## Project Folder Structure
+
+```
+novels/                          # All projects root
+├── cyberpunk_mystery/           # Project 1
+│   ├── .claude/
+│   │   ├── commands/            # Project-specific skills (optional)
+│   │   ├── prompts/             # Project-specific prompts (optional)
+│   │   └── settings.json        # Project settings
+│   ├── memory/
+│   │   ├── MEMORY.md            # Project context index
+│   │   ├── project.md           # Project info
+│   │   ├── core_seed.md         # Story concept
+│   │   ├── character_dynamics.md
+│   │   ├── character_state.md
+│   │   ├── world_building.md
+│   │   ├── plot_architecture.md
+│   │   ├── chapter_blueprint.md
+│   │   ├── global_summary.md
+│   │   ├── progress.json        # Project progress
+│   │   ├── translation_glossary.json
+│   │   ├── character_names.json
+│   │   └── world_terms.json
+│   └── output/
+│       ├── chapters/            # English drafts
+│       ├── final/               # English polished
+│       │   └── novel_full.md
+│       └── final/zh-CN/         # Chinese translated
+│           └── novel_full_zh.md
+│
+├── space_opera/                 # Project 2
+│   ├── .claude/
+│   ├── memory/
+│   └── output/
+│
+└── fantasy_kingdom/             # Project 3
+    ├── .claude/
+    ├── memory/
+    └── output/
+```
+
+---
+
+## Folder Name Generation
+
+**From user input**:
+```bash
+/novel-agent "cyberpunk mystery with AI detective"
+# → Folder: cyberpunk_mystery
+```
+
+**Rules**:
+1. Extract key genre/theme words
+2. snake_case format
+3. Max 30 characters
+4. Add timestamp suffix if duplicate exists
+
+**Examples**:
+| Input | Folder Name |
+|-------|-------------|
+| "cyberpunk mystery" | `cyberpunk_mystery` |
+| "space opera adventure" | `space_opera` |
+| "fantasy kingdom rebellion" | `fantasy_rebellion` |
+| "political thriller DC" | `political_thriller` |
+| Duplicate exists | `cyberpunk_mystery_20260411` |
+
+---
+
+## Project Creation Flow
+
+```
+/novel-agent "description"
+  ↓
+Extract folder name from description
+  ↓
+Check if folder exists in novels/
+  ↓
+If exists: add timestamp suffix
+  ↓
+Create project folder structure:
+  novels/[folder_name]/
+    ├── .claude/settings.json
+    ├── memory/
+    │   ├── MEMORY.md
+    │   ├── progress.json (init)
+    │   └── translation_glossary.json
+    └── output/
+        ├── chapters/
+        └── final/
+        └── final/zh-CN/
+  ↓
+Set working directory to project folder
+  ↓
+Proceed with generation
+```
+
+---
+
+## Command Behavior
+
+### /novel-agent (New Project)
+
+```bash
+/novel-agent "description"
+```
+
+1. Create new project folder
+2. Initialize project structure
+3. Set as active project
+4. Proceed with generation
+
+### /novel-agent --project (Select Existing)
+
+```bash
+/novel-agent --project cyberpunk_mystery
+/novel-agent --project space_opera
+```
+
+1. Load existing project
+2. Read project progress
+3. Continue from saved state
+
+### /novel-agent --list (List All Projects)
+
+```bash
+/novel-agent --list
+```
+
+Output:
+```
+Available Projects:
+├── cyberpunk_mystery     [CHAPTERS: 15/40]   2026-04-10
+├── space_opera           [DONE]              2026-04-08
+└── fantasy_rebellion     [BLUEPRINT]         2026-04-11
+```
+
+### /novel-agent --continue (Resume Active)
+
+```bash
+/novel-agent --continue
+```
+
+1. Find most recent active project
+2. Load from progress.json
+3. Continue from saved state
+
+---
+
+## Progress Tracking (Project-Isolated)
+
+Each project has its own `progress.json`:
+
+```json
+{
+  "project_id": "cyberpunk_mystery_20260410",
+  "folder_name": "cyberpunk_mystery",
+  "created_at": "2026-04-10",
+  "last_updated": "2026-04-11",
+
+  "user_prompt": "cyberpunk mystery with AI detective",
+  "genre": "cyberpunk thriller",
+
+  "status": "CHAPTERS",
+  "current_chapter": 15,
+  "total_chapters": 40,
+
+  "english_status": {...},
+  "chinese_status": {...},
+  "glossary_tracking": {...}
+}
+```
+
+---
+
+## Global Projects Index
+
+Root level: `novels/projects_index.json`
+
+```json
+{
+  "projects": [
+    {
+      "folder_name": "cyberpunk_mystery",
+      "project_id": "cyberpunk_mystery_20260410",
+      "status": "CHAPTERS",
+      "last_updated": "2026-04-11",
+      "genre": "cyberpunk thriller"
+    },
+    {
+      "folder_name": "space_opera",
+      "project_id": "space_opera_20260408",
+      "status": "DONE",
+      "last_updated": "2026-04-08",
+      "genre": "space opera"
+    }
+  ],
+  "active_project": "cyberpunk_mystery",
+  "last_accessed": "2026-04-11"
+}
+```
+
+---
+
+## Working Directory Switch
+
+When starting/resuming a project:
+
+1. Switch Claude Code working directory to project folder
+2. Load project-specific memory files
+3. Execute generation in project context
+4. All outputs saved to project folder
+
+---
+
+## Isolation Benefits
+
+| Benefit | Description |
+|---------|-------------|
+| Memory isolated | Each project has own story memory |
+| Glossary isolated | Translation terms don't mix |
+| Output isolated | Chapters saved to project folder |
+| Progress isolated | Can work on multiple projects |
+| Resume correctly | Each project tracks its own state |
+
+---
+
+## Multiple Projects Support
+
+```bash
+# Create project 1
+/novel-agent "cyberpunk mystery"
+# Working in: novels/cyberpunk_mystery/
+
+# Later: create project 2
+/novel-agent "fantasy adventure"
+# Working in: novels/fantasy_adventure/
+
+# Resume project 1
+/novel-agent --project cyberpunk_mystery
+# Working in: novels/cyberpunk_mystery/
+
+# List all
+/novel-agent --list
+```
+
+---
+
+## Template Files (Shared)
+
+Shared templates remain in root `.claude/`:
+
+```
+.claude/
+├── commands/            # Shared commands (all projects use)
+├── prompts/             # Shared prompt templates
+├── presets/             # Shared presets (web_novel, etc.)
+└── settings.json        # Global defaults
+
+novels/[project]/.claude/
+└── settings.json        # Project-specific overrides (optional)
+```
+
+---
+
+## Implementation
+
+### Update Commands
+
+**novel.md**:
+- Add project creation logic
+- Add folder name extraction
+- Add --project selector
+- Add --list option
+
+**status.md**:
+- Show project list if no project active
+- Show project-specific progress if in project
+
+### Update Settings
+
+**settings.json**:
+- Add projects_root: "novels/"
+- Add active_project tracking
+- Add folder naming rules
+
+### Update Progress
+
+**progress.json**:
+- Add folder_name field
+- Add project_id with timestamp
+
+---
+
+## Migration
+
+Existing project in root:
+- Move to `novels/space_opera/` (or appropriate name)
+- Copy all memory/ and output/ to project folder
+- Update projects_index.json
+
+---
+
+## File Count per Project
+
+| Category | Files |
+|----------|-------|
+| Memory | ~10 files |
+| Output English | ~40 chapters + compiled |
+| Output Chinese | ~40 chapters + compiled |
+| Glossary | 3 files |
+| Config | 1-2 files |
+
+Total: ~95 files per completed project (40 chapters)
+
+---
+
+## Summary
+
+- Each novel: isolated folder
+- Folder name: derived from concept
+- Multiple projects: supported
+- Resume: project-specific
+- Shared templates: efficient

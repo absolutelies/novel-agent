@@ -1,0 +1,142 @@
+# Polish Round 8 — Final Human Pass
+
+> Eighth round: Inject personality, voice, and imperfection.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Human Voice Injection** — AI is too perfect; humans have personality
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+- Genre Context: {genre_context}
+
+---
+
+## R21: Personal Voice Injection
+
+**AI lacks personality. Human writing has voice.**
+
+| AI Lack | Human Addition |
+|---------|---------------|
+| Neutral tone | Add opinions, attitude |
+| Safe statements | Take risks, bold claims |
+| Abstract description | Specific, idiosyncratic details |
+| Perfect grammar | Natural fragments |
+| Formal vocabulary | Casual words, colloquialisms |
+| Balanced perspective | Strong positions, preference |
+
+**Example**:
+```
+AI: "The restaurant was elegant and the service was attentive."
+→ Human: "The restaurant tried too hard. The waiter hovered like a guilty parent."
+
+AI: "The situation was difficult for everyone involved."
+→ Human: "Nobody won. Nobody even came close."
+
+AI: "He considered the options carefully."
+→ Human: "He thought about it. Then thought about it again. Same answer."
+```
+
+---
+
+## R22: Imperfection Injection
+
+**AI is too perfect. Humans have rough edges.**
+
+| Technique | Example |
+|-----------|---------|
+| Sentence fragments | "Not happening." / "Done." |
+| Run-on sentences | "He kept going and going and nobody stopped him because nobody could." |
+| Start with And/But | "And then she left." / "But that wasn't the end." |
+| Rhetorical questions | "What was she supposed to do?" |
+| Asides/digressions | "—which, looking back, was probably a mistake—" |
+| Conversational intrusion | "Look, the thing is..." |
+| Opinion intrusion | "He was wrong, obviously." |
+| Informal phrasing | "kind of", "sort of", "pretty much" |
+
+---
+
+## R23: Specificity Injection
+
+**AI is abstract. Humans are specific.**
+
+| AI Abstract | Human Specific |
+|-------------|----------------|
+| "some time" | "three hours", "half a morning" |
+| "a few people" | "maybe five", "the three of them" |
+| "the room" | "the kitchen", "the small office" |
+| "a noise" | "a click", "a scrape" |
+| "something" | Name the thing |
+| "somewhere" | Name the place |
+| "a feeling" | Name the feeling or show action |
+| "various items" | List actual items |
+
+---
+
+## R24: Opinion/Attitude Injection
+
+**AI is neutral. Humans have opinions.**
+
+| AI Neutral | Human Opinionated |
+|------------|-------------------|
+| "It was a difficult decision." | "It was the wrong decision, but it was hers to make." |
+| "The plan had some issues." | "The plan was garbage. But it was all they had." |
+| "He was an interesting character." | "He was exhausting—brilliant, but exhausting." |
+| "The weather was unpleasant." | "The weather was crap. Typical." |
+
+---
+
+## R25: Final Grammar Roughness
+
+**Small imperfections that feel human**:
+
+| Perfect AI | Rough Human |
+|------------|-------------|
+| "He did not go." | "He didn't go." |
+| "She could not believe." | "She couldn't believe it." |
+| "It was not until..." | "Not until..." |
+| "There were many people." | "Lot of people." |
+| Perfect comma usage | Strategic comma omission |
+| No double negatives | "It wasn't nothing." (dialogue only) |
+
+---
+
+## Protected Elements
+
+**Keep original if**:
+- Genre-required formal style (period drama, legal thriller)
+- Character's voice already established
+- Technical/precise description needed
+- Previous rounds already humanized sufficiently
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+| 1 | R21 | elegant and attentive | tried too hard | Voice injection |
+| 2 | R22 | [perfect sentence] | [fragment] | Imperfection |
+| 3 | R23 | some time | three hours | Specificity |
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

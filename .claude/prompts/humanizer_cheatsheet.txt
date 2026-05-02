@@ -1,0 +1,181 @@
+# AI Humanizer Quick Reference — Complete Checklist
+
+> All 25 rules for removing AI writing traces. Use as final verification checklist.
+
+---
+
+## Round 1: Sentence Patterns (R1-R2)
+
+| Rule | Pattern | Action |
+|------|---------|--------|
+| R1 | "Not A, but B" | Rewrite as single affirmation |
+| R2 | Lines ≤15 chars | Merge into paragraph |
+
+---
+
+## Round 2: AI Vocabulary (R3-R5, R9-R10)
+
+### R3: DELETE These Connectors
+- Furthermore ✗
+- Moreover ✗
+- Additionally ✗
+- It should be noted ✗
+- In conclusion ✗
+- However × 2+ ✗ (keep first only)
+
+### R9: REPLACE These Words (TOP AI Markers)
+| AI Word | Human Word |
+|---------|------------|
+| delve | explore |
+| tapestry | web/mix |
+| testament | proof |
+| symphony | mix |
+| realm | world |
+| kaleidoscope | changing mix |
+| nuance | detail |
+| myriad | many |
+| intricate | complex |
+| ethereal | ghostly |
+| palpable | clear |
+| profound | deep |
+
+### R10: REPLACE Academic Words
+| AI | Human |
+|----|-------|
+| implement | use |
+| facilitate | help |
+| demonstrate | show |
+| crucial | show why |
+| significant | show how |
+
+---
+
+## Round 3: Rhythm (R6-R7)
+
+| Rule | Pattern | Action |
+|------|---------|--------|
+| R6 | Same structure × 3 | Vary one |
+| R7 | Three-part "A, B, and C" | Break to 2 or 4 |
+
+---
+
+## Round 4: Fiction Cliches (R11-R12)
+
+### R11: DELETE These Cliches
+- shivers ran down ✗
+- heart pounded ✗
+- breath caught ✗
+- wave of emotion ✗
+- couldn't help but ✗
+- without thinking ✗
+- before she knew it ✗
+- in that moment ✗
+
+### R12: DELETE These Metaphors
+- like a symphony ✗
+- like a tapestry ✗
+- like a dance ✗
+- wind whispered ✗
+- sunlight danced ✗
+
+---
+
+## Round 5: Dialogue (R13-R16)
+
+| Rule | AI Pattern | Human Pattern |
+|------|------------|---------------|
+| R13 | Perfect grammar | Fragments, interruptions |
+| R14 | Direct emotion | Subtext or action |
+| R15 | Balanced exchanges | Vary speech lengths |
+| R16 | Complete sentences | Trail off, restart |
+
+---
+
+## Round 6: Details (R8)
+
+**DELETE unless**:
+- Action scene detail
+- Intimate scene detail
+- Key dialogue action
+- Character appearance
+
+---
+
+## Round 7: Burstiness (R17-R20)
+
+| Rule | AI Pattern | Human Pattern |
+|------|------------|---------------|
+| R17 | Uniform length | Short. Short. LONG. Short. |
+| R18 | Same paragraph size | Mix 1-sentence, 5-sentence, 10-sentence |
+| R19 | Same opener × 3 | Vary opening words |
+| R20 | Same ending × 3 | Vary ending structure |
+
+---
+
+## Round 8: Human Pass (R21-R25)
+
+| Rule | AI Pattern | Human Pattern |
+|------|------------|---------------|
+| R21 | Neutral tone | Opinions, attitude |
+| R22 | Perfect grammar | Fragments, run-ons, And/But |
+| R23 | Abstract | Specific numbers/names |
+| R24 | Neutral statements | Opinionated statements |
+| R25 | Formal | Natural informal |
+
+---
+
+## Final Verification Checklist
+
+Run after all rounds:
+
+1. ✓ No delve/tapestry/testament/symphony
+2. ✓ No Furthermore/Moreover/Additionally
+3. ✓ No shivers/heart pounded/breath caught
+4. ✓ No couldn't help but/without thinking
+5. ✓ Dialogue has fragments/interruptions
+6. ✓ Sentence length varies (burstiness)
+7. ✓ Paragraphs vary in length
+8. ✓ Contains fragments and run-ons
+9. ✓ Starts sentences with And/But
+10. ✓ Emotion shown through action
+11. ✓ Has personality/voice/opinions
+12. ✓ Specific numbers not abstract
+13. ✓ No perfect grammar everywhere
+14. ✓ No like-a-symphony/tapestry metaphors
+
+---
+
+## Protected Content (Never Modify)
+
+- Character names/terms
+- Plot-critical dialogue
+- Scene dividers (***)
+- Chapter structure
+- Intentional literary devices
+- Genre-required elements
+
+---
+
+## Depth Quick Guide
+
+| Depth | Rounds | Time | For |
+|-------|--------|------|-----|
+| quick | 1-3 | Fast | Draft cleanup |
+| standard | 1-6 | Medium | Production |
+| deep | 1-8 | Longer | Publication |
+| ultra | 1-8+ | Longest | Final manuscript |
+
+---
+
+## One-Liner Rules
+
+- **R1**: "Not X but Y" → Just Y
+- **R2**: Short lines → Merge
+- **R3**: Furthermore → DELETE
+- **R9**: Delve → Explore
+- **R11**: Heart pounded → DELETE
+- **R13**: Perfect → Fragment
+- **R14**: "I'm angry" → "I need space"
+- **R17**: Uniform → Burst
+- **R21**: Neutral → Opinionated
+- **R22**: Perfect → Imperfect

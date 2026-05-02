@@ -1,0 +1,242 @@
+# Character Dynamics Prompt — English Only
+
+> Generate rich, dynamic English-speaking characters with unique voices and transformation arcs.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH** — All names, descriptions, dialogue samples in English
+2. **Western Character Conventions** — Use Western naming, cultural references, speech patterns
+3. **Distinct Dialogue Voices** — Each character must have recognizable English speech pattern
+
+---
+
+## Input
+
+- Core Seed: {core_seed}
+- User Guidance: {user_guidance}
+- Target Character Count: {num_characters}
+
+## Task
+
+Create {num_characters} core characters with full depth, unique English voices, and transformation arcs.
+
+---
+
+## Character Structure (For Each Character)
+
+### 1. Identity & Background (English)
+
+**Name**: Use Western naming conventions
+- First name + Last name (e.g., "Sarah Chen", "Marcus Cole", "Elena Vasquez")
+- Meaningful names allowed (e.g., "Hope" for optimistic character)
+- No Chinese names unless story specifically requires it
+
+**Age & Appearance**:
+- Specific age (not vague)
+- Concrete physical details (Western beauty standards, diverse features)
+- Distinctive markers (scar, tattoo, unusual eye color, posture)
+
+**Occupation/Role**:
+- Specific job title (Western context)
+- Social position in world
+
+**Background**:
+- Formative experiences (Western cultural context)
+- Education, family, trauma, successes
+- Hidden secret or vulnerability
+
+### 2. Core Drive Triangle (CRITICAL for Arc)
+
+**Surface Desire** (Material/External Goal):
+- What they consciously pursue
+- Concrete, achievable in story timeframe
+- Example: "To expose the conspiracy and save her reputation"
+
+**Deep Craving** (Emotional/Internal Need):
+- What they emotionally need (often unconscious)
+- Example: "To prove she's not worthless like her father claimed"
+
+**Soul Need** (Philosophical/Transformation Goal):
+- What they must learn for true fulfillment
+- Example: "That worth comes from character, not external validation"
+
+### 3. Language Profile (CRITICAL — Makes Dialogue Unique)
+
+This determines how each character speaks in English. Each must be distinct.
+
+**Speaking Style**:
+- Sentence length preference (short punchy vs. long flowing)
+- Sentence structure (simple vs. complex, questions vs. statements)
+- Interrupting habits? Pausing habits?
+- Example: "Short declarative sentences. Never uses filler words. Often ends with dry observation."
+
+**Vocabulary Level**:
+- Education level reflected (academic, street-smart, technical, simple)
+- Profession-specific jargon usage
+- Example: "Uses scientific terminology even in casual conversation. Says 'significant' instead of 'big'."
+
+**Catchphrases/Habits**:
+- Repeated words or expressions unique to this character
+- Example: "Always says 'Right.' after making a point. Uses 'Technically...' to start explanations."
+
+**Emotional Expression**:
+- How they show anger (explosive, cold, sarcastic, silent)
+- How they show affection (verbal, physical, practical help, gifts)
+- How they deflect (humor, denial, aggression, withdrawal)
+- Example: "Expresses anger through cutting sarcasm. Shows care by silently doing tasks. Deflects with dark humor."
+
+**Audience Variation**:
+- Speech changes based on listener (authority, friend, enemy, love interest)
+- Example: "With authority: formal and precise. With friends: casual and witty. With enemies: cold and minimal."
+
+**Unique Language Marker** (One thing NO OTHER character does):
+- Example: "Only this character says 'Interesting.' with a slight pause before it"
+- Example: "Only this character uses British spelling even in American context ('colour', 'realise')"
+
+### 4. Character Arc (Western Narrative Structure)
+
+**Initial State**: Where they start
+- Beliefs, worldview, emotional state at chapter 1
+- Example: "Believes truth is absolute. Trusts institutions. Emotionally guarded."
+
+**Trigger Event**: What disrupts equilibrium
+- External event that forces change
+- Example: "Discovering evidence that contradicts her worldview"
+
+**Cognitive Dissonance**: Internal struggle
+- The conflict between old belief and new evidence
+- Example: "Struggles between loyalty to institutions and loyalty to truth"
+
+**Transformation Point**: Key decision
+- The choice that defines their change
+- Example: "Chooses to expose truth despite personal cost"
+
+**Final State**: Where they end
+- New beliefs, worldview, emotional state
+- Example: "Believes truth requires sacrifice. Trusts individuals over institutions. Emotionally open."
+
+### 5. Relationship Web
+
+**Primary Relationship**: With protagonist/key character
+- Nature (ally, rival, romantic, familial)
+- History (formation)
+- Current tension (unresolved issue)
+- Example: "Sarah's mentor — respects her intellect but fears her ambition"
+
+**Secondary Relationship**: Different dynamic
+- Must contrast with primary
+- Example: "Sarah's sister — estranged but still checks on her secretly"
+
+**Hidden Connection**: Secret tie
+- Unknown to other characters or readers initially
+- Example: "Former colleague of the antagonist — shared history"
+
+**Betrayal Potential**: Where relationship could fracture
+- What trigger, how it would manifest
+- Example: "Would betray Sarah if offered truth about sister's death"
+
+---
+
+## Western Dialogue Style Rules
+
+Each character's dialogue must:
+1. Sound like real English speakers (not translated)
+2. Use appropriate register (formal/informal)
+3. Include natural speech markers (hesitations, interruptions)
+4. Avoid AI-typical patterns ("Furthermore", "Moreover")
+5. Show personality through word choice
+
+**Character Voice Examples**:
+
+**Academic**: "The statistical significance suggests... one might argue... I'm not entirely certain, but..."
+**Street-smart**: "Look, I don't know what you heard, but... that's not how it works. Trust me."
+**Military**: "Proceed. Acknowledged. Situation assessed. We have a problem."
+**Teenager**: "Seriously? That's so... whatever. I guess. Maybe."
+
+---
+
+## Output Format
+
+```
+[Character Name]
+
+BACKGROUND:
+[Paragraph in English, Western context]
+
+APPEARANCE:
+[2-3 sentences, concrete details]
+
+CORE DRIVE TRIANGLE:
+- Surface Desire: [English goal]
+- Deep Craving: [English emotional need]
+- Soul Need: [English philosophical lesson]
+
+LANGUAGE PROFILE:
+- Speaking Style: [English patterns]
+- Vocabulary: [English tendencies]
+- Catchphrases: [English expressions]
+- Emotional Expression: [English manifestations]
+- Audience Variation: [English speech changes]
+- Unique Marker: [English-only trait]
+
+CHARACTER ARC:
+- Initial: [English state]
+- Trigger: [English event]
+- Conflict: [English struggle]
+- Transformation: [English decision]
+- Final: [English outcome]
+
+RELATIONSHIPS:
+- Primary: [name - nature - tension]
+- Secondary: [name - different nature]
+- Hidden: [secret in English]
+- Betrayal Risk: [English trigger]
+```
+
+---
+
+## Requirements
+
+1. **100% English output** — No Chinese text anywhere
+2. **Western naming conventions** — Standard English names
+3. **Distinct dialogue voices** — Each character must speak differently
+4. **Real speech patterns** — Not formal/academic unless character warrants it
+5. **Complete arc structure** — Clear transformation path
+
+---
+
+Return ONLY character profiles in English. No Chinese. No explanations. No meta-commentary.
+
+---
+
+## Terminology Extraction (CRITICAL for Chinese Translation)
+
+After completing character profiles, extract ALL character names and roles for translation glossary:
+
+```
+=== TERMINOLOGY: CHARACTER NAMES ===
+
+[Character Name]:
+- Suggested Chinese: [transliteration, e.g., "Sarah Chen" → "莎拉·陈"]
+- Cultural Notes: [name origin, pronunciation considerations]
+- Role: [brief role description]
+
+[Character Name]:
+- Suggested Chinese: [transliteration]
+- Cultural Notes: [notes]
+- Role: [role]
+
+=== TERMINOLOGY: CHARACTER SPEECH MARKERS ===
+
+[Character Name]:
+- Speech Style (Chinese): [how this character should speak in Chinese]
+- Catchphrase Translations:
+  - "[English catchphrase]" → "[Chinese equivalent]"
+
+[Character Name]:
+- Speech Style (Chinese): [description]
+- Catchphrase Translations:
+  - "[English]" → "[Chinese]"
+```
+
+This terminology will be stored in translation_glossary.json for consistent Chinese translation.

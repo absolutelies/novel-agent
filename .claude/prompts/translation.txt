@@ -1,0 +1,221 @@
+# Translation Prompt — English to Chinese
+
+> Translate English novel content to Chinese with glossary consistency.
+
+## CRITICAL: Glossary Consistency Required
+
+1. **USE EXACT glossary translations** for all mapped terms
+2. **NEVER invent** new translations for mapped names/terms
+3. **FLAG unmapped terms** for glossary update
+4. **Preserve TV drama structure** (cold open, acts, tag)
+5. **Maintain character voice** in Chinese
+
+---
+
+## Input
+
+### Master Glossary
+{translation_glossary}
+
+### Character Names (EXACT mapping)
+{character_names}
+
+### World Terms (EXACT mapping)
+{world_terms}
+
+### Source Content (English)
+{chapter_content}
+
+### Context
+- Chapter Number: {chapter_number}
+- Chapter Title: {chapter_title}
+- POV Character: {pov_character}
+- Key Events Summary: {key_events}
+- A/B/C Storylines: {storylines}
+
+---
+
+## Translation Rules
+
+### 1. Proper Names (EXACT GLOSSARY)
+
+**Character Names**:
+- ALWAYS use mapped Chinese name from glossary
+- Example: "Sarah Chen" → "莎拉·陈" (exactly as mapped)
+- NEVER: "萨拉陈", "莎拉陈", or any other variant
+
+**Location Names**:
+- ALWAYS use mapped Chinese location from glossary
+- Example: "The Citadel" → "大都会" (exactly as mapped)
+
+**Organization Names**:
+- ALWAYS use mapped Chinese organization from glossary
+- Example: "Memory Trade Guild" → "记忆交易公会"
+
+**Technology/Magic Terms**:
+- ALWAYS use mapped Chinese term from glossary
+- Example: "memory chip" → "记忆芯片"
+
+---
+
+### 2. Unmapped Terms
+
+When encountering a term NOT in glossary:
+1. Transliterate or translate appropriately
+2. Add to "Translation Notes" at end
+3. Format: `[English]: [Chinese suggestion] — [reasoning]`
+
+---
+
+### 3. Dialogue Translation
+
+**Character Voice Preservation**:
+- Apply character-specific Chinese speech style from glossary
+- Maintain each character's unique Chinese voice
+- Translate catchphrases per glossary mapping
+
+**Examples**:
+- Sarah (direct, technical): "Interesting." → "有意思。" (per glossary)
+- Marcus (sarcastic): "Right." → "呵，没错。" (per glossary)
+
+**Subtext Translation**:
+- Preserve subtext (say X, mean Y)
+- Chinese subtext uses: implication, tone markers, sentence structure
+
+---
+
+### 4. Punctuation Conversion
+
+| English | Chinese |
+|---------|---------|
+| `"dialogue"` | `「对话」` |
+| `'internal thought'` | `'内心想法'` (keep single quotes) |
+| `...` (ellipsis) | `……` (Chinese ellipsis) |
+| `***` (scene break) | `***` (keep unchanged) |
+| `.` (period) | `。` |
+| `,` (comma) | `，` |
+| `!` | `！` |
+| `?` | `？` |
+
+**Dialogue Format**:
+```
+English: "Dialogue line," Character said.
+Chinese: 「对话内容，」角色说。
+```
+
+---
+
+### 5. TV Drama Structure Preservation
+
+**Act Structure**:
+- Cold Open → Keep as opening hook
+- Acts 1-5 → Preserve act pacing in Chinese
+- Tag → Keep closing hook format
+
+**Pacing Elements**:
+- Scene breaks: Preserve `***` markers
+- Dialogue ratio: Maintain ~40-50% dialogue
+- Scene economy: Keep "enter late, exit early" structure
+
+---
+
+### 6. Style Translation
+
+**Narrative Voice**:
+- Source: Third-person limited, objective
+- Target: 第三人称有限视角，客观语气 (per glossary)
+
+**Tone Preservation**:
+- Tense scenes → Maintain tension in Chinese
+- Emotional scenes → Preserve emotional resonance
+- Action scenes → Keep fast pacing
+
+---
+
+### 7. Phrase Mapping (AI Pattern Removal)
+
+For mapped phrases with "action: delete":
+- Remove entirely (do NOT translate)
+- Example: "Furthermore" → delete, not "此外"
+
+---
+
+## Output Format
+
+```
+第{chapter_number}章 {translated_title}
+
+【冷开场】
+[Translated cold open]
+
+***
+
+【第一幕】
+[Translated Act 1]
+
+***
+
+【第二幕】
+[Translated Act 2]
+
+***
+
+【第三幕】
+[Translated Act 3]
+
+***
+
+【第四幕】
+[Translated Act 4]
+
+***
+
+【第五幕】
+[Translated Act 5]
+
+***
+
+【尾声】
+[Translated Tag]
+
+---
+
+## 翻译注释（用于更新术语表）
+
+本章新术语：
+- [英文术语]: [建议中文] — [翻译理由]
+- [英文术语]: [建议中文] — [翻译理由]
+
+翻译问题标记：
+- [如有翻译困难或不确定的地方，在此标记]
+```
+
+---
+
+## Requirements
+
+1. **100% EXACT glossary usage** for mapped terms
+2. **Character voice preservation** in Chinese
+3. **Punctuation conversion**: `"` → `「`
+4. **TV drama structure preserved**
+5. **Flag unmapped terms** for glossary
+6. **Flag translation issues** for review
+7. **No mixed language** (pure Chinese output)
+
+---
+
+## Quality Checks
+
+After translation, verify:
+- ✓ All character names match glossary EXACTLY
+- ✓ All locations match glossary EXACTLY
+- ✓ All technology/magic terms match glossary EXACTLY
+- ✓ Dialogue uses character-specific Chinese voice
+- ✓ Punctuation converted to Chinese
+- ✓ TV drama act structure preserved
+- ✓ Unmapped terms flagged
+- ✓ No English text remaining in output
+
+---
+
+Return translated Chinese content with translation notes. No English in main content.

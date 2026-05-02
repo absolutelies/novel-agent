@@ -1,0 +1,86 @@
+# Global Summary Prompt — English Only
+
+> Update running global summary in English after new chapter completion.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Western Narrative Summary** — English storytelling conventions
+
+---
+
+## Input
+
+- New Chapter Text: {chapter_text} (English)
+- Previous Global Summary: {global_summary} (English)
+- Chapter Number: {chapter_number}
+
+## Task
+
+Update English global summary incorporating new chapter's events.
+
+---
+
+## English Update Rules
+
+1. **Preserve Important Elements** (English):
+   - Unresolved conflicts and suspense threads
+   - Active foreshadowing (planted, not paid off)
+   - Character relationship changes
+   - Key decisions and consequences
+   - World revelations and significance
+
+2. **Integrate New Content** (English):
+   - Add chapter's key events
+   - Update ongoing threads
+   - Note new planted foreshadowing
+   - Track character state changes
+   - Record new revelations
+
+3. **Condense Completed** (English):
+   - Resolved conflicts → one-line outcome
+   - Paid-off foreshadowing → result only
+   - Minor events → group under patterns
+
+4. **Length Control**:
+   - Target: 1500-2000 English words max
+   - Prioritize:
+     - Unresolved threads (highest)
+     - Character arc progressions
+     - Recent chapters (last 5 detailed)
+     - Early chapters (compressed)
+
+---
+
+## English Summary Style
+
+**Chronological Flow**:
+- Clear time progression
+- Cause-effect relationships visible
+- Thread tracking across chapters
+
+**Preserve Markers**:
+- [Planted Ch.X] for foreshadowing
+- Character decisions with noted consequences
+- World rule revelations highlighted
+
+---
+
+## Compression Strategy (English)
+
+- Early chapters: outcome-focused
+- Middle chapters: key turning points
+- Recent chapters: more detail for context
+
+---
+
+## Requirements
+
+1. **100% English output**
+2. **Maximum 2000 words**
+3. **Chronological narrative** (not chapter-by-chapter breakdown)
+4. **Thread tracking maintained**
+
+---
+
+Return ONLY updated English global summary. No Chinese. No explanations. Maximum 2000 words.

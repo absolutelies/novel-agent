@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/merge_novel.py)",
+      "Bash(grep -n \"^---$\" novel_full_en.md)"
+    ]
+  }
+}

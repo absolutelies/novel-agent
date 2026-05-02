@@ -1,0 +1,24 @@
+---
+name: web_novel
+description: Web serial novel preset - optimized for serialized fiction with strong hooks and chapter-level suspense
+type: preset
+---
+
+{
+  "preset_name": "web_novel",
+  "description": "Optimized for web serial novels with strong hooks, chapter-level suspense, and reader engagement focus",
+  "settings": {
+    "chapter_length": 3000,
+    "suspense_density_default": "tight",
+    "foreshadowing_frequency": "high",
+    "character_arc_speed": "medium",
+    "punctuation_style": "action-oriented",
+    "dialogue_ratio": 0.35,
+    "description_ratio": 0.25,
+    "narration_ratio": 0.40
+  },
+  "ai_polish_rules": {
+    "focus_areas": ["sentence_patterns", "ai_vocabulary", "pacing"],
+    "preserve_elements": ["action_sequences", "dialogue_markers", "cliffhangers"]
+  }
+}

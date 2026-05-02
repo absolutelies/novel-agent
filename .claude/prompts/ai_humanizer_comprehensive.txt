@@ -1,0 +1,466 @@
+# AI Writing Humanizer — Comprehensive Trace Removal System
+
+> Complete system to remove ALL AI writing characteristics and make prose human-like.
+> Based on research of GPT/ChatGPT/Claude writing patterns and human writing analysis.
+
+---
+
+## Overview
+
+This system uses multi-round processing to systematically remove AI writing traces:
+
+| Round | Focus | Rules |
+|-------|-------|-------|
+| Round 1 | Sentence Patterns | R1-R2 |
+| Round 2 | AI Vocabulary | R3-R5, R9-R10 |
+| Round 3 | Rhythm & Structure | R6-R7 |
+| Round 4 | Fiction Cliches | R11-R12 |
+| Round 5 | Dialogue Humanization | R13-R15 |
+| Round 6 | Detail Pruning | R8, R16 |
+| Round 7 | Burstiness Injection | R17-R18 |
+| Round 8 | Final Human Pass | R19-R20 |
+
+---
+
+## Part 1: AI Vocabulary Markers (Research-Based)
+
+### R9: "Delve" Family Words (HIGH PRIORITY)
+
+**Scientists identified these as top AI markers** (source: Science Alert, ZDNet, Guardian 2024):
+
+| AI Word | Frequency | Human Replacement |
+|---------|-----------|-------------------|
+| "delve" | 100x more in AI | "explore", "dig into", "look at", "examine" |
+| "tapestry" | AI favorite | "web", "mix", "blend", "complex picture" |
+| "testament" | AI overuse | "proof", "sign", "evidence", "shows" |
+| "symphony" | AI metaphor | "mix", "blend", "chorus", "combination" |
+| "realm" | AI favorite | "world", "field", "area", "domain" |
+| "kaleidoscope" | AI pattern | "changing mix", "shifting view", "variety" |
+| "nuance" | AI overuse | "detail", "shade", "subtle difference" |
+| "myriad" | AI vocabulary | "many", "countless", "numerous", "lots" |
+| "intricate" | AI adjective | "complex", "complicated", "detailed", "layered" |
+| "ethereal" | AI descriptor | "ghostly", "faint", "thin", "delicate" |
+| "palpable" | AI emotion word | "clear", "strong", "obvious", "thick" |
+| "profound" | AI depth word | "deep", "meaningful", "important" |
+| "underpins" | AI verb | "supports", "lies behind", "forms basis" |
+| "pivot" | AI transition | "turn", "shift", "change", "move" |
+| "leverage" | AI business-speak | "use", "take advantage of" |
+
+**Processing**: Replace ALL instances. No exceptions.
+
+---
+
+### R10: Academic/Formal AI Vocabulary
+
+**Connector Overuse** (DELETE entirely):
+| AI Phrase | Action |
+|-----------|--------|
+| "Furthermore" | DELETE — replace with silence or action |
+| "Moreover" | DELETE — or rewrite as "And" |
+| "Additionally" | DELETE — or split into separate thought |
+| "It should be noted that" | DELETE entire clause |
+| "It is worth noting" | DELETE entire clause |
+| "It's important to consider" | DELETE entire clause |
+| "In conclusion" | DELETE — end with action instead |
+| "To summarize" | DELETE |
+| "However" × 2+ | Keep FIRST only, delete rest |
+| "Nevertheless" | DELETE or "Still," |
+| "Consequently" | DELETE or show consequence directly |
+| "Subsequently" | DELETE or show time directly |
+
+**Academic Verb Replacements**:
+| AI Verb | Human Verb |
+|---------|------------|
+| "implement" | "use", "put in place", "start" |
+| "facilitate" | "help", "make easier", "enable" |
+| "demonstrate" | "show", "reveal", "prove" |
+| "indicate" | "suggest", "point to", "show" |
+| "exemplify" | "show", "illustrate", "be an example" |
+| "underscore" | "highlight", "emphasize", "stress" |
+| "elucidate" | "explain", "clarify", "make clear" |
+| "enumerate" | "list", "count", "name" |
+| "corroborate" | "confirm", "support", "back up" |
+
+**Modifier Replacements**:
+| AI Modifier | Human Action |
+|-------------|--------------|
+| "crucial" | SHOW why it matters |
+| "significant" | SHOW the significance |
+| "essential" | SHOW necessity |
+| "complex/intricate" | DESCRIBE the complexity |
+| "diverse/various" | LIST specifics |
+| "comprehensive" | "full", "complete", "covering everything" |
+| "robust" | "strong", "solid", "sturdy" |
+| "seamless" | "smooth", "without gaps" |
+
+---
+
+## Part 2: AI Fiction Cliches (R11-R12)
+
+### R11: Body/Emotion Cliches (CRITICAL for Fiction)
+
+**These appear 10x more in AI fiction than human fiction**:
+
+| AI Cliche | Human Rewrite |
+|-----------|---------------|
+| "shivers ran down his spine" | DELETE — or specific physical reaction |
+| "her heart pounded/raced" | DELETE — or "she felt her pulse in her throat" |
+| "his breath caught" | DELETE — or specific blocking description |
+| "a wave of emotion washed over" | DELETE — or name the emotion directly |
+| "she felt a surge of" | DELETE — or action showing emotion |
+| "his heart sank" | DELETE — or physical collapse description |
+| "a knot formed in her stomach" | DELETE — or specific sensation |
+| "his blood ran cold" | DELETE — or physical reaction |
+| "she couldn't help but" | DELETE entire phrase |
+| "without thinking" | DELETE — or show the automatic action |
+| "before she knew it" | DELETE — or show time passing |
+| "in that moment" | DELETE — often redundant |
+| "a sense of" | DELETE — name emotion or show action |
+| "something deep inside" | DELETE — or specify |
+| "he found himself" | DELETE — or restructure as direct action |
+
+**Example Rewrites**:
+```
+AI: "A wave of relief washed over her."
+Human: DELETE — or: "She exhaled. Her shoulders dropped."
+
+AI: "His heart pounded in his chest."
+Human: DELETE — or: "He could feel his pulse in his throat."
+
+AI: "She couldn't help but smile."
+Human: "She smiled." (just delete the couldn't-help-but)
+
+AI: "Without thinking, he reached for his gun."
+Human: "His hand was on his gun." (show automatic action)
+```
+
+---
+
+### R12: AI Description Patterns
+
+**Overused AI Metaphors** (replace or delete):
+| AI Pattern | Human Alternative |
+|------------|-------------------|
+| "like a symphony" | specific description or delete |
+| "like a tapestry" | delete — describe actual mix |
+| "like a dance" | delete — describe actual interaction |
+| "like a storm" | delete — describe actual chaos |
+| "like a ocean" | delete — describe actual vastness |
+| "like a predator" | delete — describe actual stalking |
+| "as if time stood still" | delete — or "for a moment, nothing moved" |
+| "electric atmosphere" | delete — describe actual tension |
+| "thick with tension" | delete — or "no one spoke" |
+| "heavy silence" | delete — or describe actual silence |
+| "hung in the air" | delete — or show specific |
+| "seemed to stretch forever" | delete — or specific time/length |
+
+**AI Environmental Padding** (DELETE):
+| Pattern | Action |
+|---------|--------|
+| "The wind whispered through..." | DELETE unless plot-critical |
+| "Sunlight danced on..." | DELETE unless plot-critical |
+| "Shadows played across..." | DELETE unless plot-critical |
+| "The air was thick with..." | DELETE — or be specific |
+| "A hush fell over..." | DELETE — or "silence" |
+| "Nature seemed to..." | DELETE — nature doesn't "seem" |
+
+---
+
+## Part 3: Dialogue Humanization (R13-R15)
+
+### R13: Perfect Dialogue → Natural Dialogue
+
+**AI Dialogue Problems**:
+| AI Problem | Human Fix |
+|------------|-----------|
+| Everyone speaks grammatically perfect | Add fragments, run-ons, interruptions |
+| All characters sound similar | Distinct voice patterns per character |
+| No conversational fillers | Add "um", "well", "you know", "I mean" |
+| Complete sentences always | Trail off, interrupt, restart |
+| Exposition in dialogue | DELETE — characters don't explain to each other |
+| Polite, measured responses | Make messier, emotional, reactive |
+| Question-Answer pattern | Mix up, avoid direct Q&A |
+| Balanced exchanges | Make some longer, some shorter |
+
+**Natural Dialogue Examples**:
+```
+AI: "I understand your concern. Let me explain why this is necessary."
+Human: "I know. Look—it's the only way."
+
+AI: "That's a fascinating point you've made. I hadn't considered it from that perspective."
+Human: "Huh. Didn't think of that."
+
+AI: "I'm sorry, but I disagree with your assessment of the situation."
+Human: "No. You're wrong."
+
+AI: "What do you think we should do about this problem?"
+Human: "So what do we do?" OR just: "What now?"
+```
+
+---
+
+### R14: Dialogue Subtext Injection
+
+**AI tends to be direct. Humans use subtext.**
+
+| Direct AI Dialogue | Subtext Human Dialogue |
+|--------------------|------------------------|
+| "I'm angry at you." | "I need some space." |
+| "I love you." | [action: reaches across and takes hand] |
+| "I don't trust him." | "Keep your distance from him." |
+| "I'm worried about the plan." | "Have we thought through all the angles?" |
+| "I want to leave." | "I think I should head out." |
+| "That hurt me." | "That was unnecessary." |
+| "You're important to me." | "I don't want to lose you." |
+
+**Rule**: If character directly states emotion → rewrite as action, gesture, or indirect statement.
+
+---
+
+### R15: Dialogue Power Dynamics
+
+**Speech length = Power**:
+| Situation | Dialogue Pattern |
+|-----------|-----------------|
+| Dominant character | Longer speeches, fewer interruptions |
+| Submissive character | Shorter responses, hesitation, breaks |
+| Tension scene | Interrupted exchanges, fragments |
+| Comfortable scene | Flowing exchanges, longer turns |
+| Conflict scene | Competition for speech time, overlapping |
+
+**Questions = Control**:
+- Who asks questions controls the conversation
+- Dominant character: asks questions
+- Submissive character: answers questions
+- Shift: when answerer starts asking, power shifts
+
+---
+
+## Part 4: Sentence Rhythm (R6-R7 Enhanced)
+
+### R6: Structure Repetition (Enhanced)
+
+**AI Pattern Detection**:
+1. **Same Subject-Verb-Object × 3** → change one
+2. **Same sentence length ±5 words × 3** → vary one
+3. **Same paragraph ending × 3** → vary one
+4. **Same opening word × 3** → vary one
+
+**AI Structure Favorites** (watch for):
+| AI Structure | Human Alternative |
+|--------------|-------------------|
+| "He [verbed] the [noun]." | Fragment, inversion, different verb |
+| "It was [adjective]." | Show instead |
+| "There was [noun]." | Make active |
+| "She felt [emotion]." | Physical reaction |
+| "The [noun] [verbed]." | Active subject |
+
+---
+
+### R7: Three-Part Pattern (Enhanced)
+
+**AI loves triads. Humans use 2 or 4.**
+
+| AI Triad | Human Rewrite |
+|----------|---------------|
+| "A, B, and C" | "A and B—C above all" OR "A, B, C, D" |
+| "laughed. cried. screamed." | "laughed, then cried. When she screamed..." |
+| "tall, dark, handsome" | "tall, dark—handsome in a sharp way" |
+| "fast, efficient, deadly" | "fast. Efficient. And deadly." |
+
+---
+
+## Part 5: Burstiness Injection (R17-R18)
+
+### R17: Sentence Length Variation (Burstiness)
+
+**AI writing has uniform sentence length. Human writing has burstiness (variation).**
+
+**The Concept**: Burstiness = sudden changes in sentence length/complexity.
+
+**Implementation**:
+| Location | AI Pattern | Human Burst |
+|----------|------------|-------------|
+| Action peak | Uniform medium | Short. Short. Short. LONG. Short. |
+| Tension build | Uniform length | Gradual increase, then PUNCTUATION |
+| Dialogue exchange | Matched lengths | One long, one short, two short, one long |
+| Scene end | Predictable wrap | Fragment. Or sudden long sentence. |
+| Paragraph | Uniform lengths | Mix 5-word, 20-word, 3-word, 15-word |
+
+**Burst Pattern Examples**:
+```
+AI (uniform):
+"She walked to the door. She opened it slowly. The room was dark. She stepped inside. Her heart raced."
+
+Human (burst):
+"Door. Open. Dark—she stepped in anyway. Her pulse found her throat and stayed there for the next three hours, which passed like years."
+```
+
+---
+
+### R18: Paragraph Variation
+
+**AI Paragraphs**:
+- Similar length
+- Topic → supporting → conclusion pattern
+- Even distribution
+
+**Human Paragraphs**:
+- One-sentence paragraphs for emphasis
+- Long paragraphs for reflection
+- Short paragraphs for action
+- Mixed lengths deliberately
+
+**Rules**:
+| Situation | Paragraph Style |
+|-----------|-----------------|
+| Action scene | Short, punchy (2-5 sentences) |
+| Dialogue heavy | Mix short and long |
+| Reflection | Long, flowing (8+ sentences) |
+| Emphasis point | Single sentence (standalone) |
+| Scene transition | Single line or fragment |
+
+---
+
+## Part 6: Final Human Pass (R19-R20)
+
+### R19: Personal Voice Injection
+
+**AI lacks personality. Human writing has voice.**
+
+**Techniques**:
+| AI Lack | Human Addition |
+|---------|----------------|
+| Neutral tone | Opinions, personality, attitude |
+| Safe statements | Risk-taking, bold claims |
+| Abstract description | Specific, idiosyncratic details |
+| Perfect grammar | Natural fragments, informal phrasing |
+| Formal vocabulary | Casual words, colloquialisms |
+| Balanced perspective | Strong positions, bias, preference |
+
+**Example**:
+```
+AI: "The restaurant was elegant and the service was attentive."
+Human: "The restaurant tried too hard. The waiter hovered like a guilty parent."
+```
+
+---
+
+### R20: Imperfection Injection
+
+**AI is too perfect. Human writing has rough edges.**
+
+**Techniques**:
+| Technique | Example |
+|-----------|---------|
+| Sentence fragments | "Not happening." / "Done." |
+| Run-on sentences | "He kept going and going and nobody stopped him because nobody could." |
+| Start with And/But | "And then she left." / "But that wasn't the end." |
+| Rhetorical questions | "What was she supposed to do?" |
+| Asides/digressions | "—which, looking back, was probably a mistake—" |
+| Conversational tone | "Look, the thing is..." |
+| Opinion intrusion | "He was wrong, obviously." |
+
+---
+
+## Part 7: Implementation Order
+
+### Multi-Round Processing Sequence
+
+```
+ROUND 1: Sentence Patterns
+├── R1: "Not A but B" → single affirmation
+├── R2: Sparse formatting → merge paragraphs
+└── Output: Pattern-cleaned text
+
+ROUND 2: AI Vocabulary
+├── R3: Connector words → delete
+├── R4: Synonym rotation → unify
+├── R5: Filler phrases → delete/simplify
+├── R9: Delve family → replace
+├── R10: Academic vocabulary → replace
+└── Output: Vocabulary-humanized text
+
+ROUND 3: Rhythm & Structure
+├── R6: Structure repetition → vary
+├── R7: Three-part patterns → 2 or 4
+└── Output: Rhythm-varied text
+
+ROUND 4: Fiction Cliches
+├── R11: Body/emotion cliches → delete/rewrite
+├── R12: Description patterns → delete/rewrite
+└── Output: Cliche-free text
+
+ROUND 5: Dialogue Humanization
+├── R13: Perfect → natural dialogue
+├── R14: Direct → subtext
+├── R15: Power dynamics → speech length variation
+└── Output: Human dialogue text
+
+ROUND 6: Detail Pruning
+├── R8: Useless details → delete (with protection)
+├── R16: Redundant reactions → keep strongest
+└── Output: Pruned text
+
+ROUND 7: Burstiness Injection
+├── R17: Sentence length variation → add burst patterns
+├── R18: Paragraph variation → mix lengths
+└── Output: Bursty text
+
+ROUND 8: Final Human Pass
+├── R19: Personal voice → add personality
+├── R20: Imperfection → add rough edges
+└── Output: HUMAN-QUALITY TEXT
+```
+
+---
+
+## Part 8: Depth Options
+
+| Depth | Rounds Applied | Use Case |
+|-------|---------------|----------|
+| Quick | 1-3 | Fast cleanup, minimal changes |
+| Standard | 1-6 | Thorough AI removal |
+| Deep | 1-8 (ALL) | Complete humanization |
+| Ultra | 1-8 + manual review | Maximum human quality |
+
+---
+
+## Part 9: Protected Content
+
+**Never modify** (across all rounds):
+- Character names and specific terminology
+- Plot-critical dialogue
+- Scene transitions (***)
+- Chapter structure markers
+- Direct quotations in dialogue (if stylistic)
+- Intentional literary devices (marked by author)
+- Genre-required elements (e.g., mystery clues)
+
+---
+
+## Part 10: Verification Checklist
+
+After all rounds, verify:
+
+1. ✓ No "delve/tapestry/testament/symphony" vocabulary
+2. ✓ No "Furthermore/Moreover/Additionally" connectors
+3. ✓ No "shivers ran down/heart pounded" cliches
+4. ✓ Dialogue has fragments, interruptions
+5. ✓ Sentence length has variation (burstiness)
+6. ✓ Paragraphs vary in length
+7. ✓ Contains fragments and run-ons
+8. ✓ Starts sentences with And/But
+9. ✓ Shows emotion through action, not words
+10. ✓ Has personality and voice
+
+---
+
+## Sources
+
+This system is based on research from:
+- [Science Alert - AI Telltale Phrases](https://www.sciencealert.com/ai-predictive-text-effect-words-chatgpt)
+- [ZDNet - ChatGPT Writing Markers](https://www.zdnet.com/article/theres-a-telltale-sign-something-was-written-by-chatgpt/)
+- [Guardian - AI Overused Words](https://www.theguardian.com/technology/2024/nov/21/chatgpt-words-predictive-text-ai-writing)
+- [Medium - ChatGPT Favorite Words](https://medium.com/@wordwrestle/chatgpts-favorite-words-which-overused-phrases-reveal-ai-written-text-a1d38b01461e)
+- NovelWriter_public project analysis

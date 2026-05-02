@@ -1,0 +1,142 @@
+# Polish Round 2 Enhanced — AI Vocabulary Complete Removal
+
+> Second round: Complete AI vocabulary removal including research-identified markers.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Comprehensive AI Vocabulary Removal** — Based on 2024 research findings
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+
+---
+
+## R3: Connector Words (DELETE)
+
+| AI Connector | Action |
+|--------------|--------|
+| "Furthermore" | DELETE entirely |
+| "Moreover" | DELETE entirely |
+| "Additionally" | DELETE entirely |
+| "It should be noted that" | DELETE entire clause |
+| "It is worth noting" | DELETE entire clause |
+| "It's important to consider" | DELETE entire clause |
+| "In conclusion" | DELETE entirely |
+| "To summarize" | DELETE entirely |
+| "However" × 2+ | Keep FIRST only |
+| "Nevertheless" | DELETE or → "Still," |
+| "Consequently" | DELETE or show consequence directly |
+| "Subsequently" | DELETE or show time directly |
+
+---
+
+## R4: Synonym Rotation (Unify)
+
+**Detection**: AI uses 3+ synonyms for same concept in same paragraph.
+
+| AI Pattern | Human Fix |
+|------------|-----------|
+| "stared → gazed → looked" | Unify to ONE word: "stared" |
+| "whispered → murmured → spoke softly" | Unify: "whispered" |
+| "walked → strode → moved" | Unify: most appropriate |
+| "said → replied → answered" | Unify: "said" |
+
+---
+
+## R5: Filler Phrases (DELETE)
+
+| AI Filler | Action |
+|-----------|--------|
+| "In some ways" | DELETE |
+| "In a sense" | DELETE |
+| "To some extent" | DELETE |
+| "In the process of" | DELETE |
+| "During the course of" | DELETE |
+| "In today's society" | DELETE |
+| "In the modern world" | DELETE |
+| "To a certain degree" | DELETE |
+| "As it turned out" | DELETE |
+| "It so happened that" | DELETE |
+| "Little did they know" | DELETE |
+
+---
+
+## R9: "Delve" Family (HIGH PRIORITY)
+
+**Scientific research identified these as TOP AI markers**:
+
+| AI Word | Human Replacement |
+|---------|-------------------|
+| "delve" | "explore", "dig into", "look at", "examine" |
+| "tapestry" | "web", "mix", "blend", "complex picture" |
+| "testament" | "proof", "sign", "evidence", "shows" |
+| "symphony" | "mix", "blend", "chorus", "combination" |
+| "realm" | "world", "field", "area", "domain" |
+| "kaleidoscope" | "changing mix", "shifting view" |
+| "nuance" | "detail", "shade", "subtle difference" |
+| "myriad" | "many", "countless", "numerous" |
+| "intricate" | "complex", "complicated", "detailed" |
+| "ethereal" | "ghostly", "faint", "thin", "delicate" |
+| "palpable" | "clear", "strong", "obvious" |
+| "profound" | "deep", "meaningful", "important" |
+| "underpins" | "supports", "lies behind" |
+| "pivot" | "turn", "shift", "change" |
+| "leverage" | "use", "take advantage of" |
+
+**Processing**: Replace ALL instances. No exceptions.
+
+---
+
+## R10: Academic Vocabulary (Replace)
+
+| AI Verb | Human Verb |
+|---------|------------|
+| "implement" | "use", "start", "put in place" |
+| "facilitate" | "help", "make easier", "enable" |
+| "demonstrate" | "show", "reveal", "prove" |
+| "indicate" | "suggest", "point to", "show" |
+| "exemplify" | "show", "illustrate" |
+| "underscore" | "highlight", "emphasize" |
+| "elucidate" | "explain", "clarify" |
+| "enumerate" | "list", "count", "name" |
+
+| AI Modifier | Human Fix |
+|-------------|-----------|
+| "crucial" | SHOW why it matters |
+| "significant" | SHOW significance |
+| "essential" | SHOW necessity |
+| "complex/intricate" | DESCRIBE complexity |
+| "diverse/various" | LIST specifics |
+| "comprehensive" | "full", "complete" |
+| "robust" | "strong", "solid" |
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+| 1 | R9 | delved | explored | AI marker removal |
+| 2 | R3 | Moreover | [deleted] | Connector removal |
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

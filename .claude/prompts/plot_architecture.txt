@@ -1,0 +1,274 @@
+# Plot Architecture Prompt — English Only
+
+> Design three-act suspense structure in English with Western narrative conventions.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Western Narrative Structure** — Three-act Hollywood structure
+3. **English Plot Terminology** — Western fiction terms
+
+---
+
+## Input
+
+- Core Seed: {core_seed}
+- Character Dynamics: {character_dynamics}
+- World Building: {world_building}
+- User Guidance: {user_guidance}
+- Target Chapters: {total_chapters}
+
+## Task
+
+Create complete three-act plot in English with suspense escalation and foreshadowing.
+
+---
+
+## Western Three-Act Structure
+
+### ACT ONE: TRIGGER (Setup)
+
+**Western Opening Conventions**:
+- Establish protagonist in status quo
+- Show character's flaw/need
+- Plant visual symbols
+- Introduce stakes subtly
+
+**Elements**:
+
+**Opening Image**: [English description]
+- Protagonist's current life
+- Visual representation of their flaw
+- Symbolic setting
+
+**Anomaly Signs** (3 incidents in English):
+- Incident 1: Small deviation
+- Incident 2: Escalating pattern
+- Incident 3: Direct confrontation
+
+**Threads Introduced** (English terms):
+- Main thread: Primary conflict
+- Hidden thread: Concealed subplot
+- Secondary thread: Supporting storyline
+
+**Inciting Incident** (Western concept):
+- Specific trigger event
+- Forces protagonist out of comfort zone
+- Changes 3+ character relationships
+
+**Wrong Choice** (Western arc element):
+- Protagonist's flawed initial response
+- Based on character's weakness
+- Creates new problems
+
+---
+
+### ACT TWO: CONFRIGNATION (Rising Action)
+
+**Western Rising Action Conventions**:
+- Progressive complications
+- Tests protagonist's commitment
+- Midpoint reversal
+- All-is-lost moment
+
+**Elements**:
+
+**Thread Intersection**:
+- Main and hidden threads cross
+- New complication arises
+- Forces strategy change
+
+**External Obstacles** (3 in English):
+- Obstacle 1: Physical/external barrier
+- Obstacle 2: Increased difficulty
+- Obstacle 3: Seeming impossibility
+
+**Internal Defeat**:
+- Failure/shame/loss moment
+- Confronts character flaw
+- Catalyzes transformation need
+
+**False Victory** (Western midpoint):
+- Seeming success
+- Actually deepens hidden crisis
+- False sense of security
+
+**Soul's Dark Night** (Western all-is-lost):
+- Maximum external + internal crisis
+- Worldview fundamentally challenged
+- Truth revelation about hidden thread
+- Old beliefs must be abandoned
+
+---
+
+### ACT THREE: RESOLUTION (Climax)
+
+**Western Climax Conventions**:
+- Protagonist faces ultimate test
+- Must sacrifice something core
+- Transformation completes
+- New equilibrium
+
+**Elements**:
+
+**Cost Revelation**:
+- Solution requires sacrifice
+- Trade-off forces final choice
+- Protagonist must decide what matters most
+
+**Nested Twists** (3 layers, English):
+- Surface: Apparent resolution
+- Deeper: Reveals new crisis
+- Final: Ultimate choice and consequence
+
+**Resolution Execution**:
+- Final choice made
+- Sacrifice enacted
+- Main thread resolved (or intentionally unresolved)
+
+**Aftermath** (Western ending):
+- New equilibrium
+- Character transformation complete
+- 2+ open threads for potential continuation
+
+---
+
+## Turning Points (Western Structure)
+
+Define 3 turning points per act:
+
+```
+Turning Point 1:
+- Location: Chapter [X]
+- Event: [English specific event]
+- Impact: [English change description]
+- Foreshadow planted: [English clue]
+- Foreshadow payoff: Chapter [Y]
+
+Turning Point 2:
+- Location: Chapter [X]
+- Event: [English specific event]
+- Impact: [English change description]
+- Foreshadow planted: [English clue]
+- Foreshadow payoff: Chapter [Y]
+```
+
+---
+
+## Foreshadowing Strategy (Western Fiction)
+
+**Planted Elements**:
+- Physical clues: objects, locations, descriptions
+- Dialogue hints: statements with double meaning
+- Behavior flags: character reactions with hidden reasons
+- Symbol seeding: visual motifs introduced early
+
+**Reinforced Elements**:
+- Callback references: earlier clues mentioned again
+- Pattern recognition: repeated motifs gaining significance
+- Character acknowledgment: protagonist notices anomalies
+
+**Payoff Moments**:
+- Twist reveals: hidden meanings exposed
+- Symbol culmination: motifs reach peak significance
+- Thread resolution: planted clues resolve plot threads
+
+---
+
+## Western Plot Terminology
+
+Use English terms throughout:
+- Inciting incident (not "trigger event" translated)
+- Rising action (not "development phase")
+- Climax (not "peak moment")
+- Resolution (not "ending phase")
+- Turning point (not "key moment")
+- Foreshadowing (not "hint planting")
+- Red herring (not "false clue")
+- Cliffhanger (not "suspension ending")
+
+---
+
+## Output Format
+
+```
+=== ACT ONE: TRIGGER ===
+
+OPENING IMAGE:
+[English description]
+
+ANOMALY SIGNS:
+1. [English incident]
+2. [English incident]
+3. [English incident]
+
+THREADS:
+- Main: [English description]
+- Hidden: [English description]
+- Secondary: [English description]
+
+INCITING INCIDENT:
+[English specific event]
+
+WRONG CHOICE:
+[English flawed response]
+
+=== ACT TWO: CONFRIGNATION ===
+
+THREAD INTERSECTION:
+[English complication]
+
+EXTERNAL OBSTACLES:
+1. [English barrier]
+2. [English obstacle]
+3. [English impossibility]
+
+INTERNAL DEFEAT:
+[English crisis moment]
+
+FALSE VICTORY:
+[English false success]
+
+SOUL'S DARK NIGHT:
+[English maximum crisis]
+
+=== ACT THREE: RESOLUTION ===
+
+COST REVELATION:
+[English sacrifice required]
+
+NESTED TWISTS:
+1. Surface: [English apparent resolution]
+2. Deep: [English new crisis]
+3. Final: [English ultimate choice]
+
+RESOLUTION:
+[English final outcome]
+
+AFTERMATH:
+[English new equilibrium]
+
+=== TURNING POINTS ===
+
+[3 per act with English descriptions]
+
+=== FORESHADOW STRATEGY ===
+
+PLANTED: [English clues]
+REINFORCED: [English callbacks]
+PAYOFF: [English reveals]
+```
+
+---
+
+## Requirements
+
+1. **100% English output**
+2. **Western three-act structure**
+3. **English plot terminology**
+4. **Specific events** (not vague descriptions)
+5. **Foreshadow mapping** (plant location → payoff location)
+
+---
+
+Return ONLY plot architecture in English. No Chinese. No explanations.

@@ -1,0 +1,378 @@
+# Chapter Blueprint Prompt — English Only (TV Drama Structure)
+
+> Generate chapter-by-chapter metadata using American TV drama pacing and narrative beats.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **American TV Drama Structure** — Cold open, 5-act structure, A/B/C storylines, tag
+3. **TV Pacing** — Scene economy, act breaks, hooks (not cliffhangers)
+4. **File Naming Ready** — Titles must convert to snake_case
+
+---
+
+## Input
+
+- Plot Architecture: {plot_architecture}
+- Character Dynamics: {character_dynamics}
+- World Building: {world_building}
+- User Guidance: {user_guidance}
+- Total Chapters: {total_chapters}
+
+## Task
+
+Create chapter blueprint using American TV drama episode structure.
+
+---
+
+## TV Drama Episode Structure (Per Chapter)
+
+Each chapter = One "episode" with:
+
+```
+COLD OPEN (2-5% of chapter, ~100-300 words)
+├── Purpose: Hook, tone establishment, question planted
+├── Types: Immediate action | Flashback | Contrast | Mystery teaser | Character moment
+└── End: Clear hook that draws reader into act 1
+
+ACT 1 - SETUP (15-20%, ~500-800 words)
+├── A-Story: Main plot establishment (60-70% focus)
+├── B-Story: Secondary arc introduction (20-30% focus)
+├── C-Story: Tertiary seed (5-15% focus)
+└── End Beat: Stakes clarified, question posed
+
+ACT 2 - RISING (20-25%, ~600-900 words)
+├── A-Story: Complications escalate
+├── B-Story: Development
+├── A/B Intersection: Storylines begin crossing
+└── End Beat: Stakes escalate, protagonist faces obstacle
+
+ACT 3 - MIDPOINT (20-25%, ~600-900 words)
+├── A-Story: Midpoint turn (reversal or revelation)
+├── B-Story: Crisis point
+├── C-Story: Setup or payoff
+└── End Beat: Harder choice, deeper stakes
+
+ACT 4 - CLIMAX BUILD (20-25%, ~600-900 words)
+├── A-Story: Approaching climax
+├── All Storylines: Converge
+├── Maximum Tension: Peak moment
+└── End Beat: Climax imminent
+
+ACT 5 - RESOLUTION (10-15%, ~300-500 words)
+├── A-Story: Climax execution
+├── Aftermath: Immediate consequences
+└── End Beat: Resolution complete (or intentional unresolved)
+
+TAG (2-5%, ~100-300 words)
+├── Purpose: Emotional resonance, next chapter hook
+├── Types: Revelation | Decision | Relationship shift | Mystery | Momentum
+└── End: Hook for next episode (not cliffhanger)
+```
+
+---
+
+## Storyline Structure (A/B/C)
+
+### A-Story (Primary)
+- **Focus**: 60-70% of chapter content
+- **Purpose**: Main plot, central conflict, protagonist arc
+- **Span**: Episode-to-episode continuity
+- **Beat Count**: 4-6 major beats per chapter
+
+### B-Story (Secondary)
+- **Focus**: 20-30% of chapter content
+- **Purpose**: Supporting character, parallel theme
+- **Span**: 3-5 episode arc
+- **Beat Count**: 2-3 beats per chapter
+- **Intersection**: Must connect to A-story by Act 3-4
+
+### C-Story (Tertiary)
+- **Focus**: 5-15% of chapter content
+- **Purpose**: World-building, comic relief, future setup
+- **Span**: Season-long arc
+- **Beat Count**: 1-2 beats per chapter
+- **Payoff**: Often in later chapters
+
+---
+
+## Cold Open Types (Select per Chapter)
+
+| Type | Use When | Example |
+|------|----------|---------|
+| Immediate Action | High tension episodes | Breaking Bad openings |
+| Flashback/Flashforward | Timeline complexity | Better Call Saul |
+| Contrast Scene | Theme irony | Succession family moments |
+| Mystery Teaser | Puzzle episodes | True Detective |
+| Character Moment | Arc-focused episodes | Mad Men intros |
+| Time Jump | Non-linear narratives | |
+| POV Shift | Multiple perspectives | |
+
+---
+
+## Tag Types (Select per Chapter)
+
+| Type | Purpose | Emotional Effect |
+|------|---------|------------------|
+| Revelation Hook | New information | Curiosity |
+| Decision Hook | Character choice | Anticipation |
+| Relationship Hook | Dynamic shift | Investment |
+| Mystery Hook | Question planted | Intrigue |
+| Momentum Hook | Action continues | Excitement |
+| Contrast Hook | Tone shift | Complexity |
+| Silence Hook | Unspoken moment | Reflection |
+
+---
+
+## TV Pacing Rules
+
+### Scene Economy
+- **Enter late, exit early**: Start at action point, end at decision point
+- **One purpose per scene**: Clear beat advancement
+- **No meandering**: Every line serves story
+
+### Act Break Markers
+- **Act 1 end**: Question posed (what will protagonist do?)
+- **Act 2 end**: Stakes clarified (why it matters more)
+- **Act 3 end**: Reversal revealed (what changed)
+- **Act 4 end**: Climax imminent (what's about to happen)
+- **Act 5 end**: Resolution state (how things stand now)
+
+### Hook vs Cliffhanger (CRITICAL for Binge-Optimized Writing)
+
+| Aspect | Cliffhanger ✗ (Avoid) | Hook ✓ (Use) |
+|--------|----------------------|--------------|
+| Emotion | Anxiety, fear | Curiosity, interest |
+| Question | "Will they survive?" | "What will they do?" |
+| Tension | External danger | Internal choice |
+| Closure | None (hanging) | Partial (emotional close) |
+| Binge effect | Exhausting | Sustainable |
+
+**Hook Types by Emotion**:
+- **Revelation Hook**: New information reframes situation → Curiosity
+- **Decision Hook**: Character makes consequential choice → Anticipation
+- **Relationship Hook**: Dynamic between characters shifts → Investment
+- **Mystery Hook**: Question planted for future → Intrigue
+- **Momentum Hook**: Action continues, no pause → Excitement
+- **Silence Hook**: Unspoken moment, implication → Reflection
+
+**Prestige TV Examples**:
+- Breaking Bad ends episodes with decisions, not danger
+- The Americans uses relationship shifts as hooks
+- The Wire plants institutional questions, not personal danger
+
+---
+
+## Narrative Beat Structure
+
+Each act contains specific beats:
+
+```
+ACT 1 BEATS:
+Beat 1: A-story establishment scene
+Beat 2: B-story introduction scene
+Beat 3: C-story seed (if applicable)
+Beat 4: Stakes clarification (dialogue/action)
+
+ACT 2 BEATS:
+Beat 5: A-story complication
+Beat 6: B-story development
+Beat 7: A/B intersection point
+Beat 8: Escalation beat
+
+ACT 3 BEATS:
+Beat 9: Midpoint turn (reversal/revelation)
+Beat 10: B-story crisis
+Beat 11: All threads acknowledgment
+Beat 12: Choice point beat
+
+ACT 4 BEATS:
+Beat 13: A-story climax approach
+Beat 14: Storyline convergence
+Beat 15: Maximum tension
+Beat 16: Climax trigger
+
+ACT 5 BEATS:
+Beat 17: Climax execution
+Beat 18: Immediate aftermath
+Beat 19: Resolution state
+
+TAG BEAT:
+Beat 20: Closing hook (emotional/thematic)
+```
+
+---
+
+## Visual Storytelling Requirements
+
+**Show through Action**:
+- Emotion → physical action (not description)
+- Relationship → gesture/interaction
+- Tension → movement/silence
+
+**Dialogue Focus**:
+- Target: 40-50% dialogue ratio
+- Subtext required: Say X, mean Y
+- Interruptions natural
+- Cross-talk in groups
+
+**Economical Description**:
+- Visual details: functional only
+- No decorative prose
+- Setting serves story
+
+---
+
+## Cross-Chapter Threads
+
+**Setup-Payoff Tracking**:
+- Plant in chapter N
+- Reinforce in chapter N+3
+- Payoff in chapter N+M
+
+**Running Threads**:
+- Thread A: Episode-to-episode (immediate)
+- Thread B: 3-5 episode span (medium)
+- Thread C: Season arc (long-term)
+
+---
+
+## Season Arc Awareness (Novel = Season Model)
+
+When planning chapters, consider season position:
+
+| Chapter Position | Season Function | Pacing Notes |
+|------------------|-----------------|--------------|
+| Chapters 1-2 | Premiere | Setup + inciting + strong hooks |
+| Chapters 3-5 | Rising | Stakes clarification + B-story introduction |
+| Chapters 6-7 | Pivot | Reversal + revelation + stakes escalate |
+| Chapters 8-10 | Climax Build | Convergence + countdown feel |
+| Chapters 11-12 | Resolution | Outcome + transformation |
+| Chapter 13+ | Finale | Aftermath + seeds + closure |
+
+**Mid-Season Pivot (Chapters 6-7)** is critical:
+- Must include reversal or revelation
+- Stakes must escalate beyond previous level
+- Often changes direction of entire arc
+- Example: Breaking Bad S1E7 — Walt's cancer remission traps him in criminal life
+
+---
+
+## Three-Chapter Summary Injection
+
+Before planning chapter N, consider summary from N-3, N-2, N-1:
+
+**Inherited Elements** (must continue):
+- Active conflicts from previous chapters
+- Unresolved questions
+- Character states
+- Running threads
+
+**Adjustable Elements** (can evolve):
+- Secondary character positions
+- Relationship dynamics
+- World expansion
+
+**Warning Markers** (check for conflicts):
+- [!] Character mentioned X but not reinforced
+- [!] Thread planted but not advanced
+- [!] Timeline gaps
+
+---
+
+## Chapter Metadata Format
+
+```
+Chapter N - [English Title]
+
+TV STRUCTURE:
+├── Cold Open Type: [Action | Flashback | Mystery | Character | Contrast]
+├── A-Story Focus: [English description of primary plot]
+├── B-Story Focus: [English secondary arc description]
+├── C-Story Focus: [English tertiary element]
+├── Tag Type: [Revelation | Decision | Relationship | Mystery | Momentum]
+
+ACT BEATS:
+├── Act 1: [3-4 beat descriptions, English]
+├── Act 2: [3-4 beat descriptions, English]
+├── Act 3: [3-4 beat descriptions, English]
+├── Act 4: [3-4 beat descriptions, English]
+├── Act 5: [2-3 beat descriptions, English]
+├── Tag: [Closing beat, English]
+
+STORYLINE DETAILS:
+├── A-Story: [Full arc this chapter, 100+ words, English]
+├── B-Story: [Development this chapter, English]
+├── C-Story: [Element this chapter, English]
+├── Intersections: [Where A/B/C cross, English]
+
+TV PACING:
+├── Dialogue Ratio: [40-50% target]
+├── Scene Count: [15-20 scenes per chapter]
+├── Hook: [English hook description, not cliffhanger]
+├── Emotional Peak: [Which act, what emotion]
+
+CHARACTERS:
+├── A-Story Characters: [English names]
+├── B-Story Characters: [English names]
+├── C-Story Characters: [English names]
+├── POV: [Primary perspective character]
+
+KEY ELEMENTS:
+├── Cold Open: [English specific scene description]
+├── Midpoint Turn: [English reversal/revelation]
+├── Climax: [English climax description]
+├── Tag: [English closing scene]
+
+CALLBACKS/SETUPS:
+├── Callbacks to: [Previous chapter references, English]
+├── Setups for: [Future chapter plants, English]
+├── Payoffs: [This chapter resolves what, English]
+
+CHAPTER SUMMARY: (One English sentence)
+[Episode summary in TV style]
+```
+
+---
+
+## Requirements
+
+1. **100% English output**
+2. **TV drama structure** (cold open → 5 acts → tag)
+3. **A/B/C storylines** defined per chapter
+4. **Beat structure** for each act
+5. **Hooks (not cliffhangers)** for tags
+6. **Dialogue ratio** 40-50% target
+7. **Scene economy** (enter late, exit early)
+8. **Cross-chapter threads** tracked
+
+---
+
+Return ONLY chapter blueprint in English with TV drama structure. No Chinese. No explanations.
+
+---
+
+## Terminology Summary (CRITICAL for Chinese Translation)
+
+After completing blueprint, extract chapter title and verify terms:
+
+```
+=== TERMINOLOGY: CHAPTER TITLE ===
+
+Chapter {chapter_number}: "[English Title]"
+- Suggested Chinese: [translation]
+- Title Context: [what this title references]
+
+=== TERMINOLOGY: CHAPTER-SPECIFIC TERMS ===
+
+[If chapter introduces new locations/characters/terms, list here]:
+- [Term]: [context] — suggested Chinese: [translation]
+
+=== TERMS FROM GLOSSARY USED THIS CHAPTER ===
+
+Characters: [list character names from glossary]
+Locations: [list locations from glossary]
+Terms: [list other terms from glossary]
+```
+
+This ensures blueprint terminology is captured for translation consistency.

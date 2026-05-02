@@ -1,0 +1,219 @@
+# World Building Prompt — English Only
+
+> Construct a three-dimensional world matrix in English with Western cultural context.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH** — No Chinese characters
+2. **Western Cultural Context** — Use Western history, society, geography references
+3. **English Place Names** — All locations, regions, factions in English
+
+---
+
+## Input
+
+- Core Seed: {core_seed}
+- Character Dynamics: {character_dynamics}
+- User Guidance: {user_guidance}
+
+## Task
+
+Build a comprehensive English-language world with three interlocking dimensions.
+
+---
+
+## Three-Dimensional World Matrix
+
+### Dimension 1: PHYSICAL
+
+**Space Structure** (Western geography conventions):
+- Regions/zones with English names (New Eden, The Outlands, Core District)
+- Social geography (Upper Districts vs Lower Levels, or East/West divide)
+- Key locations (5+ with distinct functions): The Citadel, The Archives, The Undercity
+- Movement rules: travel methods, restrictions, costs in English context
+
+**Timeline**:
+- Current era with English name (The Reconstruction Era, Post-Collapse, The Digital Age)
+- Key historical events (3-5 Western-style events: The Great War, The Schism, The Founding)
+- Cyclical events (annual festivals, seasonal changes, generational cycles)
+- Future pressures: approaching deadlines, threats, events
+
+**Rule Systems**:
+- Physical laws (normal physics, modified physics, or magic systems with English names)
+- Technology/magic with English terminology
+- Social rules with Western legal concepts
+- Economic systems with English concepts (credits, standard currency, trade guilds)
+- **Identify 2+ rule loopholes** that create conflict opportunities
+
+### Dimension 2: SOCIAL
+
+**Power Structure** (Western political concepts):
+- Formal hierarchy: government types (Republic, Federation, Corporation, Monarchy)
+- Informal networks: who actually holds power
+- Power fault lines: where conflicts brew
+- Rising/falling powers: changing dynamics
+
+**Cultural Taboos** (Western social norms):
+- Forbidden actions in Western context
+- Punishment systems: Western legal concepts (exile, imprisonment, social ostracism)
+- Underground violations: who breaks rules secretly
+- Taboo triggers: what provokes strongest reactions
+
+**Economic Lifelines**:
+- Critical resources in English terms (energy crystals, data banks, water supply)
+- Resource control: who holds supply
+- Scarcity pressures: where shortages exist
+- Opportunity gaps: where new wealth is possible
+
+### Dimension 3: METAPHORICAL
+
+**Visual Symbol System**:
+- Recurring motifs with English significance (the Tower = ambition, the River = change)
+- Color symbolism: Western associations (red = danger/passion, blue = cold/truth)
+- Object symbolism: Western objects with layered meaning
+- Architectural symbolism: Western building types (cathedral = faith, tower = power)
+- Weather symbolism: Western associations (storm = conflict, fog = uncertainty)
+
+**Environment-Psychology Mapping**:
+- Setting-emotion correlations in Western context:
+  - Urban decay → moral decline
+  - Mountain heights → ambition and isolation
+  - Ocean depths → subconscious, hidden truths
+- Location-transformation correlation: where characters change
+- Environmental pressure: how setting forces behavior
+
+**Civilization Dilemma**:
+- Core societal conflict (Western philosophical themes):
+  - Individual freedom vs collective security
+  - Progress vs tradition
+  - Truth vs stability
+- Compromise solutions: how society tries to resolve
+- Unresolved tension: what remains fractured
+- Individual vs collective clash points
+
+---
+
+## Western Context Examples
+
+**Sci-Fi Setting**:
+- Regions: The Core Worlds, The Outer Rim, The Frontier
+- History: The Expansion Wars, The AI Rebellion, The Consolidation
+- Power: The Federation Council, The Corporate Consortium, The Free Traders
+- Taboo: Memory editing (illegal but practiced)
+- Symbols: Neural networks = interconnected fate, Stars = infinite possibility
+
+**Fantasy Setting**:
+- Regions: The Northern Kingdoms, The Southern Desert, The Eastern Isles
+- History: The Demon Wars, The Golden Age, The Sundering
+- Power: The High Council, The Guild of Mages, The Knight Orders
+- Taboo: Blood magic (prohibited, practiced by outcasts)
+- Symbols: The Crown = legitimate power, The Sword = justice through force
+
+**Thriller Setting**:
+- Regions: Downtown, The Suburbs, The Industrial Zone
+- History: The Corruption Scandal, The Reform Movement, The Crime Wars
+- Power: The Mayor's Office, The Police Department, The Syndicate
+- Taboo: Snitching (social taboo, legal necessity)
+- Symbols: The Badge = authority/corruption dichotomy, The Gun = power
+
+---
+
+## Output Format
+
+```
+=== PHYSICAL DIMENSION ===
+
+SPACE STRUCTURE:
+[English regions, locations, geography]
+
+TIMELINE:
+[English era name, Western historical events]
+
+RULE SYSTEMS:
+[English terminology for laws, tech, magic]
+[CRITICAL: Loopholes identified]
+
+=== SOCIAL DIMENSION ===
+
+POWER STRUCTURE:
+[Western political concepts, English faction names]
+
+CULTURAL TABOOS:
+[Western social norms, English punishment terms]
+
+ECONOMIC LIFELINES:
+[English resource names, Western economic concepts]
+
+=== METAPHORICAL DIMENSION ===
+
+VISUAL SYMBOL SYSTEM:
+[Western symbols with English meanings]
+
+ENVIRONMENT-PSYCHOLOGY MAPPING:
+[Setting-emotion in Western context]
+
+CIVILIZATION DILEMMA:
+[Western philosophical themes, English description]
+```
+
+---
+
+## Requirements
+
+1. **100% English output**
+2. **Western cultural references** (not Eastern/Chinese context)
+3. **English naming conventions** for all elements
+4. **Connection to characters** — world must serve character arcs
+5. **Conflict potential** — at least 2 contradictions or loopholes
+
+---
+
+Return ONLY the world building in English. No Chinese. No explanations.
+
+---
+
+## Terminology Extraction (CRITICAL for Chinese Translation)
+
+After completing world building, extract ALL locations, organizations, and terms for translation glossary:
+
+```
+=== TERMINOLOGY: LOCATIONS ===
+
+[Location Name]:
+- Suggested Chinese: [translation, e.g., "The Citadel" → "大都会"]
+- Context: [location type: city, building, region]
+- Notes: [cultural considerations]
+
+[Location Name]:
+- Suggested Chinese: [translation]
+- Context: [context]
+- Notes: [notes]
+
+=== TERMINOLOGY: ORGANIZATIONS ===
+
+[Organization Name]:
+- Suggested Chinese: [translation, e.g., "Memory Trade Guild" → "记忆交易公会"]
+- Type: [government, corporation, guild, faction]
+- Notes: [translation notes]
+
+=== TERMINOLOGY: TECHNOLOGY/MAGIC ===
+
+[Technology/Magic Term]:
+- Suggested Chinese: [translation, e.g., "memory chip" → "记忆芯片"]
+- Category: [technology/magic system]
+- Notes: [technical translation considerations]
+
+[Technology/Magic Term]:
+- Suggested Chinese: [translation]
+- Category: [category]
+- Notes: [notes]
+
+=== TERMINOLOGY: CONCEPTS ===
+
+[Concept Term]:
+- Suggested Chinese: [translation]
+- Context: [how used in story]
+- Notes: [translation notes]
+```
+
+This terminology will be stored in translation_glossary.json for consistent Chinese translation.

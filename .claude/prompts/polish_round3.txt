@@ -1,0 +1,84 @@
+# Polish Round 3 — English Only (R6-R7)
+
+> Third round: Rhythm + structure check for English prose.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **English Rhythm Patterns** — Target English sentence structures
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+
+---
+
+## Rule 6 (R6): English Sentence Rhythm
+
+### Scan Targets
+
+1. **Structure Repetition**: 3+ same English structure
+   - S-V-O × 3 → change one
+   - "He [verb] the [noun]" × 3 → restructure one
+
+2. **Length Repetition**: 3+ within ±5 words
+   - 15, 16, 14 word sentences → vary one
+
+3. **Ending Repetition**: Same paragraph endings
+   - "..., and [result]" × 3 → vary one
+
+### English Processing
+Change ONE sentence in pattern.
+
+### English Exceptions
+- Dialogue patterns (character speech)
+- Deliberate parallelism
+- Action rhythm
+
+---
+
+## Rule 7 (R7): English Three-Part Overuse
+
+### Detection
+English AI tendency for triads:
+- "A, B, and C" × multiple
+- Three parallel short sentences grouped repeatedly
+
+### English Processing
+Break to 2 or 4 parts.
+
+### English Examples
+- "strong, brave, and loyal" → "strong and brave—loyal above all"
+- "laughed. cried. screamed." → "laughed, then cried. When she screamed..."
+
+### Keep when
+- Thematic three intentional
+- Rhetorical emphasis (one instance)
+- Character triad speech pattern
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

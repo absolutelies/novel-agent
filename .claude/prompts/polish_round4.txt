@@ -1,0 +1,104 @@
+# Polish Round 4 — English Only (R8)
+
+> Optional round: Useless detail removal for English prose.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Western Prose Context** — English fiction conventions
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Outline Context: {outline_context}
+- Character Context: {character_context}
+- User Focus: {user_focus}
+
+---
+
+## Four Protected Categories (NEVER Delete)
+
+1. **Action/Fight Scene Details**
+   - Moves, positioning, injuries
+   - Tactical descriptions
+   - Physical consequences
+
+2. **Intimate/Romance Details**
+   - Physical reactions, sensory
+   - Emotional shifts
+   - Body language revealing attraction
+
+3. **Key Dialogue Actions**
+   - Facial expressions during important lines
+   - Body language with critical dialogue
+   - Gestures revealing intent
+
+4. **Character Charm/Appearance**
+   - Face, body, posture
+   - Clothing, style
+   - Presence and charisma
+
+---
+
+## English High-Risk Targets
+
+### A. Non-Functional Micro-Movements
+- Fingers whitening (non-critical)
+- Brows furrowing (not key moment)
+- Lips curving/pursing
+- Eyelashes fluttering
+- Throat bobbing (non-tension)
+- Generic eye movements
+
+### B. Floating Environment Fragments
+- Wind-ruffled clothes/hair (decorative)
+- Decorative lighting (no mood function)
+- Liquid swaying (no plot purpose)
+- Weather not driving action
+
+### C. Repeated Emotional Externalization
+- Same emotion × 2+ body reactions → keep strongest
+- Internal monologue + body description → remove redundant
+
+---
+
+## English Decision Flow
+
+1. Protected category? → KEEP
+2. Deletion damages core? → KEEP
+3. Foreshadow/causal chain? → KEEP
+4. None above? → DELETE
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Category | Original | Action | Reason |
+|---|----------|----------|--------|--------|
+```
+
+---
+
+## Context for Judgment
+
+{outline_context}
+{character_context}
+{user_focus}
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

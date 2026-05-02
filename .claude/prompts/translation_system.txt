@@ -1,0 +1,607 @@
+# Translation System Design — English to Chinese
+
+> Comprehensive translation approach with terminology consistency and contextual awareness.
+
+---
+
+## Problem Statement
+
+Translating English novels to Chinese requires:
+1. **Proper name consistency** — Character names, locations, organizations
+2. **Concept terminology consistency** — World-specific terms, technology, magic systems
+3. **Context preservation** — Story elements, relationships, tone
+4. **Voice preservation** — Character speech patterns in target language
+
+---
+
+## CRITICAL: Name Translation Rule — Phonetic Transliteration
+
+**Western names MUST use phonetic transliteration (音译), NOT Chinese-style names.**
+
+| English Name | Correct Chinese (Phonetic) | Wrong (Chinese-style) |
+|--------------|---------------------------|----------------------|
+| Elizabeth | 伊丽莎白 | 陈丽莎 |
+| Sarah | 萨拉 | 淑荣 |
+| Marcus | 库斯 | 伟 |
+| Napoleon | 拿破仑 | 陈波 |
+| Alexander | 亚历山大 | 张伟 |
+
+**Rule**:
+- Western first names → Phonetic transliteration (伊丽莎白, 萨拉, 马库斯)
+- Western surnames → Phonetic transliteration (科尔, 瓦斯奎兹)
+- Chinese heritage names → First name phonetic + Chinese surname (萨拉·陈)
+- **FORBIDDEN**: Using Chinese-style names like "陈波", "林淑荣", "张伟" for Western characters
+
+---
+
+## CRITICAL: Forbidden Literal Translation (禁止直译)
+
+**Literal word-by-word translation produces awkward, un-Chinese prose. MUST rewrite naturally.**
+
+| English Original | BAD (Literal) | GOOD (Natural Chinese) |
+|------------------|---------------|------------------------|
+| "her formal demeanor cracked" | "美秀的正式仪态破裂了" | "她端着的架子垮了" |
+| "a smile played on her lips" | "一个微笑在她的嘴唇上玩耍" | "她嘴角漾起笑意" |
+| "the silence stretched" | "沉默延伸了" | "沉默蔓延开来" |
+| "his heart sank" | "他的心脏沉下去了" | "他心里一沉" |
+| "she felt a chill run through her" | "她感到一阵寒冷穿过她" | "她浑身一凉" |
+| "the tension thickened" | "紧张变厚了" | "气氛越来越紧" |
+| "words failed her" | "词语对她失败了" | "她说不出话来" |
+| "his eyes narrowed" | "他的眼睛变窄了" | "他眯起眼睛" |
+| "she couldn't shake the feeling" | "她不能摇掉这个感觉" | "这种感觉挥之不去" |
+| "the weight of his words" | "他话语的重量" | "他这话分量很重" |
+| "time seemed to slow" | "时间似乎变慢了" | "时间仿佛静止" |
+| "her thoughts raced" | "她的思想在赛跑" | "她脑子里乱成一团" |
+
+**Translation Principles:**
+
+1. **NO literal word-by-word** — Translate meaning and feeling, not individual words
+2. **NO abstract noun phrases** — Chinese prefers concrete, specific expressions
+3. **NO passive voice constructions** — Use active, natural Chinese
+4. **NO English idioms literally** — Find Chinese equivalents or rewrite completely
+5. **NO "的" chains** — Avoid "X的Y的Z", use shorter constructions
+6. **NO stiff connectors** — Avoid "开始", "进行", "表现出" — use natural verbs
+
+**Examples of Natural Chinese Style:**
+
+| Stiff/Literal | Natural/Colloquial |
+| "她开始进行分析" | "她盯着数据，眉头越皱越紧" |
+| "他表现出焦虑" | "他急得手心冒汗" |
+| "她的心情变得沉重" | "她心里沉甸甸的" |
+| "沉默持续了很久" | "沉默蔓延，越来越压抑" |
+| "他的眼睛里闪过一丝光芒" | "他眼中闪过一丝光" |
+
+---
+
+## CRITICAL: Avoid Overly Brief Narration (禁止过于简短)
+
+**Brief, choppy narration makes reading difficult. Add natural description and flow.**
+
+| Brief (BAD) | Natural Flow (GOOD) |
+|-------------|---------------------|
+| "郝金的声音再次谨慎。商人戒心回归。" | "郝金的声音又变得谨慎起来，话里带着试探的意味。商人的戒心也随之升起，眼神里多了几分警惕。" |
+| "她看着他。" | "她抬起头，目光落在他身上，静静地观察着他的表情。" |
+| "门开了。" | "门被推开，发出轻微的吱呀声，冷风随即灌入室内。" |
+| "他笑了。" | "他嘴角微微上扬，露出一丝不易察觉的笑意。" |
+| "时间流逝。" | "时间一分一秒地过去，窗外的光线逐渐暗淡下来。" |
+| "沉默持续。" | "沉默在房间里蔓延，没人开口，只有时钟的滴答声在回荡。" |
+
+**Rules for Natural Narration:**
+
+1. **Add sensory details** — Sound, light, movement, atmosphere
+2. **Expand brief actions** — "他笑了" → describe HOW (嘴角上扬, 眼睛眯起)
+3. **Connect sentences naturally** — Use transitions like "随之", "也", "接着"
+4. **Add emotional context** — Brief descriptions often miss emotional nuance
+5. **Consider reader experience** — Reader needs to SEE the scene, not just read facts
+
+**Dialogue Integration Examples:**
+
+| BAD (Disconnected) | GOOD (Integrated) |
+|---------------------|-------------------|
+| "我们不知道它们能提供什么动力。"郝金的声音再次谨慎。" | "我们不知道它们能提供什么动力。"郝金的声音变得谨慎，语气中带着几分试探。他盯着对方的反应，等待回应。" |
+| "她点头。"他继续说。" | "她轻轻点头，目光示意他继续。见她没有打断，他便接着说下去：" |
+
+---
+
+## CRITICAL: Dialogue Quality — American TV Series Style
+
+**Dialogue should be clear, direct, character-specific. NOT abstract philosophical nonsense.**
+
+| BAD (Abstract/Philosophical) | GOOD (Natural/TV-style) |
+|------------------------------|-------------------------|
+| "伤口回声通过铁匠维持系统。" | "这个系统靠铁匠撑着，早就出问题了。" |
+| "碎片工业优化不能愈合碎片化损害因为优化不包括伙伴能力。" | "那帮人只想着效率，根本不在乎你会不会受伤。" |
+| "冥想词汇承载莲花框架生产理解。" | "我琢磨了半天，总算想明白了。" |
+| "铁匠通过效率框架存活——不提供通过认出愈合。" | "铁匠能活下来是因为他够狠，但他不会帮你疗伤。" |
+
+**Dialogue Rules:**
+
+1. **NO abstract philosophical language** — Real people don't talk like philosophy textbooks
+2. **NO made-up terminology** — Unless it's world-specific tech/magic, use plain language
+3. **NO sentence fragments** — Complete thoughts, natural flow
+4. **NO passive voice in dialogue** — Active, direct speech
+5. **YES character-specific voice** — Each character has unique speech patterns
+6. **YES subtext** — What they mean vs what they say
+7. **YES emotion** — Dialogue shows feelings, not just information
+
+---
+
+## CRITICAL: Punctuation — Use Standard Chinese Quotes
+
+**Use "" (Chinese double quotes) for dialogue, NOT 「」 (Japanese-style).**
+
+| BAD | GOOD |
+|-----|------|
+| `「你迟到了。」马库斯没有抬头。` | `"你迟到了。"马库斯没有抬头。` |
+| `「堵车。」她把包扔在桌上。` | `"堵车。"她把包扔在桌上。` |
+
+---
+
+## Solution Architecture
+
+### Phase 1: Glossary Generation (During `/novel-agent`)
+
+**Synchronous embedding during English generation**:
+
+Each stage outputs not just content, but also extracts terminology for translation glossary.
+
+| Stage | Terminology Extracted |
+|-------|----------------------|
+| IDEA | Core concept terms, genre keywords |
+| CHARACTERS | Character names, roles, speech patterns |
+| WORLD | Location names, factions, technology/magic terms |
+| PLOT | Event names, conflict terminology |
+| BLUEPRINT | Chapter-specific terms |
+| CHAPTERS | New terms introduced per chapter |
+
+**Output files**:
+- `memory/translation_glossary.json` — Master glossary
+- `memory/character_names.json` — Character name mapping
+- `memory/world_terms.json` — World terminology mapping
+- `memory/phrase_mapping.json` — Common phrases/idioms
+
+---
+
+### Phase 2: Glossary Structure
+
+```json
+{
+  "project_id": "space_opera_001",
+  "source_language": "en",
+  "target_language": "zh-CN",
+  "version": "1.0.0",
+  "last_updated": "2026-04-11",
+
+  "character_names": {
+    "Sarah Chen": {
+      "translation": "萨拉·陈",
+      "alternative": null,
+      "notes": "Half-Chinese protagonist: first name PHONETIC (萨拉), Chinese surname (陈)",
+      "first_appearance": "chapter_001",
+      "frequency": "high"
+    },
+    "Marcus Cole": {
+      "translation": "马库斯·科尔",
+      "alternative": null,
+      "notes": "Western name: PHONETIC transliteration (音译), NOT Chinese-style like 陈波",
+      "first_appearance": "chapter_001",
+      "frequency": "high"
+    },
+    "Elena Vasquez": {
+      "translation": "埃琳娜·瓦斯奎兹",
+      "alternative": null,
+      "notes": "Western name: PHONETIC transliteration, NOT Chinese-style",
+      "first_appearance": "chapter_003",
+      "frequency": "medium"
+    },
+    "Elizabeth": {
+      "translation": "伊丽莎白",
+      "alternative": null,
+      "notes": "PHONETIC: 伊丽莎白, NOT Chinese-style like 丽莎",
+      "first_appearance": "chapter_005",
+      "frequency": "medium"
+    }
+  },
+
+  "location_names": {
+    "The Citadel": {
+      "translation": "大都会",
+      "alternative": "堡垒",
+      "notes": "Central government location",
+      "context": "political center"
+    },
+    "New Eden": {
+      "translation": "新伊甸",
+      "alternative": null,
+      "notes": "Main city",
+      "context": "urban setting"
+    },
+    "The Undercity": {
+      "translation": "地下城",
+      "alternative": "下层区",
+      "notes": "Poor district",
+      "context": "social contrast"
+    }
+  },
+
+  "organization_names": {
+    "The Federation Council": {
+      "translation": "联邦议会",
+      "alternative": null,
+      "notes": "Government body"
+    },
+    "Memory Trade Guild": {
+      "translation": "记忆交易公会",
+      "alternative": "记忆商人公会",
+      "notes": "Core organization"
+    }
+  },
+
+  "technology_terms": {
+    "memory chip": {
+      "translation": "记忆芯片",
+      "alternative": null,
+      "notes": "Core technology",
+      "context": "sci-fi"
+    },
+    "neural interface": {
+      "translation": "神经接口",
+      "alternative": "神经连接",
+      "notes": "Technology term"
+    },
+    "encryption layer": {
+      "translation": "加密层",
+      "alternative": null,
+      "notes": "Technical concept"
+    }
+  },
+
+  "magic_terms": {
+    // If fantasy genre
+    "spell": {
+      "translation": "咒语",
+      "alternative": "法术",
+      "notes": "Magic action"
+    }
+  },
+
+  "concept_terms": {
+    "memory audit": {
+      "translation": "记忆审计",
+      "alternative": null,
+      "notes": "Job description"
+    },
+    "deep encryption": {
+      "translation": "深层加密",
+      "alternative": null,
+      "notes": "Plot-relevant concept"
+    }
+  },
+
+  "phrase_mapping": {
+    "Furthermore": {
+      "translation": "",
+      "action": "delete",
+      "notes": "AI pattern, remove in polish, translate as empty"
+    },
+    "In some ways": {
+      "translation": "",
+      "action": "delete",
+      "notes": "AI pattern, remove"
+    },
+    "Little did they know": {
+      "translation": "",
+      "action": "delete",
+      "notes": "AI pattern, remove"
+    }
+  },
+
+  "dialogue_markers": {
+    "Sarah": {
+      "speech_style": "Direct, technical vocabulary",
+      "chinese_style": "直接，技术性词汇，偶尔使用中文感叹词",
+      "catchphrase_translation": {
+        "Interesting.": "有意思。",
+        "Right.": "没错。"
+      }
+    },
+    "Marcus": {
+      "speech_style": "Sarcastic, dry humor",
+      "chinese_style": "讽刺，冷幽默，使用反问句",
+      "catchphrase_translation": {}
+    }
+  },
+
+  "style_notes": {
+    "narrative_voice": {
+      "source": "Third-person limited, objective tone",
+      "target": "第三人称有限视角，客观语气，保持距离感"
+    },
+    "punctuation_conversion": {
+      "\"...\"": "「...」",
+      "English quotes": "中文引号",
+      "ellipsis": "保持省略号格式"
+    }
+  }
+}
+```
+
+---
+
+### Phase 3: Glossary Auto-Generation
+
+During each generation stage, automatically extract terminology:
+
+**In character_dynamics prompt**:
+```markdown
+## Output Requirements
+
+After character profiles, append:
+
+```
+=== TRANSLATION GLOSSARY: CHARACTERS ===
+
+[Character Name]:
+- Suggested Chinese: [transliteration with reasoning]
+- Notes: [cultural context, name origin, pronunciation notes]
+```
+```
+
+**In world_building prompt**:
+```markdown
+## Output Requirements
+
+After world building, append:
+
+```
+=== TRANSLATION GLOSSARY: WORLD ===
+
+[Location/Organization/Term Name]:
+- Suggested Chinese: [translation]
+- Notes: [context, cultural considerations]
+```
+```
+
+**In chapter_draft prompt**:
+```markdown
+## Output Requirements
+
+During writing, track new terms introduced.
+
+After chapter, append (in comment block):
+```
+<!-- TRANSLATION NOTES: Chapter N -->
+New terms this chapter:
+- [term]: suggested translation
+```
+```
+
+---
+
+### Phase 4: `/translate` Command
+
+**Separate command with glossary integration**:
+
+```bash
+/translate --lang zh-CN              # Translate to Chinese
+/translate --chapter N               # Translate specific chapter
+/translate --chapters N-M            # Translate range
+/translate --update-glossary         # Add new terms to glossary
+/translate --review                  # Review translations for consistency
+```
+
+**Translation Process**:
+
+1. **Load Glossary**:
+   - Read `memory/translation_glossary.json`
+   - Read `memory/character_names.json`
+   - Read `memory/world_terms.json`
+
+2. **Pre-Translation Analysis**:
+   - Scan chapter for new terms
+   - Flag unmapped proper names
+   - Identify context-dependent translations
+
+3. **Apply Glossary**:
+   - Replace character names with mapped Chinese
+   - Replace locations with mapped Chinese
+   - Replace technology/magic terms with mapped Chinese
+   - Apply phrase mappings (including deletions)
+
+4. **Context-Aware Translation**:
+   - Dialogue: Apply character-specific Chinese speech style
+   - Narrative: Apply target narrative voice
+   - Action scenes: Maintain pacing in Chinese
+
+5. **Post-Translation**:
+   - Convert quotation marks: `"..."` → `「...」`
+   - Check consistency against glossary
+   - Flag potential issues
+
+6. **Output**:
+   - Save to `output/final/zh-CN/chapter_NNN_title.md`
+   - Update glossary if new terms found
+
+---
+
+### Phase 5: Translation Prompt Template
+
+```markdown
+# Translation Prompt — English to Chinese
+
+> Translate English novel content to Chinese with glossary consistency.
+
+## CRITICAL: Glossary Consistency
+
+Use provided glossary for ALL translations:
+- Character names: EXACT glossary mapping
+- Locations: EXACT glossary mapping
+- Terms: EXACT glossary mapping
+- Unmapped terms: Suggest translation, add to glossary
+
+---
+
+## Input
+
+### Glossary (USE EXACTLY)
+{translation_glossary}
+
+### Character Names (USE EXACTLY)
+{character_names}
+
+### World Terms (USE EXACTLY)
+{world_terms}
+
+### Source Content (English)
+{chapter_content}
+
+### Context
+- Chapter Number: {chapter_number}
+- Chapter Title: {chapter_title}
+- POV Character: {pov_character}
+- Key Events: {key_events}
+
+---
+
+## Translation Rules
+
+### Proper Names
+- ALWAYS use glossary translation
+- NEVER invent new translation for mapped names
+- UNMAPPED names: transliterate, add to glossary
+
+### Dialogue
+- Apply character-specific Chinese speech style from glossary
+- Maintain character voice distinction
+- Translate catchphrases per glossary
+
+### Punctuation
+- Convert: `"..."` → `「...」`
+- Convert: `'...'` → `'...'` (keep for internal thought)
+- Keep: `***` scene breaks
+
+### Style
+- Narrative voice: per glossary style_notes
+- Tone: maintain source tone
+- Pacing: preserve act structure
+
+### Unmapped Terms
+- Identify: [TERM] markers
+- Suggest translation with reasoning
+- Flag for glossary update
+
+---
+
+## Output Format
+
+```
+Chapter {chapter_number} - {translated_title}
+
+[Translated Chinese content]
+
+---
+
+## Translation Notes (for glossary update)
+
+New terms this chapter:
+- [English term]: [suggested Chinese] — [reasoning]
+```
+
+---
+
+## Requirements
+
+1. EXACT glossary usage for mapped terms
+2. Character voice preservation
+3. Punctuation conversion
+4. Flag unmapped terms
+5. 100% Chinese output (no English mixed)
+```
+
+---
+
+---
+
+## Implementation Files
+
+| File | Purpose |
+|------|---------|
+| `memory/translation_glossary.json` | Master terminology mapping |
+| `memory/character_names.json` | Character name translations |
+| `memory/world_terms.json` | World terminology |
+| `memory/phrase_mapping.json` | Phrase/idiom mappings |
+| `.claude/prompts/translation.txt` | Translation prompt template |
+| `.claude/commands/translate.md` | Translation command |
+
+---
+
+## Workflow Integration
+
+```
+/novel-agent "description"
+  → Generates English content
+  → Extracts terminology
+  → Creates/updates glossary files
+  → English novel complete
+
+/translate --lang zh-CN
+  → Reads glossary
+  → Translates using consistent terminology
+  → Updates glossary for new terms
+  → Chinese version complete
+```
+
+---
+
+## Glossary Extraction During Generation
+
+Each prompt should include:
+
+```markdown
+## Terminology Extraction (CRITICAL)
+
+After your main output, extract ALL proper names and specialized terms:
+
+```
+=== TERMINOLOGY ===
+
+CHARACTER NAMES:
+- [Name]: [brief description for translation context]
+
+LOCATION NAMES:
+- [Name]: [context]
+
+ORGANIZATION NAMES:
+- [Name]: [context]
+
+TECHNOLOGY/MAGIC TERMS:
+- [Term]: [context]
+
+CONCEPT TERMS:
+- [Term]: [context]
+```
+
+This terminology will be used for Chinese translation consistency.
+```
+
+---
+
+## Benefits
+
+1. **Consistency**: Same term always translates the same way
+2. **Context awareness**: Translations fit world/story
+3. **Proper name handling**: No random transliteration changes
+4. **Efficiency**: Glossary speeds up translation
+5. **Quality**: Context-aware translation, not word-by-word
+6. **Traceability**: Can review/adjust glossary entries
+
+---
+
+## Next Steps
+
+1. Update prompts to extract terminology
+2. Create translation_glossary.json template
+3. Create translation.txt prompt
+4. Update translate.md command
+5. Test glossary generation during `/novel-agent`
+6. Test translation consistency

@@ -1,0 +1,93 @@
+# Polish Round 1 — English Only (R1-R2)
+
+> First round: Sentence patterns + formatting removal for English prose.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **English Writing Patterns Only** — Target English AI patterns, not translated text
+3. **Western Prose Conventions** — English punctuation and dialogue format
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Context Section: {context_section}
+
+---
+
+## Rule 1 (R1): "Not A, But B" Pattern Removal
+
+### English Patterns to Scan
+- "not A, but B"
+- "not A, is B"
+- "not only A, but also B"
+- "rather than A, it's B"
+- "more than just A, B"
+
+### Processing — 99% Rewrite
+
+Default: Rewrite all. Keep only if BOTH conditions met:
+1. Removal causes plot logic break
+2. Contrast contains reader-can't-deduce information
+
+### English Rewrite Methods
+
+1. **Single affirmation**: "not brave, but desperate" → "that was desperation"
+2. **Dual affirmation**: "not cold, but controlled" → "controlled, and self-protective"
+3. **Concrete description**: "not fear, but awe" → "his knees bent without his willing"
+4. **Keep B directly**: "not wind, but crying" → "that was crying"
+
+---
+
+## Rule 2 (R2): Sparse Formatting Removal
+
+### English Patterns to Scan
+- Non-dialogue lines ≤15 characters, alone
+- 2+ consecutive short sentences on separate lines
+- Paragraphs with 1-2 sentences (not scene transitions)
+
+### Processing
+- Merge into preceding paragraph
+- Rewrite as complete sentence
+
+### English Exceptions
+- Dialogue lines (with quotation marks)
+- Chapter titles, scene dividers (`***`, `---`)
+- Single exclamation/sound effects ("Bang.", "Snap—")
+- Deliberate literary breaks
+
+---
+
+## English Dialogue Format Check
+
+Verify dialogue uses Western format:
+- Double quotes: "text" (NOT 「text」)
+- Punctuation inside: "text," not "text",
+- New paragraph for each speaker
+
+---
+
+## Output Format
+
+1. **Modified English text** (direct output)
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+| 1 | R1 | not brave, but desperate | that was desperation | Pattern removal |
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.

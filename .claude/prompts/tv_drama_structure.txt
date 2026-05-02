@@ -1,0 +1,368 @@
+# TV Drama Narrative Structure — English Only
+
+> Incorporate modern American television drama pacing, structure, and narrative beats.
+> **Reference Files**: See tv_drama_analysis.txt (comprehensive analysis) and tv_drama_cheatsheet.txt (quick reference).
+
+---
+
+## Research Foundation
+
+This structure is based on analysis of HBO/FX prestige dramas:
+- **The Wire**: Novelistic, sociological, "visual novel" structure
+- **Breaking Bad**: Classical tragedy, transformation arc, escalation pacing
+- **The Americans**: Hybrid thriller + family drama, relationship hooks
+- **Game of Thrones**: Epic multi-POV, convergence structure
+- **Mad Men**: Character-focused, distributed pacing
+
+**Key Insight**: Each season = One novel. Each episode = One chapter.
+Streaming era prefers hooks (curiosity) over cliffhangers (anxiety).
+
+---
+
+## Modern American TV Drama Structure
+
+### Episode Components
+
+| Component | Description | Timing |
+|-----------|-------------|--------|
+| **Cold Open** | Opening scene before title/credits | 2-5 min |
+| **Act 1** | Setup after cold open | 10-15 min |
+| **Act 2** | Rising action | 10-15 min |
+| **Act 3** | Midpoint/complications | 10-15 min |
+| **Act 4** | Climax building | 10-15 min |
+| **Act 5** | Resolution + Tag | 5-10 min |
+| **Tag** | Final scene (hook for next) | 1-3 min |
+
+### Storyline Structure (A/B/C)
+
+**A-Story** (Primary, 60-70% screen time):
+- Main plot driving episode
+- Central conflict and stakes
+- Protagonist's primary arc movement
+
+**B-Story** (Secondary, 20-30% screen time):
+- Supporting character arc
+- Parallel theme exploration
+- Often intersects with A-story
+
+**C-Story** (Tertiary, 5-15% screen time):
+- Setup/payoff for future episodes
+- Comic relief or contrast
+- World-building elements
+
+---
+
+## Cold Open Types
+
+| Type | Purpose | Example |
+|------|---------|---------|
+| **Immediate Action** | Hook with tension | Breaking Bad opening scenes |
+| **Flashback/Flashforward** | Temporal hook | Better Call Saul, Lost |
+| **Contrast Scene** | Irony/theme setup | Succession family moments |
+| **Mystery Teaser** | Unanswered question | True Detective cold opens |
+| **Character Moment** | Establish POV | Mad Men intros |
+
+---
+
+## Act Break Rules (Binge-Optimized)
+
+### Traditional Network (with commercials)
+- Act 1 break: 15 min mark
+- Act 2 break: 30 min mark
+- Act 3 break: 45 min mark
+- Each break = mini-cliffhanger
+
+### Streaming/Binge Era (Netflix, HBO, Amazon)
+- No commercial breaks
+- Episodes end with **hooks** (not cliffhangers)
+- "What happens next?" vs "Will they survive?"
+- Emotional/thematic resonance > plot tension
+
+### Hook vs. Cliffhanger (CRITICAL)
+
+| Aspect | Cliffhanger ✗ (Avoid) | Hook ✓ (Use) |
+|--------|----------------------|--------------|
+| Emotion | Anxiety, fear | Curiosity, interest |
+| Question | "Will they survive?" | "What will they do?" |
+| Tension | External danger | Internal choice |
+| Closure | None (hanging) | Partial (emotional close) |
+| Binge effect | Exhausting | Sustainable |
+
+**Hook Types**:
+- Revelation hook: New information reframes situation
+- Decision hook: Character makes consequential choice
+- Relationship hook: Dynamic between characters shifts
+- Mystery hook: Question planted for future
+- Momentum hook: Action continues without pause
+- Silence hook: Unspoken moment with implication
+- Contrast hook: Tone shift creates complexity
+
+**Prestige TV Examples**:
+- Breaking Bad: Decisions (not danger) as episode endings
+- The Americans: Relationship shifts as hooks
+- The Wire: Institutional questions planted
+- Game of Thrones: Political revelations
+
+---
+
+## Narrative Beats per Episode
+
+### Cold Open Beat (Opening Hook)
+- Establish tone
+- Plant question or tension
+- Time: 100-300 words (novel equivalent)
+
+### Act 1 Beats (Setup)
+- Scene 1: A-story establishment
+- Scene 2: B-story introduction
+- Scene 3: C-story seed
+- **End beat**: Question/stakes clarified
+- Time: 500-800 words per "scene"
+
+### Act 2 Beats (Rising)
+- Scene 4: A-story complication
+- Scene 5: B-story development
+- Scene 6: A/B intersection
+- **End beat**: Stakes escalate
+- Time: 500-800 words per "scene"
+
+### Act 3 Beats (Midpoint)
+- Scene 7: Midpoint turn (reversal or revelation)
+- Scene 8: B-story crisis point
+- Scene 9: C-story payoff or setup
+- **End beat**: Protagonist faces harder choice
+- Time: 500-800 words per "scene"
+
+### Act 4 Beats (Climax Building)
+- Scene 10: A-story climax approach
+- Scene 11: All storylines converge
+- Scene 12: Maximum tension
+- **End beat**: Climax imminent
+- Time: 500-800 words per "scene"
+
+### Act 5 Beats (Resolution)
+- Scene 13: Climax execution
+- Scene 14: Immediate aftermath
+- **End beat**: Resolution complete
+- Time: 500-800 words per "scene"
+
+### Tag Beat (Closing Hook)
+- Single scene
+- Emotional resonance
+- Plants next episode question
+- Time: 100-300 words
+
+---
+
+## Visual Storytelling Rules (TV Style)
+
+**Scene Economy** (TV constraint):
+- Each scene = one clear purpose
+- Enter late, exit early
+- No meandering setup
+
+**What Gets Cut** (never show unless pivotal):
+- Characters walking into rooms
+- Greetings and small talk
+- Transportation scenes (unless conflict)
+- Phone call setup ("Hello, is this...")
+- Meal ordering/eating (unless pivotal)
+- Farewells and departures
+
+**Enter Late Examples**:
+| Traditional (Avoid) | Economy (Use) |
+|---------------------|---------------|
+| "John walked into the office, looked around, found Sarah..." | "John slammed the file on Sarah's desk." |
+| "She picked up her phone, dialed, waited..." | "She heard his voice: 'What do you want?'" |
+
+**Exit Early Examples**:
+| Traditional (Avoid) | Economy (Use) |
+|---------------------|---------------|
+| "They agreed. John nodded, stood, walked to the door, opened it, and left..." | "They agreed. John was already at the door." |
+| "The argument ended. Mary stood, gathered things, quietly left..." | "Mary left. David stared at the wall." |
+
+**Show through action**:
+| Avoid (Telling) | Use (Showing) |
+|----------------|---------------|
+| "He was nervous." | "His hand trembled as he reached for the glass." |
+| "She felt angry." | "She slammed the folder onto the desk." |
+| "He was thinking." | "He stared at the wall, unmoving." |
+| "She was sad." | "She sat in the dark for hours." |
+| "They loved each other." | "He reached across and took her hand." |
+
+**Environmental Storytelling**:
+- Objects carry meaning (worn photo → memory, unopened letter → avoidance)
+- Spaces reflect character (clean desk → control, messy room → chaos)
+- Environment signals mood (dark/cramped → trapped, open/bright → freedom)
+
+**Dialogue rules**:
+- Subtext preferred (say one thing, mean another)
+- Interruptions natural
+- Cross-talk in groups
+- Silence as punctuation
+
+---
+
+## Pacing Techniques
+
+### Micro-Pacing (Scene Level)
+- Sentence length: vary for rhythm
+- Paragraph length: action short, reflection long
+- Dialogue ratio: TV dramas ~40-50% dialogue
+- Description: visual, economical
+
+### Macro-Pacing (Episode Level)
+- Tension curve: rise → peak → dip → rise
+- Emotional variety: alternate intensity types
+- Storyline balance: A/B/C rhythm
+- Breathing room: buffer moments between peaks
+
+### Season Arc Pacing (Multi-Episode/Chapter)
+
+**Novel-as-Season Model** (from prestige TV analysis):
+- Each "season" = 10-15 chapters (novel arc)
+- Each chapter = episode (chapter arc)
+- Full novel = multiple "seasons" or one complete season
+
+**Season Structure**:
+| Chapters | Phase | Function |
+|----------|-------|----------|
+| 1-2 | Premiere | Setup + inciting incident + strong hooks |
+| 3-5 | Rising | Stakes clarification + B-story introduction |
+| 6-7 | Pivot | Reversal + revelation + stakes escalate |
+| 8-10 | Climax Build | Convergence + countdown feel |
+| 11-12 | Resolution | Outcome + transformation |
+| 13+ | Finale | Aftermath + seeds + closure |
+
+**Mid-Season Pivot (Chapters 6-7) — Critical Point**:
+- Must include reversal or revelation
+- Stakes must escalate beyond previous level
+- Often changes direction of entire arc
+- Examples:
+  - Breaking Bad S1E7: Cancer remission traps Walt in crime
+  - The Americans: Discovery threatens cover
+  - Game of Thrones: Major character death
+
+---
+
+## TV Drama Chapter Structure (Novel Adaptation)
+
+Each chapter = one "episode" with:
+
+```
+COLD OPEN (2-5% of chapter):
+- Hook scene
+- Establish tone/question
+
+ACT 1 - SETUP (15-20%):
+- A-story: Main plot establishment
+- B-story: Secondary arc introduction
+- C-story: World/character seed
+
+ACT 2 - RISING (20-25%):
+- A-story: Complications
+- B-story: Development
+- Storylines begin intersecting
+
+ACT 3 - MIDPOINT (20-25%):
+- A-story: Midpoint turn
+- B-story: Crisis
+- Revelation or reversal
+
+ACT 4 - CLIMAX BUILD (20-25%):
+- A-story: Approaching climax
+- All storylines converge
+- Maximum tension
+
+ACT 5 - RESOLUTION (10-15%):
+- A-story: Climax execution
+- Immediate aftermath
+
+TAG (2-5%):
+- Closing scene
+- Hook for next chapter
+- Emotional/thematic resonance
+```
+
+---
+
+## Cross-Episode Techniques
+
+**Three-Chapter Summary Injection**:
+Before writing chapter N, generate summary from N-3, N-2, N-1:
+- Inherited elements: Active conflicts, unresolved questions, character states
+- Adjustable elements: Secondary characters, relationships, world expansion
+- Warning markers: Check for planted threads not reinforced, timeline gaps
+
+**Callbacks**:
+- Reference previous episodes
+- Visual or dialogue echoes
+- "Previously on..." equivalent (subtle)
+- Same gesture in different context
+
+**Setup-Payoff**:
+- Plant in chapter N, payoff in chapter N+M
+- Short-term (M=1-2): Scene-level payoff
+- Medium-term (M=3-5): Episode-level payoff
+- Long-term (M=6+): Season-level payoff
+
+**Running Threads**:
+- A-thread: Primary arc (episode to episode)
+- B-thread: Secondary arc (3-5 episode span)
+- C-thread: Season arc (full season resolution)
+
+---
+
+## Dialogue Style (TV Drama)
+
+**Character Voice Distinction**:
+- Each character: unique speech pattern
+- Vocals: rhythm, vocabulary, interrupt style
+- Emotional range: how each shows feelings
+
+**Subtext Rules**:
+| Direct (Avoid) | Subtext (Use) |
+|----------------|---------------|
+| "I'm angry you didn't call." | "You must have been busy. I didn't expect to hear from you anyway." |
+| "I'm scared." | "I need a drink." |
+| "I don't trust you." | "I'll handle this myself." |
+| "I'm worried." | "Have you checked the locks?" |
+
+**Power Dynamics in Dialogue**:
+- Longer speeches = dominance (controls conversation)
+- Shorter responses = submission/defensiveness
+- Questions = control (who asks leads)
+- Silence = power move (who waits controls timing)
+
+**Conversation Flow**:
+- Natural interruptions
+- Topic shifts
+- Power exchanges
+- Silence placement
+
+**Prestige TV Examples**:
+- Breaking Bad: Walter's dialogue transforms from passive to dominant
+- The Wire: Social class distinction in speech patterns
+- The Americans: Subtext-heavy marriage conversations
+
+---
+
+## Requirements for Framework
+
+1. **Chapter = Episode structure** (cold open → acts → tag)
+2. **Multiple storylines** (A/B/C per chapter)
+3. **Act-based beats** (5-act structure)
+4. **Hook endings** (not cliffhangers, binge-friendly)
+5. **Visual storytelling** (economical, show-through-action)
+6. **Dialogue-heavy** (40-50% ratio)
+7. **Cross-chapter threads** (callbacks, setups, three-chapter summary)
+8. **Season arc awareness** (position in novel-as-season)
+9. **Scene economy** (enter late, exit early, no meandering)
+10. **Subtext in dialogue** (say X, mean Y)
+
+---
+
+## Quick Reference
+
+See **tv_drama_cheatsheet.txt** for condensed rules and tables.
+See **tv_drama_analysis.txt** for comprehensive analysis of prestige TV models.

@@ -1,0 +1,756 @@
+# American TV Drama Narrative Framework — Comprehensive Analysis
+
+> A complete analysis of American TV drama narrative structures adapted for novel writing.
+> Based on research of HBO/FX prestige dramas, streaming era conventions, and screenwriting techniques.
+
+---
+
+## Part 1: The Prestige TV Revolution
+
+### The "Novel-as-Season" Model
+
+Modern prestige television (HBO, FX, AMC, Netflix) adopted a fundamental structural shift:
+
+| Traditional TV | Prestige TV |
+|---------------|-------------|
+| Episodes are standalone units | Episodes are chapters in a larger novel |
+| Plot resolved per episode | Plot spans entire season |
+| Character static | Character transforms across season |
+| Procedural structure | Serialized structure |
+| 22+ episodes per season | 8-13 episodes per season |
+
+**Key Insight**: Each season = One novel. Each episode = One chapter.
+
+This structure was pioneered by:
+- **The Wire** (HBO): David Simon explicitly designed it as a "visual novel"
+- **Breaking Bad** (AMC): Season = book, Episode = chapter
+- **The Americans** (FX): Called "TV's best novelistic drama"
+- **Mad Men** (AMC): Season-long arcs with episodic chapters
+- **Game of Thrones** (HBO): Literal novel adaptation that reinforced the model
+
+### Why This Matters for Novels
+
+When writing novels using TV drama structure:
+- **Chapter count** = Episode count (typically 30-50 chapters = 3-4 "seasons")
+- **Each chapter** = One complete episode arc
+- **Chapter groups** = Season arcs (10-15 chapters per "season")
+- **Full novel** = Multi-season series arc
+
+---
+
+## Part 2: Episode Structure — The Five-Act System
+
+### Complete Episode Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  EPISODE STRUCTURE (42-60 minute drama)                     │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  [TEASER/COLD OPEN]  3-5% ── Hook + Tone Establishment     │
+│                                                             │
+│  [ACT 1 - SETUP]    15-18% ── World, Character, Stakes     │
+│         ↓ Act Break Hook                                    │
+│                                                             │
+│  [ACT 2 - RISING]   20-22% ── Complications, B-Story       │
+│         ↓ Act Break Hook                                    │
+│                                                             │
+│  [ACT 3 - MIDPOINT] 20-22% ── Turning Point, Crisis        │
+│         ↓ Act Break Hook                                    │
+│                                                             │
+│  [ACT 4 - CLIMAX]   20-22% ── Confrontation, Maximum Tension│
+│         ↓ Act Break Hook                                    │
+│                                                             │
+│  [ACT 5 - RESOLUTION] 8-12% ── Outcome, Consequences       │
+│                                                             │
+│  [TAG]              2-5% ── Emotional Close + Next Hook    │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Streaming Era Adaptation (No Commercial Breaks)
+
+Traditional broadcast TV used act breaks for commercials. Streaming changed this:
+
+| Broadcast TV | Streaming (Netflix, HBO, Prime) |
+|-------------|--------------------------------|
+| Act breaks = commercial placement | Act breaks = narrative rhythm only |
+| Hard cliffhangers at breaks | Soft hooks at transitions |
+| Episode ends with cliffhanger | Episode ends with emotional resonance |
+| "Will they survive?" tension | "What happens next?" curiosity |
+| External tension hooks | Internal/emotional hooks |
+
+**Binge-Optimized Endings**:
+- **Hook** (not cliffhanger) — leaves audience curious, not anxious
+- **Emotional resonance** — thematic closure with forward momentum
+- **Decision point** — character choice that implications
+- **Revelation** — new information that reframes
+
+### Hook vs. Cliffhanger (Critical Distinction)
+
+| Aspect | Cliffhanger | Hook |
+|--------|-------------|------|
+| Emotion | Anxiety, fear | Curiosity, interest |
+| Question | "Will they survive?" | "What will they do?" |
+| Tension | External danger | Internal choice |
+| Resolution | None (hanging) | Partial (emotional close) |
+| Binge effect | Compulsive viewing | Engaged viewing |
+| Example | Hero dangling over cliff | Hero receives mysterious letter |
+
+**Prestige TV prefers hooks** because:
+- Creates sustainable tension (not exhausting)
+- Allows thematic closure per episode
+- Maintains binge momentum without burnout
+- Respects audience's emotional investment
+
+---
+
+## Part 3: Cold Open Types & Techniques
+
+### Cold Open Taxonomy
+
+| Type | Mechanism | Purpose | Example |
+|------|-----------|---------|---------|
+| **Immediate Action** | Start mid-conflict | Instant engagement | Breaking Bad "Pilot" |
+| **Flashforward** | Show future outcome | Create how-did-we-get-here mystery | Better Call Saul |
+| **Flashback** | Past event relevant | Context without exposition | Lost |
+| **Mystery Teaser** | Unanswered question | Intellectual hook | True Detective |
+| **Contrast Scene** | Peaceful before chaos | Irony/theme setup | Succession |
+| **Character Moment** | Private behavior | Establish POV | Mad Men |
+| **Genre Signature** | Style-establishing | Set expectations | The Wire (street scenes) |
+| **In Media Res** | Start at climax | Then flashback | Six Feet Under |
+
+### Cold Open Best Practices
+
+**Timing**: 2-5 minutes (100-300 words in novel equivalent)
+
+**Elements**:
+1. **Immediate engagement** — first 30 seconds must grab
+2. **Question planting** — what is happening/why?
+3. **Tone establishment** — genre, style, mood
+4. **Information gap** — audience knows less than they want
+5. **Transition signal** — clear ending moment
+
+**Writing Rules**:
+- Start with action or image, never exposition
+- Establish ONE question (not multiple)
+- Cut before resolution (create gap)
+- Visual storytelling preferred
+- No internal monologue (show through behavior)
+
+### Prestige TV Cold Open Examples
+
+**Breaking Bad "Pilot"**:
+- Opens with Walter in underwear, desert, gas mask
+- Recording confession to family
+- Sirens approaching
+- Cut to title
+- Question: Who is this man? How did he get here?
+
+**The Americans "Pilot"**:
+- Sexual encounter that becomes operation
+- Reveal: They're Soviet spies
+- Cut to title
+- Question: What are they doing in America?
+
+---
+
+## Part 4: A/B/C Storyline Architecture
+
+### Three-Tier Storyline System
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  A-STORY (Primary) — 65-70% of episode                      │
+│  ───────────────────────────────────────                    │
+│  • Main plot driver                                          │
+│  • Central conflict and stakes                               │
+│  • Protagonist's arc movement                                │
+│  • Must resolve (or advance significantly)                   │
+│  • Carries episode's theme                                   │
+├─────────────────────────────────────────────────────────────┤
+│  B-STORY (Secondary) — 25-30% of episode                    │
+│  ───────────────────────────────                             │
+│  • Supporting character arc                                  │
+│  • Parallel theme exploration                                │
+│  • Often intersects A-story at midpoint/climax              │
+│  • May resolve or continue                                   │
+│  • Emotional counterweight to A                              │
+├─────────────────────────────────────────────────────────────┤
+│  C-STORY (Tertiary) — 5-15% of episode                      │
+│  ──────────────────────                                      │
+│  • Setup for future episodes                                 │
+│  • World-building element                                    │
+│  • Comic relief or tonal contrast                            │
+│  • Usually continues, rarely resolves                        │
+│  • "Running thread" across episodes                          │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Storyline Weaving Techniques
+
+**Interweaving Pattern**:
+```
+Episode timeline:
+─────────────────────────────────────────────────
+A: ══════════════════════════════════════════════ (continuous thread)
+B: ────────╳───────────────╳───────────────╳──── (intersections)
+C: ············································ (background running)
+
+Intersection points:
+• Midpoint: A and B cross
+• Climax: A, B, C converge (optional)
+• Tag: C may become A for next episode
+```
+
+**Storyline Functions**:
+
+| A-Story Functions | B-Story Functions | C-Story Functions |
+|------------------|------------------|------------------|
+| Drive plot | Humanize stakes | Plant seeds |
+| Define stakes | Explore theme | World texture |
+| Protagonist arc | Relationship dynamics | Comic/contrast |
+| Primary conflict | Secondary tension | Future setup |
+| Episode theme | Emotional depth | Running mystery |
+
+### Prestige TV Storyline Examples
+
+**Breaking Bad**:
+- A: Walt's drug operation
+- B: Walt's family/Skyler's discovery
+- C: Jesse's personal life/Saul's schemes
+
+**The Americans**:
+- A: Mission of the week
+- B: Marriage/family tension
+- C: FBI neighbor investigation
+
+**Game of Thrones**:
+- A: Jon/Dany/Tyrion (main arc)
+- B: Other major characters (Cersei, Arya)
+- C: Minor characters, world-building scenes
+
+---
+
+## Part 5: Scene Economy — "Enter Late, Exit Early"
+
+### The Core Principle
+
+**Enter Late**: Start the scene at the moment of maximum interest, not at the beginning.
+
+**Exit Early**: Leave the scene before natural conclusion, creating momentum.
+
+This technique creates:
+- Faster pacing
+- Reader/viewer engagement
+- Elimination of "dead time"
+- Narrative efficiency
+
+### What Gets Cut
+
+**Never show** (unless dramatically necessary):
+- Characters walking into rooms
+- Greetings and small talk
+- Transportation scenes (unless conflict occurs)
+- Phone call setup ("Hello, is this...")
+- Meal ordering/eating (unless pivotal)
+- Farewells and departures
+
+### Scene Entry Examples
+
+| Traditional (Bad) | Economy (Good) |
+|------------------|----------------|
+| "John walked into the office, looked around, found Sarah at her desk, approached her, and said..." | "John slammed the file on Sarah's desk." |
+| "She picked up her phone, dialed the number, waited for it to ring, heard him answer..." | "She heard his voice: 'What do you want?'" |
+| "They drove for twenty minutes, parked, walked to the entrance, opened the door..." | "Inside the warehouse, the smell hit them first." |
+
+### Scene Exit Examples
+
+| Traditional (Bad) | Economy (Good) |
+|------------------|----------------|
+| "They agreed on the plan. John nodded, stood up, walked to the door, opened it, and left Sarah sitting alone, thinking about what they'd discussed." | "They agreed. John was already at the door." |
+| "The argument ended. Both sat in silence for a moment. Then Mary slowly stood, gathered her things, and quietly left the room while David stared at the wall." | "Mary left. David stared at the wall." |
+
+### Implementation Rules
+
+1. **Identify the purpose** — what does this scene accomplish?
+2. **Find the entry point** — where does the interesting part begin?
+3. **Find the exit point** — where does resolution stop being interesting?
+4. **Cut everything before entry and after exit**
+5. **Trust the reader** — they can infer setup/teardown
+
+---
+
+## Part 6: Dialogue in TV Drama
+
+### Dialogue Ratio
+
+**TV Drama Target**: 40-50% dialogue
+
+This differs from:
+- Literary fiction: 15-25% dialogue
+- Thrillers: 25-35% dialogue
+- Romance: 30-45% dialogue
+
+**Why TV drama uses more dialogue**:
+- Visual storytelling handles description
+- Dialogue reveals character through speech
+- Subtext requires conversation
+- Scenes are shorter, more concentrated
+
+### Dialogue Techniques from Prestige TV
+
+**1. Subtext (Say X, Mean Y)**:
+```
+Direct (Avoid): "I'm angry you didn't call."
+Subtext (Use): "You must have been busy. I didn't expect to hear from you anyway."
+```
+
+**2. Interruption and Cross-Talk**:
+```
+A: "I wanted to tell you—"
+B: "You wanted to tell me what? That you—"
+A: "That I made a mistake."
+B: "You made a mistake when you—"
+A: "When I left. I know."
+```
+
+**3. Information Through Implication**:
+```
+Instead of: "I've been working at the hospital for five years as a surgeon."
+Use: "Five years of surgeries. Five years of telling families their loved ones didn't make it."
+```
+
+**4. Power Dynamics in Dialogue**:
+- Longer speeches = dominance
+- Shorter responses = submission/defensiveness
+- Questions = control
+- Statements = assertion
+- Silence = power move
+
+**5. Character Voice Distinction**:
+Each character should have:
+- **Vocabulary tier** (educated, street, technical, casual)
+- **Rhythm signature** (long sentences, fragments, interruptions)
+- **Emotional expression style** (direct, suppressed, sarcastic, feigned)
+- **Unique marker** (a phrase only they use)
+
+### Prestige TV Dialogue Examples
+
+**Breaking Bad — Walter White**:
+- Transformation visible in dialogue evolution
+- Early: Passive, apologetic, indirect
+- Later: Assertive, technical, threatening
+- Signature: "I am the one who knocks." (power assertion)
+
+**The Wire — Various Characters**:
+- Each social class has distinct dialogue pattern
+- Police: bureaucratic, cynical, jargon
+- Dealers: street slang, indirect threats
+- Politicians: equivocation, deflection
+
+---
+
+## Part 7: Season Arc Structure
+
+### Season-as-Novel Structure
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  SEASON ARC (10-13 Episodes/Chapters)                       │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  EPISODES 1-2 (Premiere)                                    │
+│  ──────────────────                                         │
+│  • Establish world and characters                           │
+│  • Inciting incident                                        │
+│  • Plant season-long mysteries                              │
+│  • Hook: What is this season about?                         │
+│                                                             │
+│  EPISODES 3-5 (Setup/Rising)                                │
+│  ───────────────────────                                    │
+│  • World deepening                                          │
+│  • Stakes clarification                                     │
+│  • B-storylines introduction                                │
+│  • Early complications                                      │
+│                                                             │
+│  EPISODES 6-7 (Midpoint Pivot)                              │
+│  ──────────────────────────                                 │
+│  • Major reversal or revelation                             │
+│  • A-story takes new direction                              │
+│  • False victory or false defeat                            │
+│  • Stakes escalate                                          │
+│                                                             │
+│  EPISODES 8-10 (Climax Building)                            │
+│  ────────────────────────────                               │
+│  • All storylines converge                                  │
+│  • Complications maximum                                    │
+│  • Character decisions forced                               │
+│  • Countdown feel                                           │
+│                                                             │
+│  EPISODES 11-12 (Resolution)                                │
+│  ──────────────────────────                                 │
+│  • Climax execution                                         │
+│  • Consequences revealed                                    │
+│  • Character transformation completed                       │
+│  • Season arc resolved                                      │
+│                                                             │
+│  EPISODE 13 (Finale/Tag)                                    │
+│  ──────────────────────                                     │
+│  • Aftermath                                                │
+│  • New equilibrium                                          │
+│  • Seeds for next season                                    │
+│  • Emotional/thematic closure                               │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Season Premiere vs. Season Finale
+
+**Season Premiere Functions**:
+- Reset stakes for new season
+- Introduce new antagonist/threat
+- Establish new status quo
+- Hook: "What will this season explore?"
+- Plant season-long mysteries
+
+**Season Finale Functions**:
+- Resolve season arc
+- Character transformation completed
+- Aftermath and consequences
+- Seeds for potential next season
+- Emotional closure + forward momentum
+
+### Mid-Season Pivot (Episode 6-7)
+
+This is the most critical structural element in prestige TV:
+
+- **Reversal**: Everything changes direction
+- **Revelation**: Hidden truth surfaces
+- **False Victory**: Success that leads to greater failure
+- **False Defeat**: Failure that becomes opportunity
+- **Stakes Escalate**: What seemed important is now MORE important
+
+**Examples**:
+- Breaking Bad S1E7: Walt's cancer in remission (false victory — he's now trapped in criminal life)
+- The Americans: Discovery that threatens cover (revelation)
+- Game of Thrones: Major character death (reversal)
+
+---
+
+## Part 8: Visual Storytelling Translation
+
+### From Screen to Page
+
+TV/film relies on visuals. Novels must translate this:
+
+| Screen Technique | Novel Translation |
+|-----------------|------------------|
+| Camera angle → power | Describe physical positioning |
+| Lighting → mood | Environmental description |
+| Actor expression → emotion | Physical behavior, not feelings |
+| Props → history | Objects with implied meaning |
+| Costume → character | Clothing details that signify |
+| Set design → world | Environment that reflects character |
+
+### "Show Through Action" Rules
+
+**Don't write emotions. Write behaviors.**
+
+| Avoid (Telling) | Use (Showing) |
+|----------------|---------------|
+| "He was nervous." | "His hand trembled as he reached for the glass." |
+| "She felt angry." | "She slammed the folder onto the desk." |
+| "He was thinking." | "He stared at the wall, unmoving." |
+| "She was sad." | "She sat in the dark, not moving for hours." |
+| "They were in love." | "He reached across the table and took her hand." |
+
+### Environmental Storytelling
+
+**Objects carry meaning**:
+- A worn photograph → history, memory
+- An unopened letter → avoidance, relationship issue
+- A clean desk → control, precision
+- A messy room → chaos, inner turmoil
+
+**Spaces reflect character**:
+- Dark, cramped room → trapped,压抑
+- Open, bright space → freedom, clarity
+- Cluttered shelves → history, accumulation
+- Empty walls → anonymity, hiding
+
+---
+
+## Part 9: Save the Cat Beat Integration
+
+### Snyder's 15 Beats → TV Episode Adaptation
+
+Blake Snyder's beat sheet can be compressed for TV episodes:
+
+| Feature Film Beat | TV Episode Equivalent |
+|------------------|---------------------|
+| Opening Image | Cold Open image |
+| Theme Stated | A-story theme in Act 1 |
+| Set-Up | Act 1 establishment |
+| Catalyst | Cold open or Act 1 inciting incident |
+| Debate | Act 1-2 hesitation |
+| Break into Two | Act 2 start (commitment) |
+| B Story | B-storyline introduction |
+| Fun and Games | Act 2 complications |
+| Midpoint | Act 3 turning point |
+| Bad Guys Close In | Act 3-4 escalation |
+| All Is Lost | Act 4 crisis |
+| Dark Night of Soul | Act 4 reflection |
+| Break into Three | Act 5 start |
+| Finale | Act 5 climax |
+| Final Image | Tag image |
+
+### Episode Beat Sheet Template
+
+```
+EPISODE BEAT SHEET (42-60 min drama)
+
+[TEASER - 3-5%]
+• Opening Image: Establish tone
+• Mini-Catalyst: Plant question
+
+[ACT 1 - 15-18%]
+• Theme Stated: What's this episode about?
+• Set-Up: Establish status quo
+• Catalyst: Inciting incident (if not in teaser)
+• Debate: Character's hesitation
+• Break into Two: Commitment to action
+
+[ACT 2 - 20-22%]
+• B Story: Secondary storyline
+• Fun and Games: "Promise of premise" scenes
+• First complication: Obstacle appears
+
+[ACT 3 - 20-22%]
+• Midpoint: Reversal or revelation
+• Stakes raised: Worse than before
+• Bad Guys Close In: Pressure increases
+
+[ACT 4 - 20-22%]
+• All Is Lost: Crisis point
+• Dark Night of Soul: Moment of despair
+• Break into Three: Solution found
+
+[ACT 5 - 8-12%]
+• Finale: Climax confrontation
+• Resolution: Outcome
+
+[TAG - 2-5%]
+• Final Image: Changed world
+• Next Hook: Forward momentum
+```
+
+---
+
+## Part 10: Prestige TV Genre Variations
+
+### Genre-Specific Structures
+
+| Genre | Cold Open Type | Act Emphasis | Storyline Balance |
+|-------|---------------|--------------|------------------|
+| Crime/Procedural | Action/Mystery | Act 2-4 heavy | A dominant |
+| Family Drama | Character/Contrast | Distributed | A+B balanced |
+| Thriller | Action/Mystery | Act 3-4 climax | A dominant, C important |
+| Political | Contrast/Irony | Act 3 pivot | A+B+C equal |
+| Fantasy/Sci-Fi | Genre Signature | Distributed | Multiple A-level threads |
+
+### Prestige TV Analysis by Show
+
+**The Wire** (HBO):
+- Structure: Novelistic, sociological
+- Episodes: Chapters in institutional critique
+- Arc: Each season = one institution
+- Storylines: Multiple equal threads (ensemble)
+- Pacing: Slow burn, cumulative impact
+- Cold opens: Street-level authenticity
+
+**Breaking Bad** (AMC):
+- Structure: Classical tragedy, five-act per episode
+- Episodes: Transformation milestones
+- Arc: Mr. Chips → Scarface (season-long)
+- Storylines: A (operation), B (family), C (Jesse)
+- Pacing: Escalating tension, act breaks = pressure
+- Cold opens: In media res, flashforward teasers
+
+**Game of Thrones** (HBO):
+- Structure: Epic, multi-POV
+- Episodes: Weaving separate threads toward convergence
+- Arc: Season-long convergence to battle/climax
+- Storylines: Multiple A-level threads (no single protagonist)
+- Pacing: Distributed, building to episode 9 climax
+- Cold opens: Genre establishment, world-building
+
+**The Americans** (FX):
+- Structure: Family drama + spy thriller hybrid
+- Episodes: Mission (thriller) + Marriage (drama)
+- Arc: Season-long relationship + mission arc
+- Storylines: A (mission), B (marriage), C (FBI)
+- Pacing: Alternating tension types
+- Cold opens: Operation scenes → domestic contrast
+
+---
+
+## Part 11: Novel Application — Chapter = Episode
+
+### Complete Chapter Structure Template
+
+Each chapter should follow this structure:
+
+```
+CHAPTER STRUCTURE (TV Episode Model)
+
+[COLD OPEN] — 100-300 words (3-5%)
+├── Hook type: [Action/Mystery/Flashback/Contrast]
+├── Entry: [Immediate engagement point]
+├── Question planted: [What does reader want to know?]
+├── Tone: [Genre/style establishment]
+└── Transition: [Cut to main narrative]
+
+[ACT 1 — SETUP] — 1,500-2,500 words (15-18%)
+├── A-story establishment: [Main plot point]
+├── B-story introduction: [Secondary arc]
+├── C-story seed: [Future thread]
+├── Status quo: [Current situation]
+├── Stakes clarified: [What matters]
+└── Act hook: [Question or tension point]
+
+[ACT 2 — RISING] — 2,000-3,000 words (20-22%)
+├── A-story complication: [Obstacle]
+├── B-story development: [Relationship/theme]
+├── A/B intersection: [Connection moment]
+├── Fun and Games: [Premise fulfillment]
+├── Stakes escalate: [Worse situation]
+└── Act hook: [Higher tension]
+
+[ACT 3 — MIDPOINT] — 2,000-3,000 words (20-22%)
+├── Midpoint turn: [Reversal or revelation]
+├── B-story crisis: [Secondary arc pivot]
+├── C-story payoff or continuation: [Thread movement]
+├── Stakes raised: [New level of importance]
+├── Character decision: [Forced choice]
+└── Act hook: [Pivot tension]
+
+[ACT 4 — CLIMAX BUILD] — 2,000-3,000 words (20-22%)
+├── A-story climax approach: [Confrontation building]
+├── All storylines converge: [Intersection]
+├── Maximum tension: [Peak conflict]
+├── Crisis point: [All is lost moment]
+├── Dark moment: [Despair/reflection]
+└── Act hook: [Climax imminent]
+
+[ACT 5 — RESOLUTION] — 800-1,500 words (8-12%)
+├── Climax execution: [Confrontation]
+├── Outcome: [Result]
+├── Consequences: [Aftermath]
+├── Character transformation: [Change visible]
+└── Resolution: [New equilibrium]
+
+[TAG] — 100-300 words (2-5%)
+├── Emotional close: [Thematic resonance]
+├── Final image: [Changed world]
+├── Next hook: [Curiosity for next chapter]
+└── Forward momentum: [Momentum maintained]
+```
+
+### Word Count Guidelines
+
+| Chapter Length | Cold Open | Acts 1-4 | Act 5 | Tag | Total |
+|----------------|-----------|----------|-------|-----|-------|
+| Short (3,000) | 100-150 | 600 each | 400 | 100 | 3,000 |
+| Standard (5,000) | 150-250 | 1,000 each | 600 | 150 | 5,000 |
+| Long (8,000) | 300-400 | 1,500 each | 1,000 | 300 | 8,000 |
+
+---
+
+## Part 12: Cross-Chapter Techniques
+
+### Episode-to-Episode Continuity
+
+**Callbacks**:
+- Reference previous events naturally
+- Dialogue echoes: "Remember when..."
+- Visual/object callbacks: Item from chapter N appears in chapter N+5
+- Emotional callbacks: Previous feelings inform current reactions
+
+**Setup-Payoff System**:
+```
+Setup in Chapter N → Payoff in Chapter N+M
+
+Short-term (M=1-2): Scene-level payoff
+Medium-term (M=3-5): Episode-level payoff
+Long-term (M=6+): Season-level payoff
+```
+
+**Running Threads**:
+- A-thread: Primary arc (resolves per chapter with forward movement)
+- B-thread: Secondary arc (resolves across 3-5 chapters)
+- C-thread: Season arc (resolves at "season" end)
+
+### Three-Chapter Summary Injection
+
+Before writing chapter N, generate summary from N-3, N-2, N-1:
+
+```
+THREE-CHAPTER SUMMARY (Chapters N-3 → N-1)
+
+[INHERITED ELEMENTS] — Must continue
+• Active conflicts: [X, Y, Z]
+• Unresolved questions: [Q1, Q2]
+• Character states: [State A, State B]
+• Running threads: [Thread M, Thread N]
+
+[ADJUSTABLE ELEMENTS] — Can evolve
+• Secondary characters: [May shift]
+• Relationships: [May develop]
+• World elements: [May expand]
+
+[WARNING MARKERS] — Potential conflicts
+• [!] Character X mentioned Y in N-2 but not N-1
+• [!] Thread M was planted but not reinforced
+• [!] Timeline gap between N-2 and N-1
+```
+
+---
+
+## Part 13: Requirements Summary
+
+### Core Requirements for Framework
+
+1. **Chapter = Episode** — Cold open → 5 acts → tag structure
+2. **Novel = Season(s)** — 10-15 chapters per "season" arc
+3. **Multiple storylines** — A/B/C weaving per chapter
+4. **Hook endings** — Not cliffhangers, binge-optimized
+5. **Scene economy** — Enter late, exit early
+6. **Dialogue ratio** — 40-50% target
+7. **Visual storytelling** — Show through action, no emotion words
+8. **Season arc** — Premiere → Rising → Pivot → Climax → Finale
+9. **Cross-chapter continuity** — Callbacks, setup-payoff
+10. **Three-chapter summary** — Context injection before writing
+
+### File Output Integration
+
+This analysis integrates with:
+- `tv_drama_structure.txt` — Core structure reference
+- `chapter_blueprint.txt` — Per-chapter planning
+- `chapter_draft.txt` — Generation with TV pacing
+- `character_state.txt` — Cross-chapter tracking
+
+---
+
+## Sources
+
+This framework synthesis is based on research of:
+
+- [The Wire — Visual Novel Structure](https://www.indiewire.com/features/television/hbo-fx-prestige-tv-literary-novelistic-structure-1202234457/)
+- [The Americans — Novelistic Drama](https://www.vulture.com/2014/06/how-the-americans-became-tvs-best-novelistic-drama.html)
+- [Prestige TV Chapter-Book Era](https://www.theatlantic.com/entertainment/archive/2017/04/the-chapter-book-era-of-prestige-tv/524055/)
+- [Serialized Storytelling Analysis](https://www.vulture.com/2016/03/serialized-storytelling-tv-episodes-as-chapters.html)
+- [Breaking Bad Narrative Structure](https://www.vulture.com/2017/06/prestige-tv-novel-adaptation-structure.html)
+- [Scene Economy — Enter Late, Exit Early](https://www.scriptmag.com/)
+- [Blake Snyder Beat Sheet](https://savethecat.com/)
+- [Dialogue Ratio Analysis](https://www.writersdigest.com/)

@@ -1,0 +1,148 @@
+# Polish Round 5 — Dialogue Humanization
+
+> Fifth round: Make dialogue human, natural, and character-distinct.
+
+## CRITICAL RULES
+
+1. **OUTPUT MUST BE 100% ENGLISH**
+2. **Natural Dialogue Patterns** — How humans actually speak
+
+---
+
+## Input
+
+- Chapter Text: {chapter_text} (must be English)
+- Character Language Profiles: {character_profiles}
+- Context Section: {context_section}
+
+---
+
+## R13: Perfect → Natural Dialogue
+
+**AI Dialogue Problems**:
+| AI Problem | Human Fix |
+|------------|-----------|
+| Grammatically perfect sentences | Add fragments, run-ons |
+| Complete sentences always | Trail off, interrupt, restart |
+| No conversational fillers | Add "um", "well", "you know" |
+| All characters sound similar | Apply distinct voice per character |
+| Exposition in dialogue | DELETE — characters don't explain to each other |
+| Polite, measured responses | Make messier, emotional |
+| Question-Answer pattern | Mix up, avoid direct Q&A |
+| Balanced exchanges | Vary speech lengths |
+
+**Natural Dialogue Examples**:
+```
+AI: "I understand your concern. Let me explain why this is necessary."
+→ Human: "I know. Look—it's the only way."
+
+AI: "That's a fascinating point you've made. I hadn't considered it from that perspective."
+→ Human: "Huh. Didn't think of that."
+
+AI: "I'm sorry, but I disagree with your assessment of the situation."
+→ Human: "No. You're wrong."
+
+AI: "What do you think we should do about this problem?"
+→ Human: "So what do we do?" OR: "What now?"
+```
+
+---
+
+## R14: Direct → Subtext
+
+**AI tends to be direct. Humans use subtext.**
+
+| Direct AI | Subtext Human |
+|-----------|---------------|
+| "I'm angry at you." | "I need some space." |
+| "I love you." | [action: takes hand] |
+| "I don't trust him." | "Keep your distance from him." |
+| "I'm worried." | "Have we thought through all the angles?" |
+| "I want to leave." | "I think I should head out." |
+| "That hurt me." | "That was unnecessary." |
+| "You're important to me." | "I don't want to lose you." |
+| "I'm scared." | "I need a drink." |
+
+**Rule**: If character directly states emotion → rewrite as action, gesture, or indirect statement.
+
+---
+
+## R15: Speech Length = Power
+
+**Power Dynamics in Dialogue**:
+| Character Position | Speech Pattern |
+|--------------------|----------------|
+| Dominant | Longer speeches, fewer breaks |
+| Submissive | Short responses, hesitation |
+| Conflict | Competition for speech time |
+| Comfortable | Flowing exchanges |
+| Tension | Interrupted, fragments |
+
+**Questions = Control**:
+- Who asks questions controls conversation
+- Dominant: asks questions
+- Submissive: answers questions
+- Power shift: when answerer starts asking
+
+---
+
+## R16: Conversational Imperfections
+
+**Add natural speech features**:
+
+| Feature | Example |
+|---------|---------|
+| Interruption | "Wait, before you—" |
+| Trail off | "I just... I don't..." |
+| Restart | "I mean, what I'm saying is..." |
+| Fillers | "Um", "well", "look", "I mean" |
+| Fragment | "Not happening." / "Done." |
+| Overlap | [two characters speaking simultaneously] |
+| Pause | ... [silence marked] |
+
+---
+
+## Character Voice Application
+
+**Apply from character language profiles**:
+- Vocabulary tier per character
+- Rhythm signature per character
+- Emotional expression style per character
+- Unique markers (phrases only they use)
+
+---
+
+## Protected Dialogue
+
+**Keep original if**:
+- Character's unique speech pattern (intentional)
+- Plot-critical information delivery
+- Genre-required formal speech (e.g., period drama)
+- Quoting another character exactly
+
+---
+
+## Output Format
+
+1. **Modified English text**
+2. After `---`, modification list:
+
+```
+## Modification List
+
+| # | Rule | Original | Modified | Reason |
+|---|------|----------|----------|--------|
+| 1 | R13 | I understand your concern | I know | Natural dialogue |
+| 2 | R14 | I'm angry | I need some space | Subtext |
+| 3 | R15 | [long explanation] | [short response] | Power dynamics |
+```
+
+---
+
+## Text to Process
+
+{chapter_text}
+
+---
+
+Return ONLY modified English text + modification list. No Chinese. No explanations.
