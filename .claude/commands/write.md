@@ -83,15 +83,23 @@ Each chapter file follows this format:
 **科学依据**: LLM在长context中，首尾准确率~95%，中间<50%
 **策略**: 关键信息放在首尾两端，次要信息放中间
 
+**🔴 CRITICAL: 防风格正反馈 - prose_style.md 放首位**
+
 **MUST read these files in THIS ORDER for continuity:**
 
 ```
-[START] 必读 ─────────────────────────────────────────
-1. **Character Seed** (`memory/core_seed.md`)
+[START] 必读（风格+故事核心）─────────────────────────────────────
+1. **Prose Style** (`memory/prose_style.md`)
+   - 🔴 CRITICAL: Fixed writing style rules for ALL chapters
+   - Sentence structure rules, forbidden patterns (chain structures)
+   - Dialogue style, emotion expression rules
+   - **Prevents style amplification: read fixed style, NOT previous chapter's style**
+
+2. **Character Seed** (`memory/core_seed.md`)
    - Story concept, genre, core conflict
    - CRITICAL: Establishes fundamental constraints
 
-2. **Chapter Blueprint** (Act-based files)
+3. **Chapter Blueprint** (Act-based files)
    - NEW: Read ONLY relevant Act file
    - If chapter 1-10: `memory/chapter_blueprint_act1.md`
    - If chapter 11-20: `memory/chapter_blueprint_act2.md`
@@ -101,61 +109,52 @@ Each chapter file follows this format:
    - CRITICAL: Provides TV structure for THIS chapter only
 
 [MIDDLE] 按需加载 ─────────────────────────────────────
-3. **Character Dynamics** (Selective loading)
+4. **Character Dynamics** (Selective loading)
    - Read chapter_summary_{N-1} to identify active characters
    - Load ONLY profiles for characters appearing in Chapter N
    - Typically 2-3 profiles (~5KB)
    - Skip profiles for characters not in this chapter
 
-4. **World Building** (Selective loading)
+5. **World Building** (Selective loading)
    - Check blueprint for locations/settings mentioned
    - Load ONLY relevant world sections
    - Typically ~3KB for relevant portions
 
 [END] 连续性+铁律 ───────────────────────────────────────
-5. **Character States** (`memory/character_state.md`)
+6. **Character States** (`memory/character_state.md`)
    - Current physical/mental/social status of all characters
    - Items, abilities, resources each character holds
    - Relationship states and tensions
    - Triggered events and current goals
    - CRITICAL: This ensures character continuity across chapters
 
-6. **Global Summary** (`memory/global_summary.md`)
+7. **Global Summary** (`memory/global_summary.md`)
    - Running story summary (compressed for efficiency)
    - Unresolved threads and suspense tracking
    - Foreshadowing status (planted, reinforced, paid off)
    - Recent 5 chapters detailed, early chapters compressed
    - CRITICAL: This ensures plot continuity across chapters
 
-7. **Previous Chapter Summary** (`memory/chapter_summary_{N-1}.md`)
+8. **Previous Chapter Summary** (`memory/chapter_summary_{N-1}.md`)
    - Only if chapter > 1
+   - ⚠️ **PLOT continuity ONLY - DO NOT inherit sentence style from summary**
    - Key events, character changes, unresolved threads from previous chapter
    - Next chapter setup (hook, tension point, expected pickup)
    - CRITICAL: This ensures chapter-to-chapter continuity
 
 [END] 铁律 ─────────────────────────────────────────────
-8. **Anti-Template Quality Rules** (见下方FORBIDDEN patterns)
+9. **Anti-Template Quality Rules** (见下方FORBIDDEN patterns)
    - CRITICAL: Must be at END position for attention retention
 ```
-
----
-
-### 🔒 ATTENTION ANCHORING (SCAN Protocol)
-
-**When chapter N % 3 == 0, BEFORE writing:**
-
-Generate 1-2 sentence summary of:
-1. What character consistency rules apply to THIS chapter?
-2. What plot constraints are active?
-3. What genre conventions must be maintained?
-
-This active generation restores attention (~100 tokens vs. re-loading full instructions)
 
 ---
 
 **⚠️ DO NOT read previous chapter's full prose** (`output/chapters/` or `output/final/`).
 Reading full prose causes style amplification feedback loops (e.g., em-dash density escalates chapter-over-chapter until text becomes fragmented gibberish).
 The chapter summary contains all necessary continuity information.
+
+**⚠️ DO NOT inherit sentence style from chapter summary.**
+If summary contains chain structures ("X来自Y。Y来自Z。"), ignore that style and follow prose_style.md rules only.
 
 ---
 
@@ -327,15 +326,20 @@ Progress: {current}/{total}
 ## Dependencies
 
 Requires (all must exist):
-- `memory/core_seed.md` (English)
-- `memory/character_dynamics.md` (English)
-- `memory/world_building.md` (English)
-- `memory/chapter_blueprint.md` (English)
-- `memory/character_state.md` (English) — for character continuity
-- `memory/global_summary.md` (English) — for plot continuity
+- `memory/core_seed.md` (🇺🇸 English) - Story concept
+- `memory/character_dynamics.md` (🇺🇸 English) - Character profiles
+- `memory/world_building.md` (🇺🇸 English) - World settings
+- `memory/chapter_blueprint.md` (🇺🇸 English) - TV structure for this chapter
+- `memory/prose_style.md` (🇨🇳 中文) - Writing style rules
+- `memory/character_state.md` (🇨🇳 中文) - Character continuity
+- `memory/global_summary.md` (🇨🇳 中文) - Plot continuity
 
 Optional (for chapters > 1):
-- `memory/chapter_summary_{N-1}.md` — previous chapter's summary for continuity
+- `memory/chapter_summary_{N-1}.md` (🇨🇳 中文) — previous chapter's summary for continuity
+
+**🔴 Language Flow**: 
+- Blueprint阶段之前：🇺🇸 English (core_seed, character_dynamics, world_building, chapter_blueprint)
+- chapter_summary阶段之后：🇨🇳 中文 (prose_style, character_state, global_summary, chapter_summary)
 
 **⚠️ DO NOT read previous chapter's full prose** — causes style amplification feedback loops.
 

@@ -10,6 +10,34 @@ Default: 40 chapters, auto-test enabled.
 
 ---
 
+## 🔴 Language Flow（语言流程）
+
+```
+INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ [语言切换点] ───→ CHAPTERS ───→ TEST
+  │         │          │           │                    │            │           │
+  🇺🇸       🇺🇸        🇺🇸         🇺🇸                  🇨🇳          🇨🇳         🇨🇳
+folder   core_seed   char_dyn    blueprint           prose_style   中文章节    测试报告
+                      world       plot_arch           char_state
+                      (英文)       (英文)              global_sum
+                                                       chapter_sum
+                                                       (全部中文)
+```
+
+**关键规则：**
+- **Blueprint阶段之前：🇺🇸 全部英文**（core_seed, character_dynamics, world_building, chapter_blueprint, plot_architecture）
+- **chapter_summary阶段之后：🇨🇳 全部中文**（prose_style, character_state, global_summary, chapter_summary）
+- **语言切换点：** Writer agent读取英文Blueprint → 输出中文小说 → 生成中文摘要
+
+| Phase | Output Files | Language |
+|-------|-------------|----------|
+| IDEA | core_seed.md | 🇺🇸 English |
+| WORLD | character_dynamics.md, world_building.md, prose_style.md | 🇺🇸 English (prose_style规则用中文表述) |
+| BLUEPRINT | chapter_blueprint.md, plot_architecture.md | 🇺🇸 English |
+| CHAPTERS | chapter_XXX.md, chapter_summary_XXX.md, character_state.md, global_summary.md | 🇨🇳 中文 |
+| TEST | test_report.md | 🇨🇳 中文 |
+
+---
+
 ## Execution Protocol (For Claude)
 
 When `/novel-agent` is invoked, follow this EXACT sequence:
@@ -90,27 +118,48 @@ Report: 'IDEA COMPLETE - core_seed.md created (X words, X terms)'"
 
 ---
 
-## PHASE 3: WORLD + CHARACTERS (Spawn Agent)
+## PHASE 3: WORLD + CHARACTERS + PROSE STYLE (Spawn Agent)
+
+**🔴 CRITICAL: 此阶段必须生成 prose_style.md，防止风格正反馈放大**
 
 **Call Agent tool:**
 ```json
 Agent({
   "subagent_type": "general-purpose",
   "model": "inherit",
-  "description": "Build world and characters",
+  "description": "Build world, characters, and prose style",
   "isolation": "worktree",
   "prompt": "WORLDBuilder AGENT
 
 READ FIRST: memory/core_seed.md
 
 TASK:
-Generate characters and world with detailed profiles.
+Generate characters, world, and FIXED prose style definition.
 
 OUTPUT to memory/:
 - character_dynamics.md (≥1000 words: 6+ characters with language profiles)
 - world_building.md (≥800 words: physical/social/metaphorical)
 - character_names.json (name → Chinese mappings)
 - world_terms.json (world terminology)
+
+🔴 CRITICAL - prose_style.md (防风格正反馈):
+必须生成此文件，定义所有章节统一使用的写作风格。
+
+内容必须包含：
+1. 基调定义（从core_seed.md Genre提取）
+2. 句式结构规则（长短交替比例、复合句优先）
+3. 🔴 禁止句式模式：
+   - 链式推导结构：连续使用\"X来自Y。Y来自Z。\"句式
+   - 精度描述链：连续使用\"数值来自/数值显示\"句式
+   - 连续短句：连续≤15字符短句超过2个
+   - 重复结构开头：同一段落连续3+句使用相同开头词
+4. 对话风格（从character_dynamics提取）
+5. 情绪表达规则（禁止直接情绪词，融入动作/环境）
+6. 章节末尾规则（禁止链式总结结构）
+7. 验证方法（\"来自\"出现次数≤5次/章等）
+
+WHY: WRITER agent将读取此固定风格文件，而非继承前一章摘要的风格特征。
+这打破正反馈循环，防止\"来自\"链式结构逐章放大。
 
 ALSO CREATE INITIAL CONTINUITY FILES:
 - character_state.md (initial states for all characters)
@@ -131,22 +180,24 @@ LANGUAGE PROFILES per character:
 - Unique markers
 
 VERIFY before exiting:
-- All 6 files exist (character_dynamics, world_building, character_names, world_terms, character_state, global_summary)
+- All 7 files exist (character_dynamics, world_building, character_names, world_terms, prose_style, character_state, global_summary)
 - Character dynamics has ≥6 characters
 - Each character has language profile
 - character_state.md has tree format for each character
 - global_summary.md has initial story state
+- prose_style.md contains 禁止链式结构规则
 
-Report: 'WORLD COMPLETE - X characters, X world terms'"
+Report: 'WORLD COMPLETE - X characters, X world terms, prose_style.md created'"
 })
 ```
 
 **After agent returns:**
-1. Verify all 6 files exist (character_dynamics, world_building, character_names, world_terms, character_state, global_summary)
+1. Verify all 7 files exist (character_dynamics, world_building, character_names, world_terms, prose_style, character_state, global_summary)
 2. Check character count ≥6
 3. Verify character_state.md has tree format
 4. Verify global_summary.md has initial story state
-5. Update `progress.json: phases.world.status = "complete"`
+5. **🔴 CRITICAL: Verify prose_style.md exists and contains 防风格正反馈规则**
+6. Update `progress.json: phases.world.status = "complete"`
 
 ---
 
@@ -415,9 +466,52 @@ For chapter_num = 1 to chapter_count:
     "compression_count": 0,
     "last_compression_trigger": null,
     "compression_log": []
+  },
+  "quality_trends": {
+    "template_phrase_counts": {
+      "来自": [],
+      "的内容是": [],
+      "意味着": [],
+      "数值来自": []
+    },
+    "opening_types_used": [],
+    "last_quality_check": null,
+    "warnings_triggered": []
   }
 }
 ```
+
+---
+
+### 🔴 Quality Trend Monitoring (Orchestrator Responsibility)
+
+**After each chapter completes, orchestrator MUST:**
+
+1. **Grep template phrases** in newly written chapter:
+   ```bash
+   grep -c "来自" chapter_{N}.md
+   grep -c "的内容是" chapter_{N}.md
+   grep -c "意味着" chapter_{N}.md
+   ```
+
+2. **Update quality_trends**:
+   ```json
+   quality_trends.template_phrase_counts.来自.push(count_N)
+   quality_trends.opening_types_used.push(opening_type_N)
+   ```
+
+3. **Check growth rate**:
+   ```
+   If last 3 chapters show:
+   - "来自" growth > 50% → 🚨 WARNING: Chain structure amplifying
+   - Same opening type 3+ consecutive → 🚨 WARNING: Opening template
+   
+   Log warning to quality_trends.warnings_triggered
+   ```
+
+4. **If warning triggered**:
+   - Log: "Quality degradation detected at Chapter {N}: {warning_type}"
+   - Consider: Spawn rewrite agent for affected chapter with strict prose_style.md enforcement
 
 ---
 
@@ -459,27 +553,39 @@ Agent({
 **加载顺序**（严格遵循）:
 ```
 [START] 必读 ─────────────────────────────────────────
-1. memory/core_seed.md (故事概念、GENRE、铁律)
-2. memory/chapter_blueprint.md → 只读取第{chapter_num}章部分
-   ⚠️ 搜索模式: "### Chapter {chapter_num}"
-   ⚠️ 跳过其他章节内容，只加载当前章节TV结构 (~2KB)
+1. memory/prose_style.md (🇨🇳 中文写作风格规范)
+   🔴 CRITICAL: 固定风格规则，防止风格正反馈放大
+   - 句式结构规则、禁止模式（链式推导结构）
+   - 对话风格、情绪表达规则
 
-[MIDDLE] 按需加载 ─────────────────────────────────────
-3. memory/character_dynamics.md → 只加载相关角色
+2. memory/core_seed.md (🇺🇸 英文故事概念、GENRE、铁律)
+
+3. **🔴 Act-based Blueprint加载**（🇺🇸 英文，强制执行）
+   ⚠️ 禁止加载全量chapter_blueprint.md（81KB）
+   ⚠️ 只加载对应Act文件：
+   - Chapter 1-10: memory/chapter_blueprint_act1.md
+   - Chapter 11-20: memory/chapter_blueprint_act2.md
+   - Chapter 21-30: memory/chapter_blueprint_act3.md
+   - Chapter 31-40: memory/chapter_blueprint_act4.md
+   ⚠️ 搜索模式: "### Chapter {chapter_num}"
+   ⚠️ 只加载当前章节TV结构 (~2KB，而非81KB全文件)
+
+[MIDDLE] 按需加载（🇺🇸 英文）─────────────────────────────────────
+4. memory/character_dynamics.md → 只加载相关角色
    ⚠️ 查看chapter_summary_{chapter_num-1}的"角色状态变化"
    ⚠️ 只加载出场角色档案 (~5KB, 2-3个角色)
-   
-4. memory/world_building.md → 只加载相关设定
+    
+5. memory/world_building.md → 只加载相关设定
    ⚠️ 查看blueprint中的地点/势力提及
    ⚠️ 只加载相关部分 (~3KB)
 
-[END] 连续性+铁律 ───────────────────────────────────────
-5. memory/character_state.md ← 连续性：角色当前状态
-6. memory/global_summary.md ← 连续性：故事进展摘要
-7. memory/chapter_summary_{chapter_num-1}.md ← 前一章摘要
-8. memory/world_terms.json ← 术语表
-9. memory/character_names.json ← 角色名映射
-10. **四条铁律** ← CRITICAL规则必须放在END位置
+[END] 连续性+铁律（🇨🇳 中文）───────────────────────────────────────
+6. memory/character_state.md ← 连续性：角色当前状态
+7. memory/global_summary.md ← 连续性：故事进展摘要
+8. memory/chapter_summary_{chapter_num-1}.md ← 前一章摘要（🇨🇳 中文）
+9. memory/world_terms.json ← 术语表
+10. memory/character_names.json ← 角色名映射
+11. **十条铁律** ← CRITICAL规则必须放在END位置
 ```
 
 ---
@@ -617,9 +723,16 @@ Agent({
 
 ## 🔴 chapter_summary_*.md 格式规范（CRITICAL - 防止风格正反馈）
 
+**🔴 语言要求：chapter_summary 必须使用 🇨🇳 中文**
+
 **摘要必须使用中性叙事语言，绝不可采用章节正文的风格特征。**
 
 摘要的目的是传递**情节+状态+伏笔**，而非传递**风格+节奏+修辞**。
+
+**为什么用中文摘要？**
+- 摘要阶段之后全部使用中文（character_state, global_summary, chapter_summary）
+- Writer agent读取中文摘要 → 写中文小说，减少语言切换认知负担
+- 中文摘要更准确传达中文章节的情节细节
 
 ### 禁止的摘要风格（会导致正反馈循环）
 

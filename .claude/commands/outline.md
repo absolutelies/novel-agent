@@ -1,6 +1,7 @@
 # /outline - Plot Architecture & Chapter Blueprint
 
 > Design three-act structure and detailed chapter-by-chapter blueprint.
+> **🔴 CRITICAL: Output MUST be 100% English.** Blueprint is the foundation for Chinese novel generation.
 
 ## Usage
 
@@ -15,11 +16,23 @@
 ## Dependencies
 
 Requires:
-- `memory/core_seed.md`
-- `memory/character_dynamics.md`
-- `memory/world_building.md`
+- `memory/core_seed.md` (English)
+- `memory/character_dynamics.md` (English)
+- `memory/world_building.md` (English)
 
 Run `/idea` and `/worldbuild` first if missing.
+
+## 🔴 Language Requirement
+
+**All output files MUST be 100% English:**
+- `plot_architecture.md` - English
+- `chapter_blueprint.md` - English
+- `chapter_blueprint_act1-4.md` - English
+
+**Why English Blueprint?**
+- Blueprint is the structural foundation, not the prose output
+- Writer agent reads English Blueprint → writes Chinese novel
+- Language separation ensures structural clarity vs prose creativity
 
 ## Process
 
@@ -75,6 +88,33 @@ For EACH chapter (from 1 to total_chapters):
    - If chapter count > 10, generate in batches but ALL must be explicit
 
 4. **Rhythm curve** ensuring proper pacing across full blueprint
+
+5. **🔴 Opening Type Rotation (防开头模板化)**
+
+   **问题**: 连续章节使用相同开头结构（如"角色+屏幕+数据"）导致机械感
+   **解决**: 强制每章开头类型轮换，确保多样化
+
+   **开头类型库（必须轮换使用）：**
+
+   | 类型 | 示例结构 | 适用场景 |
+   |------|---------|----------|
+   | **感官切入** | 声音/气味/触觉开头，无角色在场 | 悬念、氛围营造 |
+   | **对话切入** | 直接对话开头，无铺垫 | 张力场景、冲突 |
+   | **动作切入** | 角色正在做某事，无心理描写 | 紧急场景、转折 |
+   | **悬念切入** | 问题/谜团开头，无解答 | 神秘、发现 |
+   | **环境切入** | 地点描写开头，无角色 | 氛围、时空转换 |
+   | **回忆切入** | 闪回开头，连接过去 | 背景、动机揭示 |
+
+   **轮换规则：**
+   - 相同开头类型连续使用 ≤ 2章
+   - 每5章必须包含 ≥ 3种不同开头类型
+   - Cold Open必须标注开头类型（供Writer参考）
+
+   **Blueprint格式更新：**
+   ```
+   | Element | Specific Content |
+   | Cold Open | [开头类型: 悬念切入] + [具体场景] |
+   ```
 
 Save to `memory/chapter_blueprint.md`.
 
