@@ -37,10 +37,11 @@
 ## Usage
 
 ```bash
-/novel-agent "<description>"                    — Full novel (40 chapters default)
+/novel-agent "<description>"                    — Full novel (40 chapters default, polish enabled)
 /novel-agent "<description>" --chapters 20      — Specify chapter count
+/novel-agent "<description>" --no-polish        — Skip polish phase
+/novel-agent "<description>" --quick            — Quick mode (10 chapters, polish skipped)
 /novel-agent "<description>" --test             — Auto-test after completion
-/novel-agent "<description>" --quick            — Quick mode (10 chapters, light polish)
 /novel-agent --project <name>                   — Resume/restart existing project
 /novel-agent --status                           — Show current progress
 /novel-agent --test-only                        — Test existing project only
@@ -56,6 +57,7 @@
 | Words per chapter | 3000 | `--words N` |
 | Batch size | **1** (sequential, avoid timeout) | `--batch N` |
 | Parallel mode | **disabled** (sequential prevents timeout) | Default (no override needed) |
+| Polish | **enabled** (standard depth) | `--no-polish` to skip |
 | Polish depth | standard | `--depth quick/standard/deep` |
 | Auto-test | enabled | `--no-test` to disable |
 
@@ -91,16 +93,16 @@
 ```
 PHASE ORDER (MANDATORY - VERIFIED BY CODE):
 
-  INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ CHAPTERS (中文直接输出) ───→ [POLISH*] ───→ COMPILE ───→ TEST ───→ DONE
-    │        │         │           │                    │                      │*           │           │
-    │        │         │           │                    │                      │opt         │           │
-    ▼        ▼         ▼           ▼                    ▼                      ▼            ▼           ▼
-  folder  core_seed.md  char_dyn.md  blueprint.md    ALL中文章节             polish?      merged      all tests
-  created EXISTS?      EXISTS?      HAS ALL beats?   in output/final/zh-CN/  (--polish)   files        PASS?
-           MUST ✓      MUST ✓       MUST ✓           MUST ✓                  SKIP↓       MUST ✓      MUST ✓
+  INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ CHAPTERS (中文直接输出) ───→ [POLISH] ───→ COMPILE ───→ TEST ───→ DONE
+    │        │         │           │                    │                      │             │           │
+    │        │         │           │                    │                      │ default:    │           │
+    ▼        ▼         ▼           ▼                    ▼                      ▼  enabled    ▼           ▼
+  folder  core_seed.md  char_dyn.md  blueprint.md    ALL中文章节             polish        merged      all tests
+  created EXISTS?      EXISTS?      HAS ALL beats?   in output/final/zh-CN/  (--no-polish  files        PASS?
+           MUST ✓      MUST ✓       MUST ✓           MUST ✓                  to skip)     MUST ✓      MUST ✓
 
 🔴 简化流程：去掉英文章节生成、translate阶段，直接从blueprint用中文写章节。
-🔴 POLISH阶段可选：默认跳过，启用 `--polish` 或 TEST失败时自动触发修复。
+🔴 POLISH阶段默认启用。使用 `--no-polish` 跳过。
 
 IF CHECK FAILS → REGENERATE THAT PHASE (not skip)
 ```
@@ -186,6 +188,7 @@ TASK: Generate character dynamics and world building
 OUTPUT FILES:
 - memory/character_dynamics.md (main characters, arcs, language profiles, relationships)
 - memory/world_building.md (physical/social/metaphorical dimensions)
+- memory/prose_style.md (fixed writing style rules with 反机械化写作规则, 中文)
 - memory/character_names.json (name mappings)
 - memory/world_terms.json (world terminology)
 
@@ -195,17 +198,32 @@ REQUIREMENTS:
 - World: power structure, taboos, economy, visual symbols
 - Extract ALL terminology to JSON files
 
+PROSE STYLE REQUIREMENTS (prose_style.md content):
+1. 基调（从 Genre 提取，硬科幻推理: 冷峻克制、白描为主）
+2. 句式结构规则（正确句式模式 + 禁止句式模式）
+3. 对话风格（从 character_dynamics.md 提取每个角色的口语特征）
+4. 情绪表达规则（禁止直接情绪词，融入动作和环境）
+5. 章节末尾规则（禁止链式总结结构）
+9. 🔴 反机械化写作规则：
+   - 感官锚定去重规则（同一感官锚定不同的描述方式）
+   - 数字密度控制规则（数值不超过8%句子）
+   - 段落开头多样性规则（角色名开头≤12%段落）
+   - "不是...是..."密度控制规则（≤3次/章）
+   - 段落长度分布规则（单句段落≤15%）
+
 VERIFY BEFORE EXITING:
 - character_dynamics.md ≥1000 words
 - world_building.md ≥800 words
+- prose_style.md contains 反机械化写作规则
 - JSON files have ≥15 terms each
 
 Do NOT proceed until verified. Report completion status.
 ```
 
 **Orchestrator verifies:**
-- ✓ All 4 files exist
+- ✓ All 5 files exist
 - ✓ Content meets minimum requirements
+- ✓ prose_style.md contains 反机械化写作规则
 - IF FAIL → respawn agent
 
 ---
@@ -369,6 +387,75 @@ Agent({
 > 
 > **此处仅保留五条核心铁律——需要在写作过程中即时执行的规则：铁律一、二、七、八、十一。**
 
+### 🔄 反机械化规则（防精度风格过拟合）
+
+> 📋 这些规则由 `quality_monitor.py` 自动验证。写作时注意即可，无需精确计数。
+
+#### 规则A：感官锚定去重
+
+空间站的核心感官元素（旋转驱动的嗡鸣、再生空气的微酸味、复合板的冷感等）是有效的环境锚定工具——但过度重复会变成机械符号。
+
+| 🔴 FORBIDDEN（感官沉淀） | ✅ CORRECT（感官变化） |
+|---|---|
+| 每章都写"四十六点七赫兹的嗡鸣穿过鞋底" | 第1次："四十六点七赫兹的低鸣" → 第2次："旋转驱动的频率在耳道里升了一度" → 第3次："嗡鸣变了——不是频率，是某种相位偏移" |
+| "氢氧化锂残留的微酸"每章出现 | 第1次："空气里有氢氧化锂残留的微酸" → 第2次："再生空气的味道今天不同——少了酸，多了某种金属感" → 第3次："他已经闻不到那个味道了" |
+
+**量化规则：**
+- 同一感官锚定以相同措辞出现 **≤3次/全小说**
+- 每次出现应使用**不同描述方式**（不同角度、不同感知方式、不同角色感知）
+
+#### 规则B：数字密度控制
+
+精确数字是硬科幻的风格特征，但过度依赖数字会削弱叙事质感。不是每个观察都需要数字。
+
+| 🔴 FORBIDDEN（数字堆砌） | ✅ CORRECT（数字精选） |
+|---|---|
+| 每个段落都包含一个精确数值 | 数字集中在关键推理段落；情感段落用感官描写替代 |
+| "杯子偏左二十三厘米。桌宽六十厘米。距前缘十二厘米。"（连续三个数字） | "杯子偏左——大约一个手掌的距离。桌面不宽，这个偏差在视觉上几乎是挑衅。" |
+
+**量化规则：**
+- 数值密度 **≤8%** 句子（即每100句中不超过8句含数字/测量值）
+- 关键情绪时刻：优先感官描写，数字作为支持而非主角
+- 禁止连续3句以上含精确数值
+
+#### 规则C：段落开头多样性
+
+同一角色名反复开头会产生目录感，削弱叙事流。
+
+| 🔴 FORBIDDEN（开头重复） | ✅ CORRECT（开头变化） |
+|---|---|
+| 连续段落以"林深"开头 | 穿插动作开头、环境开头、对话开头、时间开头 |
+| 整个章节中"林深"开头占比超过12% | 用不同的句子结构引导读者进入新段落 |
+
+**量化规则：**
+- 任何角色名开头段落 **≤12%** 总段落数
+- 连续2个段落不得以同一角色名开头
+
+#### 规则D："不是...是..."密度控制
+
+这个句式是冷峻风格的有力工具，但过度使用会从风格退化为模板。
+
+| 🔴 FORBIDDEN | ✅ CORRECT |
+|---|---|
+| 每章"不是...是..."超过3次 | 用正面陈述替代：不写"不是声音，是振动"，直接写"振动从鞋底传来" |
+| "不是A，是B。不是C，是D。"（连续使用） | 用逗号合并："不是声音，而是骨骼里的嗡鸣——一种比心跳更古老的频率" |
+
+**量化规则：**
+- "不是...是..."结构 **≤3次/章**
+
+#### 规则E：段落长度分布
+
+全书统一的段落长度会产生单调的阅读节奏。变化长度本身就是在制造节奏。
+
+| 🔴 FORBIDDEN | ✅ CORRECT |
+|---|---|
+| 单句段落超过总段落的15% | 混合：1-2句段落（快节奏动作）、3-5句中段落（叙事主干）、6+句长段落（深度描写/推理） |
+| 连续5个以上单句段落 | 在短段落之间插入中长段落作为节奏锚点 |
+
+**量化规则：**
+- 单句段落 **≤15%** 总段落数
+- 每个场景（约500-800字）至少包含1个中长段落（3+句）
+
 ### 铁律一：TV结构是内部大纲，绝不可输出到文件
 
 chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创作参考。
@@ -384,6 +471,11 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 | `## 【第五幕】` / `## Act 5` | 剧本格式，严禁 |
 | `## 【尾声】` / `## Tag` | 剧本格式，严禁 |
 | 任何 `【...】` 括号标题 | 剧本格式，严禁 |
+| `## 一` / `## 二` / `## 三` 等数字编号标题 | 章节结构标记，严禁 |
+| `## N.` / `## N、` 等任意编号标题 | 章节结构标记，严禁 |
+| 任何 `## ` 开头的行（The `## ` prefix） | 散文不允许出现任何 `## ` 章节标题。章节内部分割使用空行和自然过渡。 |
+
+**通用规则：输出文件中绝对不允许出现任何以 `## ` 开头的行。章节内部的分段只通过空行和叙事过渡来实现。**
 
 **如何使用TV结构（仅作内部参考）：**
 - Cold Open 内容 → 写成开篇段落，自然钩住读者
@@ -560,7 +652,7 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 
 ### 铁律八：禁止连续短句，必须使用长短交替节奏
 
-中文小说节奏需要变化。连续短句（≤15字符）超过3个会产生机械感、削弱叙事张力。
+中文小说节奏需要变化。连续短句（≤15字符）超过3个会产生机械感、削弱叙事张力。注意：硬科幻冷峻风格天然倾向短句，允许连续≤3个短句，但连续≥4个时必须插入中长句作为节奏锚点。
 
 | 🔴 FORBIDDEN（连续短句） | ✅ CORRECT（长短交替） |
 |---|---|
@@ -569,9 +661,9 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 | `他走进来。光落在他脸上。他的眼睛是银色的。` | `他走进来时，符文的光芒落在他脸上，勾勒出一个陌生的轮廓——他的眼睛是银色的，和她在庇护所中看到的那些古老的画像一模一样。` |
 
 **量化规则：**
-- 任何段落中，连续短句（≤15字符）不得超过 **3个**
-- 若发现自己在写连续短句，立即合并为复合句或长句
-- 句子长度分布建议：短句10-20% + 中句40-50% + 长句30-40%
+- 任何段落中，连续短句（≤15字符）不得超过 **3个**（硬科幻推理风格适应性调整）
+- 硬科幻冷峻风格天然倾向短句，允许≤3个连续短句。若连续≥4个短句，必须合并或插入中长句作为节奏锚点。
+- 句子长度分布建议：短句15-25% + 中句40-50% + 长句25-35%
 
 **长句构建技巧：**
 - 使用逗号连接子句：`他走进来，脚步平稳，但带着某种陌生的迟疑`
@@ -963,7 +1055,7 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 - ✓ 铁律一：NO 剧本标记（## 【冷开场】等）
 - ✓ 铁律二：对话使用中文合并引号格式
 - ✓ 铁律七：NO POV过滤词（看见/听到/感到/注意到/意识到/想/记得 ≤ 5次/章）
-- ✓ 铁律八：NO 连续短句（≤15字符连续超过2个）
+- ✓ 铁律八：NO 连续短句（≤15字符连续超过3个，硬科幻风格可放宽至3个但不可超过4个）
 - ✓ 铁律十一：感官锚定（每场景≥2感官类型，关键情绪时刻≥3）
 
 **程序化规则（写作时无需检查，由 quality_monitor.py 自动验证）**：
@@ -993,11 +1085,12 @@ for chapter_num in 1 to chapter_count:
     
     # After chapter complete:
     - Verify Chinese chapter file exists in output/final/zh-CN/
-    - 🆕 Run quality_monitor.py:
+    - 🔴 MANDATORY: Run quality_monitor.py:
       python scripts/quality_monitor.py --chapter output/final/zh-CN/chapter_{chapter_num:03d}.md --project . --chapter-num {chapter_num} --update-progress
       - exit 0 → continue
       - exit 1 → log warning, continue
-      - exit 2 → respawn this chapter (max 3 retries)
+      - exit 2 → respawn this chapter (max 3 retries). After 3 retries, mark for human review and continue.
+    - Every 5 chapters: Read progress.json quality_trends and report to user
     - Update character_state.md, global_summary.md
     - 🔴 Update progress.json: READ entire file → modify in memory → WRITE entire file (atomic overwrite, NEVER append)
     - IF chapter FAIL → respawn that chapter only (max 3 retries)
@@ -1005,11 +1098,19 @@ for chapter_num in 1 to chapter_count:
 
 ---
 
-## PHASE 4.5: PROSE POLISH (Optional - 启用需 `--polish` flag)
+## PHASE 4.5: PROSE POLISH (默认启用 — 使用 `--no-polish` 跳过)
 
-**🔴 此阶段可选，默认跳过。启用时在章节生成后运行。**
+**🔴 此阶段默认启用（standard depth）。**
+**跳过方式:** `--no-polish` 或 `--quick`（快速模式自动跳过）
 
-**触发条件:** `--polish` 或 TEST阶段发现质量问题（连续短句、人名未翻译等）
+**🔴 此阶段默认启用。所有章节在 Phase 5 完成后自动进入润色。**
+**跳过触发条件:** `--no-polish` 标志 或 `--quick` 模式
+
+**默认执行。** 取消触发条件: `--no-polish` 或 `--quick` 模式
+**额外触发（即使已跳过）：** TEST阶段发现严重质量问题，自动启动润色修复
+
+**🔴 使用专用中文润色提示:** `.claude/prompts/polish_chinese_style.txt`
+该提示包含6轮中文散文质量修复（碎片化修复、感官锚定去重、数字密度压缩、段落开头变化、模板句式替换、对话自然化）。
 
 **Agent Prompt:**
 ```
@@ -1143,11 +1244,11 @@ TEST CHECKLIST:
    - If ANY English name found → CRITICAL FAILURE
 
 10. SENTENCE RHYTHM CHECK (CRITICAL - 铁律八)
-    - No consecutive short sentences (≤15 chars) exceeding 2 in sequence ✓/✗
+    - No consecutive short sentences (≤15 chars) exceeding 3 in sequence ✓/✗
     - Check method: For each paragraph, count consecutive sentences with len ≤ 15
-    - PASS: max consecutive short sentences ≤ 2
-    - WARN: 3 consecutive short sentences
-    - FAIL: ≥4 consecutive short sentences (must regenerate)
+    - PASS: max consecutive short sentences ≤ 3 (hard sci-fi style exemption: ≤3 allowed)
+    - WARN: 4 consecutive short sentences
+    - FAIL: ≥5 consecutive short sentences (must regenerate)
 
 11. EM-DASH DENSITY CHECK (CRITICAL - 铁律四)
     - For each chapter: count("——") / total_chars ≤ 0.05 (5%) ✓/✗
@@ -1253,9 +1354,9 @@ Report: 'TEST COMPLETE - X/11 checks passed'
 | 人名翻译强制 | ✓ 铁律五：必须使用character_names.json译名 |
 | 中文纯度 | ✓ 铁律六：严禁英文词汇嵌入中文句子 |
 | 深度POV | ✓ 铁律七：禁止过滤词（≤5次/章） |
-| 句子节奏控制 | ✓ 铁律八：禁止连续短句超过2个 |
+| 句子节奏控制 | ✓ 铁律八：禁止连续短句超过3个（硬科幻可放宽至3个） |
 | 破折号控制 | ✓ 铁律四：密度≤5% |
-| 可选Polish | ✓ `--polish` 启用润色修复阶段 |
+| 可选Polish | ✓ 默认启用（standard depth），`--no-polish` 跳过 |
 
 ---
 

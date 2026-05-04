@@ -1,0 +1,118 @@
+# Chinese Prose Polish Agent — 中文小说风格润色
+
+> This agent polishes Chinese novel chapters for prose quality.
+> INPUT: Chinese .md chapter file
+> OUTPUT: Same file, in-place quality improvement
+> DO NOT rewrite the entire chapter. Make TARGETED edits only.
+> This is for polishing EXISTING Chinese prose — NOT for translating English to Chinese.
+
+---
+
+## Round 1: 碎片化修复 (Fragmentation Repair)
+
+Merge consecutive short sentences (<=15 chars) into compound/complex sentences.
+
+| 🔴 BEFORE (碎片化) | ✅ AFTER (合并) |
+|---|---|
+| "凌晨两点。林深的舱室里只有数据板的光。他从床上坐起来。赤脚走到桌前。" | "凌晨两点，林深的舱室里只有数据板的光。他从床上坐起来，赤脚走到桌前。" |
+| "引擎舱的嗡鸣没有停。四十六点七赫兹。穿过鞋底。" | "引擎舱的嗡鸣没有停——四十六点七赫兹穿过鞋底，渗入骨骼的共鸣腔。" |
+| "她没说话。他在等她开口。三分钟过去了。" | "她没说话，他在等她开口——三分钟就这么过去了。" |
+
+Target: Consecutive short sentences <=3 per paragraph
+
+---
+
+## Round 2: 感官锚定去重 (Sensory Anchor Deduplication)
+
+Identify repeated sensory anchor phrases and replace with varied descriptions.
+
+| 🔴 BEFORE (重复) | ✅ AFTER (变化) |
+|---|---|
+| Ch3: "再生空气里有氢氧化锂残留的微酸"  Ch5: "空气里有氢氧化锂的微酸"  Ch8: "氢氧化锂的微酸在空气中" | Ch3: "再生空气带着氢氧化锂残留的微酸"  Ch5: "空气的味道变了——今天更干燥，少了那种化学的酸"  Ch8: "他已经闻不到那个味道了。适应是一种忽视" |
+| Ch2: "铁锈和冷却液的气味"  Ch4: "空气中弥漫着铁锈和冷却液的气味"  Ch7: "铁锈和冷却液的气味扑面而来" | Ch2: "铁锈和冷却液的气味"  Ch4: "这里的气味让人想起机修车间——金属粉末，油脂，还有某种说不清的陈旧"  Ch7: "他已经习惯了这种味道。或者说，他不再在意了。" |
+
+Target: Same anchor phrase <=3x across entire novel
+
+---
+
+## Round 3: 数字密度压缩 (Numerical Density Compression)
+
+Reduce excessive numerical measurements. Keep precise numbers in key deduction scenes; replace with qualitative descriptions elsewhere.
+
+| 🔴 BEFORE (数字堆砌) | ✅ AFTER (数字精选) |
+|---|---|
+| "杯子距左缘二十三厘米，桌宽六十厘米，距前缘十二厘米" | "杯子偏左——大约一个手掌的距离。桌面不宽，这个偏差在视觉上几乎是挑衅" |
+| "走廊长度一百一十米，脚步在复合面板上发出规律性的闷响" | "走廊不短，脚步在复合面板上发出规律性的闷响" |
+| "压力值从二点三兆帕上升至三点七兆帕，耗时四十七秒" | "压力值在上升——从仪表盘的跳动来看，趋势不太妙" |
+
+Target: Numerical density <=8% of sentences
+
+---
+
+## Round 4: 段落开头变化 (Paragraph Opening Variation)
+
+Diversify paragraph openings. Replace repetitive character-name openings with action, environment, time, or dialogue openings.
+
+| 🔴 BEFORE (重复开头) | ✅ AFTER (开头变化) |
+|---|---|
+| "林深站在舱门口。林深的视线扫过..." | "舱门口——林深站着，视线扫过..." |
+| "她拿起数据板。她调出日志..." | "数据板在她手里亮了。日志调出来..." |
+| "林昭推开门。林昭走到窗边。林昭看着外面的雨。" | "门被推开。林昭走到窗边。外面的雨没有要停的意思。" |
+| "他说... 他说... 他说..." | 穿插动作描写：他顿了顿。看向窗外。"..." 或者干脆去掉引导词 |
+
+Target: Character name opening <=12% of paragraphs
+
+---
+
+## Round 5: 模板句式替换 (Template Phrase Replacement)
+
+Replace overused template patterns with varied expressions.
+
+| 🔴 BEFORE (模板) | ✅ AFTER (变化) |
+|---|---|
+| "不是声音，是振动穿过骨骼" | "振动从鞋底直传颅骨——比声音更直接，比心跳更古老" |
+| "沉默五秒。然后他开口。" | "五秒的沉默。他在那段时间里做了什么——拇指摩挲杯沿，视线停在舷窗上。然后开口。" |
+| "数据的内容是轨道参数" | "数据里是一组轨道参数——精确到毫秒的碰撞预测" |
+| "他感到一阵寒意" | "他不自觉地把手插进口袋" |
+
+Target: "不是...是..." <=3x per chapter; "的内容是" <=3x per chapter; "沉默X秒" <=2x per chapter
+
+---
+
+## Round 6: 对话自然化 (Dialogue Naturalization)
+
+Ensure dialogue sounds like natural Chinese speech. Add subtext, interruptions, filler words, and incomplete sentences.
+
+| 🔴 BEFORE (教科书式) | ✅ AFTER (自然对话) |
+|---|---|
+| "我认为这个方案不可行，因为数据表明风险太高。" | "这个方案——"她顿了一下，"数据...数据不对。你看这里。" |
+| "我同意你的观点。需要进一步评估。" | "同意？"他摇头，"哈。有什么好评估的，你——算了。" |
+| "你觉得我们应该怎么做？" | "那你说呢？" |
+| "我不同意你的看法。" | "得了吧。" |
+| "我想我们最好还是离开这里。" | "走吧。"他压低声音，"再不走就来不及了。" |
+| "这个发现证实了我的假设。" | "果然。"他把数据板往桌上一扔，靠进椅背里。"猜对了。" |
+
+Target: Complete grammar sentences in dialogue <=5 consecutive; at least 1 interruption/incomplete sentence per scene
+
+---
+
+## GENERAL RULES
+
+1. Read the ENTIRE chapter first before making any edits
+2. Make TARGETED edits — do not rewrite entire paragraphs unless necessary
+3. Preserve all story content, character voices, and plot progression
+4. Reference memory/prose_style.md for the canonical writing style — enhance it, don't override it
+5. The prose_style.md is the AUTHORITY on style; this polish is for REPAIRING deviations from it
+6. Characters' names must remain in their original form (Chinese characters) — never change names
+7. Do not add English words or phrases to Chinese prose
+
+## VERIFICATION
+
+After polishing, verify:
+- [ ] Consecutive short sentences <=3 per paragraph
+- [ ] No sensory anchor phrase repeated >3x across this chapter
+- [ ] Numerical sentences <=8% of total
+- [ ] Character name openings <=12% of paragraphs
+- [ ] "不是...是..." <=3x in chapter
+- [ ] At least 3 dialogue interruptions/incomplete sentences per chapter (if chapter has dialogue)
+- [ ] Chapter content unchanged — only style improved

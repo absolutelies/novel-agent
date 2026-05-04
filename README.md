@@ -184,7 +184,7 @@ Blueprint → Chinese Chapters → [Polish*] → Compile → Test
 - Eliminates English intermediate step
 - Reduces phases from 9 to 6
 - Maintains quality by writing Chinese directly
-- Polish optional (triggered by `--polish` or test failure)
+- Polish enabled by default (use `--no-polish` to skip)
 
 ---
 
@@ -193,11 +193,11 @@ Blueprint → Chinese Chapters → [Polish*] → Compile → Test
 **Blueprint阶段之前：🇺🇸 全部英文 | chapter_summary阶段之后：🇨🇳 全部中文**
 
 ```
-INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ [语言切换点] ───→ CHAPTERS ───→ TEST
-  │         │          │           │                    │            │           │
-  🇺🇸       🇺🇸        🇺🇸         🇺🇸                  🇨🇳          🇨🇳         🇨🇳
-folder   core_seed   char_dyn    blueprint           prose_style   中文章节    测试报告
-                      world       plot_arch           char_state
+INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ [语言切换点] ───→ CHAPTERS ───→ POLISH ───→ TEST
+  │         │          │           │                    │            │           │         │
+  🇺🇸       🇺🇸        🇺🇸         🇺🇸                  🇨🇳          🇨🇳         🇨🇳       🇨🇳
+folder   core_seed   char_dyn    blueprint           prose_style   中文章节    润色后  测试报告
+                      world       plot_arch           char_state               章节
                       (英文)       (英文)              global_sum
                                                        chapter_sum
                                                        (全部中文)
@@ -218,12 +218,13 @@ folder   core_seed   char_dyn    blueprint           prose_style   中文章节 
 ## Phase Gates (Strict Enforcement)
 
 ```
-INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ CHAPTERS ───→ [POLISH*] ───→ COMPILE ───→ TEST ───→ DONE
-  │        │         │           │              │              │*           │           │
-  ▼        ▼         ▼           ▼              ▼              ▼opt         ▼           ▼
-folder   seed.md   char.md    blueprint.md   ALL中文章节    polish?      merge      11 checks
-created  EXISTS?   EXISTS?    HAS ALL?       in zh-CN/      (--polish)   files      PASS?
-          MUST ✓    MUST ✓     MUST ✓         MUST ✓         SKIP↓       MUST ✓     MUST ✓
+INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ CHAPTERS ───→ POLISH ───→ COMPILE ───→ TEST ───→ DONE
+  │        │         │           │              │              │          │           │
+  ▼        ▼         ▼           ▼              ▼              ▼ default  ▼           ▼
+folder   seed.md   char.md    blueprint.md   ALL中文章节    enabled    merge      11 checks
+created  EXISTS?   EXISTS?    HAS ALL?       in zh-CN/      polish     files      PASS?
+          MUST ✓    MUST ✓     MUST ✓         MUST ✓        (--no-polish MUST ✓     MUST ✓
+                                                              to skip)
 
 IF CHECK FAILS → REGENERATE THAT PHASE (never skip)
 ```
@@ -252,7 +253,7 @@ IF CHECK FAILS → REGENERATE THAT PHASE (never skip)
 | 铁律五 | All names must be translated | grep English names |
 | 铁律六 | Chinese purity (no English embedding) | grep lowercase English |
 | 铁律七 | Deep POV (filter words ≤5/chapter) | Count `看见/听到/感到` |
-| 铁律八 | No consecutive short sentences (≤2) | Sentence length check |
+| 铁律八 | No consecutive short sentences (≤3, hard sci-fi: ≤3) | Sentence length check |
 | 铁律九 | No chain deduction structures | `"来自" ≤ 5次/章` |
 | 铁律十 | No template phrase substitutes | `"的内容是" ≤ 3次/章` |
 
@@ -277,8 +278,8 @@ IF CHECK FAILS → REGENERATE THAT PHASE (never skip)
 |---------|-------------|
 | `/novel-agent "<desc>"` | Create new project + generate (default: 40 chapters) |
 | `/novel-agent "<desc>" --chapters N` | Specify chapter count |
-| `/novel-agent "<desc>" --quick` | Quick mode (10 chapters, light polish) |
-| `/novel-agent "<desc>" --polish` | Enable polish phase |
+| `/novel-agent "<desc>" --quick` | Quick mode (10 chapters, polish skipped) |
+| `/novel-agent "<desc>" --no-polish` | Skip polish phase |
 | `/novel-agent --project <name>` | Resume existing project |
 | `/novel-agent --status` | Show current progress |
 | `/novel-agent --list` | List all projects |
@@ -291,8 +292,9 @@ IF CHECK FAILS → REGENERATE THAT PHASE (never skip)
 | Option | Values | Default | Description |
 |--------|--------|---------|-------------|
 | `--chapters` | 5-100 | **40** | Total chapters |
-| `--quick` | - | - | 10 chapters, faster |
-| `--polish` | - | - | Enable polish phase |
+| `--quick` | - | - | 10 chapters, faster, polish skipped |
+| `--no-polish` | - | - | Skip polish phase |
+| `--polish` | - | - | (backward compat, same as default) |
 | `--no-test` | - | - | Disable auto-test |
 
 ---
@@ -306,8 +308,9 @@ IF CHECK FAILS → REGENERATE THAT PHASE (never skip)
 │  3. WORLD     → Build characters + world + glossary          │
 │  4. BLUEPRINT → Design ALL chapter beats (TV structure)      │
 │  5. CHAPTERS  → Write ALL chapters directly in Chinese       │
-│  6. COMPILE   → Merge into novel_full_zh.md                  │
-│  7. TEST      → Auto-validate quality (11 checks)            │
+│  6. POLISH    → Prose quality polish (默认启用)               │
+│  7. COMPILE   → Merge into novel_full_zh.md                  │
+│  8. TEST      → Auto-validate quality (11 checks)            │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -382,7 +385,7 @@ TV structure is **INTERNAL pacing guide only** - never appears in output files.
 | POV filter words | 铁律七 | ≤5 per chapter |
 | Em-dash density | 铁律四 | ≤5% |
 | Name translation | 铁律五 | 0 English names |
-| Sentence rhythm | 铁律八 | ≤2 consecutive short |
+| Sentence rhythm | 铁律八 | ≤3 consecutive short (hard sci-fi: ≤3, regenerate if ≥4) |
 | Chain deduction | 铁律九 | "来自" ≤5 per chapter |
 | Template phrases | 铁律十 | "的内容是" ≤3 per chapter |
 | Chapter count | - | = configured count |

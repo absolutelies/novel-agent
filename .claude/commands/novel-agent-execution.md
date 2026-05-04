@@ -13,14 +13,16 @@ Default: 40 chapters, auto-test enabled.
 ## 🔴 Language Flow（语言流程）
 
 ```
-INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ [语言切换点] ───→ CHAPTERS ───→ TEST
-  │         │          │           │                    │            │           │
-  🇺🇸       🇺🇸        🇺🇸         🇺🇸                  🇨🇳          🇨🇳         🇨🇳
-folder   core_seed   char_dyn    blueprint           prose_style   中文章节    测试报告
-                      world       plot_arch           char_state
+INIT ───→ IDEA ───→ WORLD ───→ BLUEPRINT ───→ [语言切换点] ───→ CHAPTERS ───→ POLISH* ───→ TEST
+  │         │          │           │                    │            │           │           │
+  🇺🇸       🇺🇸        🇺🇸         🇺🇸                  🇨🇳          🇨🇳         🇨🇳         🇨🇳
+folder   core_seed   char_dyn    blueprint           prose_style   中文章节    润色后    测试报告
+                      world       plot_arch           char_state               章节
                       (英文)       (英文)              global_sum
                                                        chapter_sum
                                                        (全部中文)
+
+* POLISH 默认启用（standard depth），使用 `--no-polish` 或 `--quick` 跳过。
 ```
 
 **关键规则：**
@@ -79,14 +81,16 @@ When `/novel-agent` is invoked, follow this EXACT sequence:
 2. Create subfolders: `memory/`, `output/chapters/`, `output/final/`, `output/final/zh-CN/`, `scripts/`
 3. Write `memory/progress.json` with initial state
 4. Copy merge script: `scripts/merge_novel.py` (from templates)
-5. Update `novels/projects_index.json`
-6. Set `active_project`
+5. Copy quality monitor: `scripts/quality_monitor.py` (from templates)
+6. Update `novels/projects_index.json`
+7. Set `active_project`
 
 **Verification:**
 - ✓ Folder exists
 - ✓ All subfolders exist
 - ✓ progress.json created
 - ✓ merge_novel.py exists in scripts/
+- ✓ quality_monitor.py exists in scripts/
 
 ---
 
@@ -158,7 +162,7 @@ OUTPUT to memory/:
 3. 🔴 禁止句式模式：
    - 链式推导结构：连续使用\"X来自Y。Y来自Z。\"句式
    - 精度描述链：连续使用\"数值来自/数值显示\"句式
-   - 连续短句：连续≤15字符短句超过2个
+   - 连续短句：连续≤15字符短句超过3个（硬科幻风格适应性调整，≤3个允许）
    - 重复结构开头：同一段落连续3+句使用相同开头词
 4. 对话风格（从character_dynamics提取）
 5. 情绪表达规则（禁止直接情绪词，融入动作/环境）
@@ -391,27 +395,62 @@ WRITER agent reads ONLY relevant Act file for its chapter range.
 batch_size = 1 (DEFAULT - ONE chapter per batch to avoid timeout)
 sequential_mode = true (DEFAULT - one agent at a time)
 
-For chapter_num = 1 to chapter_count:
+For chapter_num = 1 to chapter_count: # compression_trigger_words: 100000
     Spawn 1 agent with run_in_background: true
     Agent reads blueprint TV structure → writes chapter directly in Chinese
     Wait for agent to complete (auto-notification)
     Update continuity files (character_state.md, global_summary.md)
     Create chapter_summary_{chapter_num}.md for next chapter
-    ⚠️ RUN QUALITY MONITOR (see below)
+    ⚠️ MANDATORY: RUN QUALITY MONITOR AFTER EVERY CHAPTER
+    ```
+    Run: python scripts/quality_monitor.py --chapter output/final/zh-CN/chapter_{chapter_num:03d}.md --project . --chapter-num {chapter_num} --update-progress
+    
+    Exit code handling:
+    - exit 0 → Continue to next chapter
+    - exit 1 → Log warning to console, continue to next chapter
+    - exit 2 → CRITICAL: Spawn rewrite agent for this chapter with strict prose_style.md enforcement (max 3 retries). 
+      If all retries still produce exit code 2, mark chapter for human review in progress.json and continue.
+    ```
+    
+    ⚠️ EVERY 5 CHAPTERS: QUALITY TREND REPORT
+    
+    When chapter_num % 5 == 0:
+    - Read memory/progress.json → quality_trends
+    - Report one-line summary to user:
+      "Quality trends (Ch1-{N}): 来自 avg={avg}/ch, em-dash density {min}-{max}, 
+       filter_words narration avg={avg}/ch, numerical_density avg={avg}, 
+       warnings triggered: {count}"
+    - If any trend shows >50% growth in last 3 chapters → warn user
+    
     ⚠️ CHECK COMPRESSION TRIGGER (see below)
     Continue to next chapter
 ```
 
 ---
 
-## ⚠️ PROACTIVE COMPRESSION TRIGGER (Orchestrator Responsibility)
+## ⚠️ MANDATORY: PROACTIVE COMPRESSION TRIGGER (Orchestrator Responsibility)
+
+**🔴 THIS STEP IS MANDATORY. DO NOT SKIP. Skipping compression checks will cause context overflow and quality degradation in later chapters.**
 
 **问题**: `compression_trigger_words: 100000` 定义但从未使用
 **解决**: 在每章完成后检查，触发主动压缩
 
+### Pre-Generation Context Health Check (Before Each Chapter)
+
+Before spawning Writer Agent for Chapter N:
+1. Read `memory/progress.json` → get `total_words_written`
+2. Calculate utilization = total_words_written / compression_trigger_words (100000)
+3. Log: "Context health: {utilization:.0%} used"
+
+If utilization >= 0.7 (70%):
+   ⚠️ PROACTIVE COMPRESSION TRIGGERED → Execute compression protocol below
+
+If utilization >= 0.85 (CRITICAL):
+   🚨 CRITICAL COMPRESSION REQUIRED → Pause generation, execute aggressive compression
+
 ### Compression Check Protocol
 
-**After each chapter completes, orchestrator MUST:**
+**After each chapter completes, orchestrator MUST (no exceptions):**
 
 1. **Read** `memory/progress.json` → get `total_words_written`
 2. **Calculate** utilization = total_words_written / compression_trigger_words
@@ -470,6 +509,15 @@ For chapter_num = 1 to chapter_count:
 ```
 
 **Token savings**: ~3KB → ~500 bytes per early chapter summary
+
+### Post-Compression Verification
+
+After the compression agent completes:
+1. Read `memory/global_summary.md` → verify word count ≤ 2000
+2. Read `memory/chapter_summary_1.md` through `chapter_summary_{N-10}.md` → verify each is in outcome-only format (≤ 500 bytes each)
+3. If verification fails → re-spawn compression agent with explicit error feedback
+4. If compression fails 2 consecutive times → pause generation and alert user:
+   "⚠️ Compression failed twice. Context health at risk. Options: (1) manually compress summary files, (2) reduce chapter count, (3) continue at risk of quality degradation."
 
 ---
 
@@ -670,6 +718,9 @@ Agent({
 | `## 【第一幕】` / `## Act 1` | 剧本格式，严禁 |
 | `## 【第二幕】` ~ `## 【第五幕】` | 剧本格式，严禁 |
 | `## 【尾声】` / `## Tag` | 剧本格式，严禁 |
+| `## 一` / `## 二` / `## 三` 等数字编号标题 | 章节结构标记，严禁 |
+| `## N.` / `## N、` 等任意编号标题 | 章节结构标记，严禁 |
+| 任何 `## ` 开头的行（The `## ` prefix） | 散文不允许出现任何 `## ` 章节标题。章节内部分割使用空行和自然过渡。 |
 
 ### 铁律二：对话合并引号
 
@@ -729,13 +780,13 @@ Agent({
 
 ### 铁律八：禁止连续短句，必须使用长短交替节奏
 
-中文小说节奏需要变化。连续短句（≤15字符）超过2个会产生机械感。
+中文小说节奏需要变化。连续短句（≤15字符）超过3个会产生机械感（硬科幻推理风格可放宽至3个）。
 
 | 🔴 FORBIDDEN（连续短句） | ✅ CORRECT（长短交替） |
 |---|---|
 | `执政官沉默了很长时间。Elena等待。她没有威胁。` | `执政官沉默了很长时间，光柱中的颜色变幻不定。埃琳娜等待着，她没有威胁，没有攻击...` |
 
-**量化规则：任何段落中，连续短句（≤15字符）不得超过2个。**
+**量化规则：任何段落中，连续短句（≤15字符）不得超过3个（硬科幻推理风格适应性调整）。**
 
 ---
 
@@ -824,13 +875,72 @@ Agent({
 - ✓ 铁律五：NO 英文人名残留（Elena/Marcus/Kira/Zara/Tobias/Jace → 必须使用中文译名）
 - ✓ 铁律六：NO 英文词汇嵌入（扫描所有英文字母，仅允许专有名词缩写）
 - ✓ 铁律七：NO POV过滤词（看见/听到/感到/注意到/意识到/想/记得 ≤ 5次/章）
-- ✓ 铁律八：NO 连续短句（≤15字符连续超过2个）
+- ✓ 铁律八：NO 连续短句（≤15字符连续超过3个）
 - ✓ chapter_summary_{chapter_num}.md 已创建（使用中性叙事语言）
 
 **⚠️ Report是口头汇报，不要写入文件。**
 完成后口头说：'第{chapter_num}章完成'"
 })
 ```
+
+---
+
+## PHASE 5.5: PROSE POLISH (默认启用)
+
+**🔴 此阶段默认启用（standard depth）。所有章节在写入磁盘后自动进入润色。**
+**跳过方式:** `--no-polish` 标志 或 `--quick` 模式
+
+**使用专用中文润色提示:** `.claude/prompts/polish_chinese_style.txt`
+包含6轮中文散文质量修复：碎片化修复、感官锚定去重、数字密度压缩、段落开头变化、模板句式替换、对话自然化。
+
+**Agent Prompt:**
+```
+PROSE POLISH AGENT
+
+TASK: Polish Chinese chapters using Chinese-specific style rules.
+
+REFERENCE: .claude/prompts/polish_chinese_style.txt (6-round polish protocol)
+
+FILES TO PROCESS:
+- output/final/zh-CN/chapter_*.md (all chapters)
+
+POLISH ROUNDS (aligned with polish_chinese_style.txt):
+1. 碎片化修复: Fix consecutive short sentences, merge fragments
+2. 感官锚定去重: Vary sensory anchors across descriptions
+3. 数字密度压缩: Reduce numerical density to ≤8% sentences
+4. 段落开头变化: Vary paragraph openings, no character name starts >12%
+5. 模板句式替换: Replace template patterns with creative expression
+6. 对话自然化: Add colloquial elements, micro-actions, subtext
+
+OUTPUT: Updated chapter files in output/final/zh-CN/
+
+VERIFY BEFORE EXITING:
+- No English names remain in any chapter
+- No paragraph with ≥4 consecutive short sentences
+- All dialogue uses merged Chinese quote format
+- Sensory count: 2+ per scene in all chapters
+
+Report: 'POLISH COMPLETE - X chapters polished'
+```
+
+**Orchestrator actions:**
+- Spawn polish agent for all chapters (or batch by act)
+- Verify each polished chapter meets quality checks
+- IF polish fails → respawn with specific error feedback
+
+---
+
+### Pre-Compilation Quality Check
+
+Before running the merge script, run quality_monitor.py across ALL chapters:
+
+```bash
+python scripts/quality_monitor.py --project . --batch-summary
+```
+
+This generates a final quality report. If ANY chapter has exit code 2:
+- List the failing chapters to the user
+- User may choose to: (a) proceed with compilation anyway, (b) regenerate failing chapters, (c) run polish on failing chapters
 
 ---
 
