@@ -92,6 +92,17 @@ class NovelMerger:
             print(f"  Processing chapter {i}: {filepath.name}")
             chapter_content = self.read_chapter(filepath)
 
+            # Check for chapter heading
+            if not re.search(r"第\d+章\s", chapter_content):
+                print(
+                    f"  WARNING: Chapter file {filepath.name} has no heading"
+                )
+
+            # Normalize: strip markdown heading prefix from chapter heading
+            chapter_content = re.sub(
+                r"^# (第\d+章)", r"\1", chapter_content, count=1, flags=re.MULTILINE
+            )
+
             # Add chapter content
             merged += chapter_content
 
@@ -103,6 +114,59 @@ class NovelMerger:
                 merged += "\n"
 
         return merged, len(files)
+
+    def _count_headings(self, content: str) -> int:
+        """
+        Count number of chapter headings (第N章) in content.
+
+        Args:
+            content: Text content to scan
+
+        Returns:
+            Number of chapter heading matches
+        """
+        return len(re.findall(r"^第\d+章\s", content, flags=re.MULTILINE))
+
+    def validate_headings(
+        self, content: str, expected_count: int
+    ) -> Tuple[bool, str]:
+        """
+        Validate that heading count matches expected chapter count.
+
+        Args:
+            content: Merged novel content
+            expected_count: Number of chapter files that were merged
+
+        Returns:
+            Tuple of (is_valid, message)
+        """
+        actual = self._count_headings(content)
+
+        if actual == expected_count:
+            return (True, f"PASS: All {expected_count} chapter headings found")
+
+        # Find which chapter numbers are missing
+        existing = set(re.findall(r"^第(\d+)章\s", content, flags=re.MULTILINE))
+        expected = set(str(i) for i in range(1, expected_count + 1))
+        missing = expected - existing
+
+        if missing:
+            sorted_missing = sorted(missing, key=int)
+            missing_str = ", ".join(sorted_missing)
+            return (
+                False,
+                f"FAIL: Found {actual} heading(s), expected {expected_count}. "
+                f"Missing chapter(s): {missing_str}",
+            )
+        else:
+            # Same count but different numbers (duplicates/overlaps)
+            extra = existing - expected
+            extra_str = ", ".join(sorted(extra, key=int)) if extra else "none"
+            return (
+                False,
+                f"FAIL: Found {actual} heading(s), expected {expected_count}. "
+                f"Extra chapter(s): {extra_str}",
+            )
 
     def write_novel(self, content: str) -> Path:
         """
@@ -142,11 +206,15 @@ class NovelMerger:
         # Chinese: count characters (excluding spaces/newlines)
         char_count = len(re.sub(r"[\s\n]", "", content))
 
+        # Count chapter headings
+        heading_count = self._count_headings(content)
+
         return {
             "char_count": char_count,
             "line_count": len(lines),
             "total_chars": len(content),
             "file_size": filepath.stat().st_size if filepath.exists() else 0,
+            "heading_count": heading_count,
         }
 
     def run(self) -> dict:
@@ -161,6 +229,14 @@ class NovelMerger:
         # Merge Chinese
         print("Merging Chinese chapters...")
         zh_content, zh_count = self.merge_chapters()
+
+        # Validate headings before writing
+        is_valid, validation_msg = self.validate_headings(zh_content, zh_count)
+        print(f"  {validation_msg}")
+        if not is_valid:
+            print("ERROR: Heading count mismatch — aborting merge")
+            exit(1)
+
         zh_path = self.write_novel(zh_content)
         zh_stats = self.get_stats(zh_path)
 
@@ -170,10 +246,12 @@ class NovelMerger:
             "char_count": zh_stats["char_count"],
             "line_count": zh_stats["line_count"],
             "file_size": zh_stats["file_size"],
+            "heading_count": zh_stats["heading_count"],
         }
 
         print(
-            f"Chinese novel: {zh_count} chapters, {zh_stats['char_count']} characters"
+            f"Chinese novel: {zh_count} chapters, {zh_stats['char_count']} characters, "
+            f"{zh_stats['heading_count']} headings"
         )
         print(f"Output: {zh_path}")
 
@@ -205,6 +283,7 @@ def main():
     print(f"Chinese: {results['chinese']['chapter_count']} chapters")
     print(f"         {results['chinese']['char_count']} characters")
     print(f"         {results['chinese']['line_count']} lines")
+    print(f"         {results['chinese']['heading_count']} headings")
     print(f"         {results['chinese']['file_size']} bytes")
     print("=" * 50)
 

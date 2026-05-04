@@ -311,6 +311,8 @@ TV PACING:
 ├── Scene Count: [15-20 scenes per chapter]
 ├── Hook: [English hook description, not cliffhanger]
 ├── Emotional Peak: [Which act, what emotion]
+├── Chapter Type: [Plot Push | Breathing | Revelation | Confrontation | Transition]
+├── Pace Density: [Fast/High | Medium/Build | Slow/Emotional] — max 2 consecutive same type
 
 CHARACTERS:
 ├── A-Story Characters: [English names]

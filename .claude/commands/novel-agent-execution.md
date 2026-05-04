@@ -40,6 +40,13 @@ folder   core_seed   char_dyn    blueprint           prose_style   中文章节 
 
 ## Execution Protocol (For Claude)
 
+### 🔴 CRITICAL: State Management Rule
+
+**When updating ANY JSON file (progress.json, projects_index.json):**
+- READ the entire file first → MODIFY the data structure in memory → WRITE the entire file back
+- NEVER append to JSON — this creates duplicate keys that JSON parsers silently resolve to the last value, making state tracking unreliable
+- Rule: `read → modify → atomic overwrite` for ALL JSON operations
+
 When `/novel-agent` is invoked, follow this EXACT sequence:
 
 ### PRE-EXECUTION: Parse Arguments
@@ -157,6 +164,14 @@ OUTPUT to memory/:
 5. 情绪表达规则（禁止直接情绪词，融入动作/环境）
 6. 章节末尾规则（禁止链式总结结构）
 7. 验证方法（\"来自\"出现次数≤5次/章等）
+8. 🔴 环境签名规则（防感官锚定重复）:
+   - 每个感官锚定项必须定义为**环境签名**而非固定套话
+   - 听觉锚定示例：\"生命支持系统的低频振动\" → 每次出现使用**不同描述**
+     * 第一次：介绍其为环境底噪（\"六十赫兹的低鸣\"）
+     * 后续：通过人物感知变化来提及（\"嗡鸣停止了\" / \"那个频率在耳道里升了一度\" / \"低鸣在某个频段上震颤\"）
+     * 关键场景：听觉锚定的突然改变本身就是情节事件
+   - 禁止同一感官锚定以近乎相同的句式出现超过3次
+   - 禁止在章节摘要中镜像正文的感官句式
 
 WHY: WRITER agent将读取此固定风格文件，而非继承前一章摘要的风格特征。
 这打破正反馈循环，防止\"来自\"链式结构逐章放大。
@@ -382,6 +397,7 @@ For chapter_num = 1 to chapter_count:
     Wait for agent to complete (auto-notification)
     Update continuity files (character_state.md, global_summary.md)
     Create chapter_summary_{chapter_num}.md for next chapter
+    ⚠️ RUN QUALITY MONITOR (see below)
     ⚠️ CHECK COMPRESSION TRIGGER (see below)
     Continue to next chapter
 ```
@@ -483,35 +499,44 @@ For chapter_num = 1 to chapter_count:
 
 ---
 
-### 🔴 Quality Trend Monitoring (Orchestrator Responsibility)
+### 🔴 Quality Trend Monitoring (Python Script - NOT Orchestrator)
 
-**After each chapter completes, orchestrator MUST:**
+**问题**: 之前的方案要求 orchestrator（LLM）手动 grep 并更新 JSON，但 LLM 在 40 章循环中无法可靠执行程序化检查。
 
-1. **Grep template phrases** in newly written chapter:
-   ```bash
-   grep -c "来自" chapter_{N}.md
-   grep -c "的内容是" chapter_{N}.md
-   grep -c "意味着" chapter_{N}.md
-   ```
+**解决**: 将质量监控移至 Python 脚本 `scripts/quality_monitor.py`，orchestrator 通过 bash 调用。
 
-2. **Update quality_trends**:
-   ```json
-   quality_trends.template_phrase_counts.来自.push(count_N)
-   quality_trends.opening_types_used.push(opening_type_N)
-   ```
+**After each chapter completes, orchestrator MUST run:**
 
-3. **Check growth rate**:
-   ```
-   If last 3 chapters show:
-   - "来自" growth > 50% → 🚨 WARNING: Chain structure amplifying
-   - Same opening type 3+ consecutive → 🚨 WARNING: Opening template
-   
-   Log warning to quality_trends.warnings_triggered
-   ```
+```bash
+python scripts/quality_monitor.py \
+  --chapter output/final/zh-CN/chapter_{chapter_num:03d}.md \
+  --project . \
+  --chapter-num {chapter_num} \
+  --update-progress
+```
 
-4. **If warning triggered**:
-   - Log: "Quality degradation detected at Chapter {N}: {warning_type}"
-   - Consider: Spawn rewrite agent for affected chapter with strict prose_style.md enforcement
+**Script performs automatically:**
+1. Grep for: `来自`, `的内容是`, `沉默\d*秒` → count per chapter
+2. Check em-dash (——) density → warn if > 0.05 (5%)
+3. Check consecutive short sentences (≤15 chars) → warn if > 2 consecutive
+4. Update `memory/progress.json:quality_trends` with per-chapter counts
+5. Growth rate detection: if last 3 chapters show >50% growth → CRITICAL warning
+6. Same opening type 3+ consecutive → WARNING
+
+**Exit codes:**
+- `0` = all clear, continue to next chapter
+- `1` = warning(s) logged to progress.json, continue but log
+- `2` = critical failure, **spawn rewrite agent for this chapter with strict prose_style.md enforcement**
+
+**Orchestrator response to exit codes:**
+```
+If exit code 0 → continue to next chapter
+If exit code 1 → log warning, continue to next chapter  
+If exit code 2 → CRITICAL: Spawn rewrite agent for chapter {N}
+    Rewrite agent prompt: "Rewrite chapter {N} with STRICT adherence to prose_style.md.
+    The previous version was rejected for quality degradation: [insert quality_monitor error message]."
+    After rewrite → re-run quality_monitor → if still code 2 → mark for human review
+```
 
 ---
 
