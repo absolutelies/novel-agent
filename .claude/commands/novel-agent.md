@@ -244,43 +244,55 @@ TASK: Generate plot architecture and FULL chapter blueprint for {chapter_count} 
 CRITICAL: Generate EXPLICIT beats for ALL {chapter_count} chapters.
 NO placeholders. NO "[Chapters X-Y continue...]". ALL chapters must have detailed TV structure.
 
+🔴 CRITICAL — OUTPUT STRATEGY:
+Generate SEPARATE Act files (NOT one monolithic file). Each Act agent spawns independently:
+- Act 1: Chapters 1-{chapter_count/4} → memory/chapter_blueprint_act1.md
+- Act 2: Chapters {chapter_count/4+1}-{chapter_count*2/4} → memory/chapter_blueprint_act2.md
+- Act 3: Chapters {chapter_count*2/4+1}-{chapter_count*3/4} → memory/chapter_blueprint_act3.md
+- Act 4: Chapters {chapter_count*3/4+1}-{chapter_count} → memory/chapter_blueprint_act4.md
+
 OUTPUT FILES:
 - memory/plot_architecture.md (three-act structure, turning points, foreshadowing)
-- memory/chapter_blueprint.md (FULL blueprint with ALL {chapter_count} chapters)
+- memory/chapter_blueprint_act1.md through act4.md (per-Act blueprint files)
 
 BLUEPRINT FORMAT FOR EACH CHAPTER:
 ### Chapter N - "Title"
 
+🔴 CONCISENESS RULE: Each TV table cell = 1-2 sentences MAX. Concrete beats, NOT prose paragraphs.
+Use shorthand: [Character] does [action] at [location]. "[1 key dialogue line]".
+
 **TV STRUCTURE**:
 | Element | Specific Content |
-| Cold Open | [Specific scene, specific dialogue lines, specific hook] |
-| Act 1 | [Scene-by-scene beats with SPECIFIC actions] |
-| Act 2 | [Specific complications, specific stakes] |
-| Act 3 | [Specific midpoint twist/revelation] |
-| Act 4 | [Specific climax confrontation] |
-| Act 5 | [Specific resolution aftermath] |
-| Tag | [Specific closing hook] |
+| Cold Open | [1-2 sentences: scene, key action, 1 dialogue hook] |
+| Act 1 | [1-2 sentences: scene beats with SPECIFIC actions] |
+| Act 2 | [1-2 sentences: specific complications, specific stakes] |
+| Act 3 | [1-2 sentences: midpoint twist/revelation] |
+| Act 4 | [1-2 sentences: climax confrontation] |
+| Act 5 | [1-2 sentences: resolution aftermath] |
+| Tag | [1-2 sentences: closing hook] |
 
-**Character Arc**: [Specific character change this chapter]
-**Foreshadow**: [Plant/reinforce/payoff items]
-**Chapter Type** 🆕: [推进章 (Plot Push) / 呼吸章 (Breathing) / 揭示章 (Revelation) / 对峙章 (Confrontation) / 过渡章 (Transition)]
+**Character Arc**: [1 sentence: specific character change this chapter]
+**Foreshadow**: [Plant/reinforce/payoff items — 1 line each]
+**Chapter Type** 🆕: [推进章 / 呼吸章 / 揭示章 / 对峙章 / 过渡章]
 **Pacing** 🆕: [快节奏高密度 / 中节奏建立 / 慢节奏情感余韵] — 禁止连续3章使用同一节奏类型
 
 VERIFY BEFORE EXITING:
 - plot_architecture.md ≥500 words
-- chapter_blueprint.md has EXPLICIT entries for chapters 1 through {chapter_count}
-- COUNT the chapters in blueprint - must equal {chapter_count}
+- ALL 4 Act blueprint files exist (act1 through act4)
+- COUNT chapters across ALL Act files — must equal {chapter_count}
+- Each TV table cell ≤ 2 sentences (conciseness check)
 
 If blueprint is incomplete, REGENERATE. Do NOT exit with placeholder.
 
-Report completion with chapter count verification.
+Report completion with chapter count verification and per-Act file list.
 ```
 
 **Orchestrator verifies:**
 - ✓ `plot_architecture.md` exists
-- ✓ `chapter_blueprint.md` exists
-- ✓ **COUNT chapters in blueprint = chapter_count** (CRITICAL)
-- IF blueprint truncated → respawn with explicit instruction to complete
+- ✓ ALL 4 Act blueprint files exist: `chapter_blueprint_act1.md` through `act4.md`
+- ✓ **COUNT chapters across all Act files = chapter_count** (CRITICAL)
+- ✓ Act files recorded in progress.json: `phases.blueprint.act_files_created`
+- IF any Act truncated → respawn that Act only
 
 ---
 
@@ -358,9 +370,16 @@ Agent({
 
 **[MIDDLE] 按需加载─────────────────────────────────────────────────────**
 
-3. memory/chapter_blueprint.md ← **第{chapter_num}章的TV结构大纲（英文）**
-   - 读取该章节的 Cold Open, Act 1-5, Tag 内容
-   - 这些英文大纲是你的创作素材，理解后用中文重写
+3. **🔴 Act-based Blueprint（🇺🇸 英文，强制执行）**
+   ⚠️ 禁止加载全量chapter_blueprint.md——会造成Token溢出
+   ⚠️ 只加载对应Act文件：
+   - Chapters 1-{chapter_count/4}: memory/chapter_blueprint_act1.md
+   - Chapters {chapter_count/4+1}-{chapter_count*2/4}: memory/chapter_blueprint_act2.md
+   - Chapters {chapter_count*2/4+1}-{chapter_count*3/4}: memory/chapter_blueprint_act3.md
+   - Chapters {chapter_count*3/4+1}-{chapter_count}: memory/chapter_blueprint_act4.md
+   ⚠️ 在Act文件中搜索: "### Chapter {chapter_num}"
+   ⚠️ 只读取当前章节的TV结构部分（从"### Chapter {chapter_num}"到下一个"### Chapter"或"---"）
+   ⚠️ 单章TV结构大小: ~2KB（而非全量116KB+）
 
 4. memory/character_dynamics.md ← 角色档案 + LANGUAGE PROFILES（对话风格）
 5. memory/world_building.md ← 世界设定、势力、禁忌
@@ -971,6 +990,11 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 11. **NO TEMPLATE PHRASES:** "的内容是"、"沉默X秒"模板句式（对应铁律十）
 12. **NO PURE VISUAL STACKING:** 连续纯视觉句子不得超过3个（对应铁律十一 - 感官锚定）
 13. **NO TEXTBOOK DIALOGUE:** 完整语法句子连续超过5句（对应铁律十二 - 口语化）
+14. **NO MARKDOWN HORIZONTAL RULES:** 场景切换用空行分隔，严禁 `---` 分隔线（对应铁律一 - 格式污染）
+15. **NO MARKDOWN HEADINGS IN PROSE:** 章节标题用纯文本 `第N章 标题`，严禁 `# 第N章` markdown标题（对应铁律一）
+16. **NO MARKDOWN BOLD IN PROSE:** 实体对话使用引号或叙述语境，严禁 `**粗体**` markdown格式（对应铁律一）
+17. **NO BRACKETED SPEAKER LABELS:** 严禁 `【艾昂】` 等方括号对话标签（对应铁律一 - 网文格式污染）
+18. **NO "不是...是..." OVERUSE:** 每章"不是X，是Y"结构 ≤3次（对应反机械化规则五 - 正反馈放大器）
 
 ---
 
@@ -1044,6 +1068,18 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 沃尔科夫在监视室站立约9分42秒。心率从"铺垫"段104升至"笑点"段111。外星广播结束后，他收到邀请完成笑话。
 ```
 
+### 🔴 摘要风格自检（写入摘要后过一遍，每条10秒）
+
+```
+1. 搜索"不是...是..." → 0次
+2. 搜索"——" → ≤1次（仅用于必要说明，不使用破折号碎片化）
+3. 搜索"来自"链式 → 0次（绝对禁止"X来自Y。Y来自Z。"）
+4. 搜索正文句式镜像 → 摘要中不得出现与正文相同的句式结构
+5. 确认使用陈述句、中性词、结构化的要点描述
+```
+
+**违反上述任何一条 → 重写摘要。**
+
 ---
 
 ## ✅ VERIFY BEFORE EXITING（五条核心铁律验证）
@@ -1053,10 +1089,12 @@ chapter_blueprint.md 中的 TV structure (Cold Open, Act 1-5, Tag) 是你的创�
 **核心铁律**：
 - ✓ 中文章节文件存在，≥3000字
 - ✓ 铁律一：NO 剧本标记（## 【冷开场】等）
+- ✓ 铁律一：NO 格式污染（`---` 分隔线 / `#` 标题 / `**粗体**` / `【方括号】`）
 - ✓ 铁律二：对话使用中文合并引号格式
 - ✓ 铁律七：NO POV过滤词（看见/听到/感到/注意到/意识到/想/记得 ≤ 5次/章）
 - ✓ 铁律八：NO 连续短句（≤15字符连续超过3个，硬科幻风格可放宽至3个但不可超过4个）
 - ✓ 铁律十一：感官锚定（每场景≥2感官类型，关键情绪时刻≥3）
+- ✓ 反机械化规则五："不是...是..."结构 ≤3次/章
 
 **程序化规则（写作时无需检查，由 quality_monitor.py 自动验证）**：
 - 📋 铁律三：NO 元信息（第四章完成、字数等）
@@ -1254,6 +1292,25 @@ TEST CHECKLIST:
     - For each chapter: count("——") / total_chars ≤ 0.05 (5%) ✓/✗
     - WARN: ratio 5%-10%
     - FAIL: ratio > 10% (text fragmented, must regenerate)
+
+12. MARKDOWN ARTIFACT CHECK (CRITICAL - 格式污染)
+    - "---" horizontal rules: must be 0 in ALL chapter files ✓/✗
+    - "#" markdown headings: must be 0 in chapter file titles ✓/✗
+    - "**...**" bold markers: must be 0 in chapter prose ✓/✗
+    - "【...】" bracketed labels: must be 0 in chapter prose ✓/✗
+    - Check method: grep each pattern per chapter file
+    - If ANY pattern found → CRITICAL FAILURE, mark affected chapters
+
+13. "不是...是..." PATTERN DENSITY CHECK (CRITICAL - 反机械化规则五)
+    - For each chapter: count "不是X，(而)是Y" patterns ≤ 3 ✓/✗
+    - WARN: 4-6 patterns
+    - FAIL: ≥7 patterns (style degradation, must regenerate)
+    - Check method: grep lines where "不是" appears near "而是" or "是" with contrastive structure
+
+14. CHAPTER LENGTH CONSISTENCY CHECK (WARN - 防止末尾崩塌)
+    - For each chapter: CJK chars ≥ 3000 ✓/✗
+    - WARN: any chapter < 60% of average chapter length
+    - FAIL: any chapter < 3000 CJK chars
 
 OUTPUT: test_report.md with ✓/✗ for each check
 

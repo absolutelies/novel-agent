@@ -316,8 +316,7 @@ CRITICAL REQUIREMENT:
 - Each chapter must have: Cold Open, Act 1-5, Tag with SPECIFIC beats
 
 OUTPUT to memory/:
-- chapter_blueprint_act{act_num}.md (this Act's chapters only)
-- OR append to chapter_blueprint.md if using single file
+- chapter_blueprint_act{act_num}.md (this Act's chapters only — MANDATORY per-Act file)
 
 BLUEPRINT FORMAT for EACH chapter:
 ### Chapter N - 'Title'
@@ -342,28 +341,28 @@ Report: 'ACT {act_num} BLUEPRINT COMPLETE - verified {count} chapters'"
 
 ---
 
-### Step 3: Assemble Full Blueprint
+### Step 3: Verify Act Files (Mandatory — NO single-file merge)
+
+**🔴 CRITICAL: Keep Act-based files SEPARATE. Do NOT merge into chapter_blueprint.md.**
 
 **After all 4 Acts complete:**
-
 ```
-1. Read chapter_blueprint_act1.md, act2.md, act3.md, act4.md
-2. Merge into single chapter_blueprint.md (if using single file)
-   OR keep separate files (recommended for large novels)
-3. COUNT total chapters = verify equals {chapter_count}
-4. Update progress.json: phases.blueprint.chapter_count_verified = {count}
+1. Verify chapter_blueprint_act1.md, act2.md, act3.md, act4.md ALL exist
+2. COUNT total chapters across all 4 files = verify equals {chapter_count}
+3. Update progress.json: phases.blueprint.chapter_count_verified = {count}
+4. Update progress.json: phases.blueprint.act_files_created = ["act1", "act2", "act3", "act4"]
 ```
 
-**Recommended: Keep Act-based files for WRITER efficiency:**
+**Recommended file layout (mandatory for Writer efficiency):**
 ```
 memory/
-├── chapter_blueprint_act1.md (Chapters 1-10)
-├── chapter_blueprint_act2.md (Chapters 11-20)
-├── chapter_blueprint_act3.md (Chapters 21-30)
-├── chapter_blueprint_act4.md (Chapters 31-40)
+├── chapter_blueprint_act1.md (Chapters 1-{chapter_count/4})
+├── chapter_blueprint_act2.md (Chapters {chapter_count/4+1}-{chapter_count*2/4})
+├── chapter_blueprint_act3.md (Chapters {chapter_count*2/4+1}-{chapter_count*3/4})
+├── chapter_blueprint_act4.md (Chapters {chapter_count*3/4+1}-{chapter_count})
 ```
 
-WRITER agent reads ONLY relevant Act file for its chapter range.
+Writer agent reads ONLY relevant Act file for its chapter range.
 
 ---
 
@@ -379,10 +378,32 @@ WRITER agent reads ONLY relevant Act file for its chapter range.
 ---
 
 **After all Acts return:**
-1. **CRITICAL: COUNT chapters in assembled blueprint**
+1. **CRITICAL: COUNT chapters across all 4 Act files**
 2. If count ≠ chapter_count → respawn missing Acts
 3. Update `progress.json: phases.blueprint.chapter_count_verified = {count}`
 4. Update `progress.json: phases.blueprint.act_files_created = [act1, act2, act3, act4]`
+
+### Backward Compatibility: Splitting Existing Monolithic Blueprints
+
+**If resuming an older project (--project <name>) that has a single `chapter_blueprint.md` but NO per-Act files:**
+
+The orchestrator MUST split the monolithic blueprint before proceeding to Phase 5:
+
+```
+1. Read memory/chapter_blueprint.md
+2. Split by "### Chapter N" boundaries
+3. Calculate act boundaries:
+   - Act 1: Chapters 1 to ceil(chapter_count/4)
+   - Act 2: Chapters ceil(chapter_count/4)+1 to ceil(chapter_count*2/4)
+   - Act 3: Chapters ceil(chapter_count*2/4)+1 to ceil(chapter_count*3/4)
+   - Act 4: Chapters ceil(chapter_count*3/4)+1 to chapter_count
+4. Write chapter_blueprint_act1.md through act4.md
+5. Keep original chapter_blueprint.md as backup (rename to chapter_blueprint.md.bak)
+6. Verify all 4 files exist with correct chapter counts
+7. Update progress.json: phases.blueprint.act_files_created
+```
+
+This ensures all projects — new and resumed — use the same per-Act file structure.
 
 ---
 
@@ -609,12 +630,13 @@ Agent({
 
 ---
 
-## 📖 CONTEXT FILES - QUANTIZED RETRIEVAL (防Token溢出)
+## 📖 CONTEXT FILES - QUANTIZED RETRIEVAL (🔴 MANDATORY — 防Token溢出)
 
 ### ⚠️ CRITICAL: 只加载相关切片，不加载全文件
 
-**问题**: 全量加载导致 ~100KB context → Token溢出 → 质量退化
+**问题**: 全量加载导致 ~116KB+ context → Token溢出 → 质量退化
 **解决**: Quantized Retrieval → 只加载当前章节相关内容 (~15-20KB)
+**🔴 此策略为强制执行，不可跳过。**
 
 ---
 
@@ -634,14 +656,15 @@ Agent({
 2. memory/core_seed.md (🇺🇸 英文故事概念、GENRE、铁律)
 
 3. **🔴 Act-based Blueprint加载**（🇺🇸 英文，强制执行）
-   ⚠️ 禁止加载全量chapter_blueprint.md（81KB）
+   ⚠️ 禁止加载全量chapter_blueprint.md（116KB+ → Token溢出）
    ⚠️ 只加载对应Act文件：
-   - Chapter 1-10: memory/chapter_blueprint_act1.md
-   - Chapter 11-20: memory/chapter_blueprint_act2.md
-   - Chapter 21-30: memory/chapter_blueprint_act3.md
-   - Chapter 31-40: memory/chapter_blueprint_act4.md
+   - Chapter 1-{chapter_count/4}: memory/chapter_blueprint_act1.md
+   - Chapter {chapter_count/4+1}-{chapter_count*2/4}: memory/chapter_blueprint_act2.md
+   - Chapter {chapter_count*2/4+1}-{chapter_count*3/4}: memory/chapter_blueprint_act3.md
+   - Chapter {chapter_count*3/4+1}-{chapter_count}: memory/chapter_blueprint_act4.md
    ⚠️ 搜索模式: "### Chapter {chapter_num}"
-   ⚠️ 只加载当前章节TV结构 (~2KB，而非81KB全文件)
+   ⚠️ 只加载当前章节TV结构 (~2KB，而非全量116KB+文件)
+   🔴 如果Act文件不存在但存在单体chapter_blueprint.md：搜索"### Chapter {chapter_num}"，只读取当前章节部分。
 
 [MIDDLE] 按需加载（🇺🇸 英文）─────────────────────────────────────
 4. memory/character_dynamics.md → 只加载相关角色
@@ -667,8 +690,8 @@ Agent({
 
 | 加载方式 | Token消耗 | 风险 |
 |---------|----------|------|
-| **全量加载** | ~100KB (80K tokens) | 质量退化、指令遗忘 |
-| **Quantized** | ~15-20KB (12-16K tokens) | ✓ 安全范围内 |
+| **全量加载（单体blueprint）** | ~116KB (133K+ tokens) | Token溢出、质量退化、指令遗忘 |
+| **Quantized（Act文件+切片）** | ~15-20KB (12-16K tokens) | ✓ 安全范围内 |
 
 **目标**: Input context ≤ 60% 有效窗口容量
 
